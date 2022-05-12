@@ -1,0 +1,15 @@
+.project
+.idea
+*/.vscode
+.settings
+.DS_Store
+*/.DS_Store
+.sass-cache
+.tmp_*
+/tmp
+/docs
+/docs/*
+/tmp*/*
+node_modules
+npm-debug.log
+/resources/
