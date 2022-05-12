@@ -1,17 +1,13 @@
-# Zing Gallery
+# Photo Wall
 
-基于 node.js 的 web 相册，让摄影照片的展示更加简单
-Web albums based on node.js, more simple to show photography photos
+基于 node.js 的 web 相册，让摄影照片的展示更加简单。
+
+Web albums powered by node.js, more simple to show photography photos.
 
 ### 1、功能
 
-此[Demo](http://litten.me/gallery/)供体验。
-扫码可体验 Mobile 交互：
-
-![zing-galler qrcode](https://cloud.githubusercontent.com/assets/2024949/19653457/3ad5df14-9a47-11e6-8f2f-b9ae3241c6b6.png)
-
 - 自动获取照片信息（快门、光圈、ISO、时间等）
-- 自由为相册设置信息（封面、名称、描述）
+- 为相册配置信息（封面、名称、描述）
 - 相册可加密访问
 - 适配 PC 与移动侧展示
 - 移动侧可使用多指手势操控图片，与原生图库一般流畅
@@ -36,17 +32,15 @@ Web albums based on node.js, more simple to show photography photos
 
 ### 3、使用
 
-相册基于 node & npm，所以这两个工具必不可少。
-
-1. 将照片放入`resources/photos`文件夹
-2. 执行命令`npm i`安装依赖
-3. 执行命令`npm run start`启动相册
+1. 将照片放入 `resources/photos` 文件夹
+2. 执行命令 `yarn` 安装依赖
+3. 执行命令 `yarn start` 启动相册
 
 ### 4、高级用法
 
 #### 4.1 设置全局信息
 
-编辑`config.js`文件
+编辑 `config.js` 文件
 
 ```js
 module.exports = {
@@ -77,7 +71,7 @@ module.exports = {
 
 #### 4.2 设置相册信息
 
-比如有一个叫 xxx 的相册，它的位置应该是`resources/photos/xxx`
+比如有一个叫 xxx 的相册，它的位置应该是 `resources/photos/xxx`
 
 编辑`config.js`文件的`albums`字段，增加一个`xxx`的对象，可以为其设置相册信息：
 
@@ -103,6 +97,6 @@ albums: {
 
 如果你是前端开发者，需要做一些页面上的定制，你需要使用 webpack 进行开发。
 
-执行命令`npm run dev`（不压缩，一般开发时用）或`npm run dist`（压缩）
+执行命令 `yarn dev`（不压缩，一般开发时用）或 `yarn dist`（压缩）
 
-将`assets/src`里的源文件编译到`assets/dist`目录。
+将 `assets/src` 里的源文件编译到 `assets/dist` 目录。
