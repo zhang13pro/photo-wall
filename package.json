@@ -32,8 +32,7 @@
     "underscore": "*",
     "url-loader": "^0.5.7",
     "watch": "^1.0.1",
-    "webp-bin": "^0.1.4",
-    "webpack": "^1.13.2"
+    "webp-bin": "^0.1.4"
   },
   "scripts": {
     "start": "node app.js",
@@ -41,5 +40,9 @@
     "dev": "webpack",
     "dist": "webpack -p",
     "test": "node test/test-gallery.js ; node test/test-album.js ; node test/test-photo.js"
+  },
+  "devDependencies": {
+    "webpack": "^1.15.0",
+    "webpack-cli": "^4.9.2"
   }
 }

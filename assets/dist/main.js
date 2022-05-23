@@ -1,13 +1,6034 @@
-!function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={exports:{},id:o,loaded:!1};return e[o].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="./",t(0)}([function(e,t,n){n(8),n(7),n(6),n(2);var o=("number"==typeof window.orientation&&"object"==typeof window.onorientationchange,n(5)),i=n(1),r={init:function(){for(var e=document.getElementsByClassName("js-image"),t=0,n=e.length;t<n;t++)i({container:document.getElementsByTagName("body")[0],$target:e[t],selector:".js-image"})}},a=function(e){var t=window.innerWidth;window.innerHeight;if(t<=750){var n,o=document.getElementsByClassName("js-photos-thumb");"landscape"===e?n="20%":"portrait"===e&&(n="33.333333%");for(var i=0,a=o.length;i<a;i++)o[i].style.width=n}r.init()},l=function(){try{var e=document.getElementsByClassName("js-img-wrap"),t=window.navigator.userAgent,n=!!t.match(/AppleWebKit.*Mobile.*/),o=!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),i=t.indexOf("Android")>-1||t.indexOf("Linux")>-1,r=t.indexOf("MicroMessenger")===-1;if(0===document.createElement("canvas").toDataURL("image/webp").indexOf("data:image/webp")){for(var a=0,l=e.length;a<l;a++)e[a].setAttribute("href",e[a].getAttribute("href")+"?tn=2");document.getElementsByTagName("body")[0].className="webp"}else if(n||o||i||r)for(var a=0,l=e.length;a<l;a++){e[a].setAttribute("href",e[a].getAttribute("href")+"?tn=3");var s=e[a].getAttribute("data-size").split("x");e[a].setAttribute("data-size","621x"+621*s[1]/s[0])}}catch(u){}};window.onload=function(){var e=window.neworientation.init;a(e),l(),o.init(),window.addEventListener("orientationchange",function(){e!==window.neworientation.current&&(a(window.neworientation.current),e=window.neworientation.current)},!1)}},function(e,t,n){(function(t){function o(e){a.call(s,e)===-1&&s.push(e)}function i(e){function t(e,t,n){var o=document.getElementsByClassName("img-wrap"),i={width:300,height:200};if(o&&o[0]){var r=o[0].getBoundingClientRect();i.width=r.width,i.height=r.height}var a=i.width,l=i.height;if(a/l<t/n){e.style.height=l;var s=(a-l*t/n)/2;s<0&&(e.style.marginLeft=s+"px")}else{e.style.width=a;var s=(l-a*n/t)/2;s<0&&(e.style.marginTop=s+"px")}}function n(e){if(e.getAttribute("data-lzled"))t(e,e.naturalWidth,e.naturalHeight);else{var n=i(e);if(n){var o=new Image;o.src=n,o.onload=function(){e.src="";var i=o.width,r=o.height;t(e,i,r),e.src=n,e.removeAttribute("data-not-lz"),e.setAttribute("data-lzled",!0)}}f[a.call(f,e)]=null}}function i(t){return"function"==typeof e.src?e.src(t):t.getAttribute(e.src)}function s(){l.is(d)&&n(d)}function c(t){t.onload=null,t.removeAttribute("onload"),t.onerror=null,t.removeAttribute("onerror"),a.call(f,t)!==-1||u||(l(e.selector).on("enter",n),u=!0),s(),window.addEventListener("resize",s)}e=r({src:"data-src",container:!1},e||{});var d=e.$target;"string"==typeof e.src&&o(e.src);var f=[];c(d)}function r(e,t){for(var n in e)void 0===t[n]&&(t[n]=e[n]);return t}function a(e){for(var t=this.length;t--&&this[t]!==e;);return t}e.exports=i;var l=n(9),s=["data-src"],u=!1}).call(t,function(){return this}())},function(e,t){!function(e){function t(e){var t=document.createElement("style"),n=document.head?document.head:document.getElementsByTagName("head")[0];t.type="text/css";try{t.appendChild(document.createTextNode(e))}catch(o){t.styleSheet.cssText=e}return n.appendChild(t),t}var n,o={},i="orientationchange",r="orientation"in window&&"onorientationchange"in window;o.isOrientation=r;var a=document.documentElement,l=e.getComputedStyle(a,null),s=l["font-family"];o.font=s;var u,c=!!window.CustomEvent;if(c)try{var d=new window.CustomEvent("test");if(d.preventDefault(),d.defaultPrevented!==!0)throw new Error("Could not prevent default")}catch(f){var p=function(e,t){var n,o;return t=t||{bubbles:!1,cancelable:!1,detail:void 0},n=document.createEvent("CustomEvent"),n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),o=n.preventDefault,n.preventDefault=function(){o.call(this);try{Object.defineProperty(this,"defaultPrevented",{get:function(){return!0}})}catch(e){this.defaultPrevented=!0}},n};p.prototype=window.Event.prototype,window.CustomEvent=p}u=c?function(e,t,n){var o=document.createEvent("CustomEvent");return n?o.initCustomEvent(t,n.bubbles,n.cancelable,n.detail):o.initCustomEvent(t,!1,!1,void 0),e.dispatchEvent&&e.dispatchEvent(o),o}:function(e,t,n){var o=document.createEventObject();return o.type=t,n?(o.bubbles=Boolean(n.bubbles),o.cancelable=Boolean(n.cancelable),o.detail=n.detail):(o.bubbles=!1,o.cancelable=!1,o.detail=void 0),e[t]?e[t](o):e["on"+t]?e["on"+t](o):e.fireEvent&&"on"+t in e&&e.fireEvent("on"+t,o),o};var m=function(t){return 180!==e.orientation&&0!==e.orientation||(o.init="portrait",o.current="portrait"),90!==e.orientation&&e.orientation!==-90||(o.init="landscape",o.current="landscape"),function(){180!==e.orientation&&0!==e.orientation||(o.current="portrait"),90!==e.orientation&&e.orientation!==-90||(o.current="landscape"),u(window,i)}},h=function(){var e="portrait, "+s,n="landscape, "+s,r="@media (orientation: portrait) { .orientation{font-family:"+e+";} } @media (orientation: landscape) {  .orientation{font-family:"+n+";}}";t(r),a.className="orientation "+a.className,l["font-family"]===e?(o.init="portrait",o.current="portrait"):(o.init="landscape",o.current="landscape"),h=function(){l["font-family"]===e?"portrait"!==o.current&&(o.current="portrait",u(window,i)):"landscape"!==o.current&&(o.current="landscape",u(window,i))}},v=r?m():function(){return h(),function(){n&&e.clearTimeout(n),n=e.setTimeout(h,300)}}();e.addEventListener(r?"orientationchange":"resize",v,!1),e.neworientation=o}(window),e.exports={}},function(e,t,n){var o,i;/*! PhotoSwipe Default UI - 4.1.1 - 2015-12-24
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
+/******/ 	this["webpackHotUpdate"] = 
+/******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 		hotAddUpdateChunk(chunkId, moreModules);
+/******/ 		if(parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
+/******/ 	}
+/******/ 	
+/******/ 	function hotDownloadUpdateChunk(chunkId) { // eslint-disable-line no-unused-vars
+/******/ 		var head = document.getElementsByTagName("head")[0];
+/******/ 		var script = document.createElement("script");
+/******/ 		script.type = "text/javascript";
+/******/ 		script.charset = "utf-8";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
+/******/ 		head.appendChild(script);
+/******/ 	}
+/******/ 	
+/******/ 	function hotDownloadManifest(callback) { // eslint-disable-line no-unused-vars
+/******/ 		if(typeof XMLHttpRequest === "undefined")
+/******/ 			return callback(new Error("No browser support"));
+/******/ 		try {
+/******/ 			var request = new XMLHttpRequest();
+/******/ 			var requestPath = __webpack_require__.p + "" + hotCurrentHash + ".hot-update.json";
+/******/ 			request.open("GET", requestPath, true);
+/******/ 			request.timeout = 10000;
+/******/ 			request.send(null);
+/******/ 		} catch(err) {
+/******/ 			return callback(err);
+/******/ 		}
+/******/ 		request.onreadystatechange = function() {
+/******/ 			if(request.readyState !== 4) return;
+/******/ 			if(request.status === 0) {
+/******/ 				// timeout
+/******/ 				callback(new Error("Manifest request to " + requestPath + " timed out."));
+/******/ 			} else if(request.status === 404) {
+/******/ 				// no update available
+/******/ 				callback();
+/******/ 			} else if(request.status !== 200 && request.status !== 304) {
+/******/ 				// other failure
+/******/ 				callback(new Error("Manifest request to " + requestPath + " failed."));
+/******/ 			} else {
+/******/ 				// success
+/******/ 				try {
+/******/ 					var update = JSON.parse(request.responseText);
+/******/ 				} catch(e) {
+/******/ 					callback(e);
+/******/ 					return;
+/******/ 				}
+/******/ 				callback(null, update);
+/******/ 			}
+/******/ 		};
+/******/ 	}
+
+/******/ 	
+/******/ 	
+/******/ 	// Copied from https://github.com/facebook/react/blob/bef45b0/src/shared/utils/canDefineProperty.js
+/******/ 	var canDefineProperty = false;
+/******/ 	try {
+/******/ 		Object.defineProperty({}, "x", {
+/******/ 			get: function() {}
+/******/ 		});
+/******/ 		canDefineProperty = true;
+/******/ 	} catch(x) {
+/******/ 		// IE will fail on defineProperty
+/******/ 	}
+/******/ 	
+/******/ 	var hotApplyOnUpdate = true;
+/******/ 	var hotCurrentHash = "1455b02c300a230512b7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentModuleData = {};
+/******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
+/******/ 	
+/******/ 	function hotCreateRequire(moduleId) { // eslint-disable-line no-unused-vars
+/******/ 		var me = installedModules[moduleId];
+/******/ 		if(!me) return __webpack_require__;
+/******/ 		var fn = function(request) {
+/******/ 			if(me.hot.active) {
+/******/ 				if(installedModules[request]) {
+/******/ 					if(installedModules[request].parents.indexOf(moduleId) < 0)
+/******/ 						installedModules[request].parents.push(moduleId);
+/******/ 					if(me.children.indexOf(request) < 0)
+/******/ 						me.children.push(request);
+/******/ 				} else hotCurrentParents = [moduleId];
+/******/ 			} else {
+/******/ 				console.warn("[HMR] unexpected require(" + request + ") from disposed module " + moduleId);
+/******/ 				hotCurrentParents = [];
+/******/ 			}
+/******/ 			return __webpack_require__(request);
+/******/ 		};
+/******/ 		for(var name in __webpack_require__) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name)) {
+/******/ 				if(canDefineProperty) {
+/******/ 					Object.defineProperty(fn, name, (function(name) {
+/******/ 						return {
+/******/ 							configurable: true,
+/******/ 							enumerable: true,
+/******/ 							get: function() {
+/******/ 								return __webpack_require__[name];
+/******/ 							},
+/******/ 							set: function(value) {
+/******/ 								__webpack_require__[name] = value;
+/******/ 							}
+/******/ 						};
+/******/ 					}(name)));
+/******/ 				} else {
+/******/ 					fn[name] = __webpack_require__[name];
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		function ensure(chunkId, callback) {
+/******/ 			if(hotStatus === "ready")
+/******/ 				hotSetStatus("prepare");
+/******/ 			hotChunksLoading++;
+/******/ 			__webpack_require__.e(chunkId, function() {
+/******/ 				try {
+/******/ 					callback.call(null, fn);
+/******/ 				} finally {
+/******/ 					finishChunkLoading();
+/******/ 				}
+/******/ 	
+/******/ 				function finishChunkLoading() {
+/******/ 					hotChunksLoading--;
+/******/ 					if(hotStatus === "prepare") {
+/******/ 						if(!hotWaitingFilesMap[chunkId]) {
+/******/ 							hotEnsureUpdateChunk(chunkId);
+/******/ 						}
+/******/ 						if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 							hotUpdateDownloaded();
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 			});
+/******/ 		}
+/******/ 		if(canDefineProperty) {
+/******/ 			Object.defineProperty(fn, "e", {
+/******/ 				enumerable: true,
+/******/ 				value: ensure
+/******/ 			});
+/******/ 		} else {
+/******/ 			fn.e = ensure;
+/******/ 		}
+/******/ 		return fn;
+/******/ 	}
+/******/ 	
+/******/ 	function hotCreateModule(moduleId) { // eslint-disable-line no-unused-vars
+/******/ 		var hot = {
+/******/ 			// private stuff
+/******/ 			_acceptedDependencies: {},
+/******/ 			_declinedDependencies: {},
+/******/ 			_selfAccepted: false,
+/******/ 			_selfDeclined: false,
+/******/ 			_disposeHandlers: [],
+/******/ 	
+/******/ 			// Module API
+/******/ 			active: true,
+/******/ 			accept: function(dep, callback) {
+/******/ 				if(typeof dep === "undefined")
+/******/ 					hot._selfAccepted = true;
+/******/ 				else if(typeof dep === "function")
+/******/ 					hot._selfAccepted = dep;
+/******/ 				else if(typeof dep === "object")
+/******/ 					for(var i = 0; i < dep.length; i++)
+/******/ 						hot._acceptedDependencies[dep[i]] = callback;
+/******/ 				else
+/******/ 					hot._acceptedDependencies[dep] = callback;
+/******/ 			},
+/******/ 			decline: function(dep) {
+/******/ 				if(typeof dep === "undefined")
+/******/ 					hot._selfDeclined = true;
+/******/ 				else if(typeof dep === "number")
+/******/ 					hot._declinedDependencies[dep] = true;
+/******/ 				else
+/******/ 					for(var i = 0; i < dep.length; i++)
+/******/ 						hot._declinedDependencies[dep[i]] = true;
+/******/ 			},
+/******/ 			dispose: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			addDisposeHandler: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			removeDisposeHandler: function(callback) {
+/******/ 				var idx = hot._disposeHandlers.indexOf(callback);
+/******/ 				if(idx >= 0) hot._disposeHandlers.splice(idx, 1);
+/******/ 			},
+/******/ 	
+/******/ 			// Management API
+/******/ 			check: hotCheck,
+/******/ 			apply: hotApply,
+/******/ 			status: function(l) {
+/******/ 				if(!l) return hotStatus;
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			addStatusHandler: function(l) {
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			removeStatusHandler: function(l) {
+/******/ 				var idx = hotStatusHandlers.indexOf(l);
+/******/ 				if(idx >= 0) hotStatusHandlers.splice(idx, 1);
+/******/ 			},
+/******/ 	
+/******/ 			//inherit from previous dispose call
+/******/ 			data: hotCurrentModuleData[moduleId]
+/******/ 		};
+/******/ 		return hot;
+/******/ 	}
+/******/ 	
+/******/ 	var hotStatusHandlers = [];
+/******/ 	var hotStatus = "idle";
+/******/ 	
+/******/ 	function hotSetStatus(newStatus) {
+/******/ 		hotStatus = newStatus;
+/******/ 		for(var i = 0; i < hotStatusHandlers.length; i++)
+/******/ 			hotStatusHandlers[i].call(null, newStatus);
+/******/ 	}
+/******/ 	
+/******/ 	// while downloading
+/******/ 	var hotWaitingFiles = 0;
+/******/ 	var hotChunksLoading = 0;
+/******/ 	var hotWaitingFilesMap = {};
+/******/ 	var hotRequestedFilesMap = {};
+/******/ 	var hotAvailibleFilesMap = {};
+/******/ 	var hotCallback;
+/******/ 	
+/******/ 	// The update info
+/******/ 	var hotUpdate, hotUpdateNewHash;
+/******/ 	
+/******/ 	function toModuleId(id) {
+/******/ 		var isNumber = (+id) + "" === id;
+/******/ 		return isNumber ? +id : id;
+/******/ 	}
+/******/ 	
+/******/ 	function hotCheck(apply, callback) {
+/******/ 		if(hotStatus !== "idle") throw new Error("check() is only allowed in idle status");
+/******/ 		if(typeof apply === "function") {
+/******/ 			hotApplyOnUpdate = false;
+/******/ 			callback = apply;
+/******/ 		} else {
+/******/ 			hotApplyOnUpdate = apply;
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		}
+/******/ 		hotSetStatus("check");
+/******/ 		hotDownloadManifest(function(err, update) {
+/******/ 			if(err) return callback(err);
+/******/ 			if(!update) {
+/******/ 				hotSetStatus("idle");
+/******/ 				callback(null, null);
+/******/ 				return;
+/******/ 			}
+/******/ 	
+/******/ 			hotRequestedFilesMap = {};
+/******/ 			hotAvailibleFilesMap = {};
+/******/ 			hotWaitingFilesMap = {};
+/******/ 			for(var i = 0; i < update.c.length; i++)
+/******/ 				hotAvailibleFilesMap[update.c[i]] = true;
+/******/ 			hotUpdateNewHash = update.h;
+/******/ 	
+/******/ 			hotSetStatus("prepare");
+/******/ 			hotCallback = callback;
+/******/ 			hotUpdate = {};
+/******/ 			var chunkId = 0;
+/******/ 			{ // eslint-disable-line no-lone-blocks
+/******/ 				/*globals chunkId */
+/******/ 				hotEnsureUpdateChunk(chunkId);
+/******/ 			}
+/******/ 			if(hotStatus === "prepare" && hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 				hotUpdateDownloaded();
+/******/ 			}
+/******/ 		});
+/******/ 	}
+/******/ 	
+/******/ 	function hotAddUpdateChunk(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 		if(!hotAvailibleFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
+/******/ 			return;
+/******/ 		hotRequestedFilesMap[chunkId] = false;
+/******/ 		for(var moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				hotUpdate[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(--hotWaitingFiles === 0 && hotChunksLoading === 0) {
+/******/ 			hotUpdateDownloaded();
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotEnsureUpdateChunk(chunkId) {
+/******/ 		if(!hotAvailibleFilesMap[chunkId]) {
+/******/ 			hotWaitingFilesMap[chunkId] = true;
+/******/ 		} else {
+/******/ 			hotRequestedFilesMap[chunkId] = true;
+/******/ 			hotWaitingFiles++;
+/******/ 			hotDownloadUpdateChunk(chunkId);
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotUpdateDownloaded() {
+/******/ 		hotSetStatus("ready");
+/******/ 		var callback = hotCallback;
+/******/ 		hotCallback = null;
+/******/ 		if(!callback) return;
+/******/ 		if(hotApplyOnUpdate) {
+/******/ 			hotApply(hotApplyOnUpdate, callback);
+/******/ 		} else {
+/******/ 			var outdatedModules = [];
+/******/ 			for(var id in hotUpdate) {
+/******/ 				if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 					outdatedModules.push(toModuleId(id));
+/******/ 				}
+/******/ 			}
+/******/ 			callback(null, outdatedModules);
+/******/ 		}
+/******/ 	}
+/******/ 	
+/******/ 	function hotApply(options, callback) {
+/******/ 		if(hotStatus !== "ready") throw new Error("apply() is only allowed in ready status");
+/******/ 		if(typeof options === "function") {
+/******/ 			callback = options;
+/******/ 			options = {};
+/******/ 		} else if(options && typeof options === "object") {
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		} else {
+/******/ 			options = {};
+/******/ 			callback = callback || function(err) {
+/******/ 				if(err) throw err;
+/******/ 			};
+/******/ 		}
+/******/ 	
+/******/ 		function getAffectedStuff(module) {
+/******/ 			var outdatedModules = [module];
+/******/ 			var outdatedDependencies = {};
+/******/ 	
+/******/ 			var queue = outdatedModules.slice();
+/******/ 			while(queue.length > 0) {
+/******/ 				var moduleId = queue.pop();
+/******/ 				var module = installedModules[moduleId];
+/******/ 				if(!module || module.hot._selfAccepted)
+/******/ 					continue;
+/******/ 				if(module.hot._selfDeclined) {
+/******/ 					return new Error("Aborted because of self decline: " + moduleId);
+/******/ 				}
+/******/ 				if(moduleId === 0) {
+/******/ 					return;
+/******/ 				}
+/******/ 				for(var i = 0; i < module.parents.length; i++) {
+/******/ 					var parentId = module.parents[i];
+/******/ 					var parent = installedModules[parentId];
+/******/ 					if(parent.hot._declinedDependencies[moduleId]) {
+/******/ 						return new Error("Aborted because of declined dependency: " + moduleId + " in " + parentId);
+/******/ 					}
+/******/ 					if(outdatedModules.indexOf(parentId) >= 0) continue;
+/******/ 					if(parent.hot._acceptedDependencies[moduleId]) {
+/******/ 						if(!outdatedDependencies[parentId])
+/******/ 							outdatedDependencies[parentId] = [];
+/******/ 						addAllToSet(outdatedDependencies[parentId], [moduleId]);
+/******/ 						continue;
+/******/ 					}
+/******/ 					delete outdatedDependencies[parentId];
+/******/ 					outdatedModules.push(parentId);
+/******/ 					queue.push(parentId);
+/******/ 				}
+/******/ 			}
+/******/ 	
+/******/ 			return [outdatedModules, outdatedDependencies];
+/******/ 		}
+/******/ 	
+/******/ 		function addAllToSet(a, b) {
+/******/ 			for(var i = 0; i < b.length; i++) {
+/******/ 				var item = b[i];
+/******/ 				if(a.indexOf(item) < 0)
+/******/ 					a.push(item);
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// at begin all updates modules are outdated
+/******/ 		// the "outdated" status can propagate to parents if they don't accept the children
+/******/ 		var outdatedDependencies = {};
+/******/ 		var outdatedModules = [];
+/******/ 		var appliedUpdate = {};
+/******/ 		for(var id in hotUpdate) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 				var moduleId = toModuleId(id);
+/******/ 				var result = getAffectedStuff(moduleId);
+/******/ 				if(!result) {
+/******/ 					if(options.ignoreUnaccepted)
+/******/ 						continue;
+/******/ 					hotSetStatus("abort");
+/******/ 					return callback(new Error("Aborted because " + moduleId + " is not accepted"));
+/******/ 				}
+/******/ 				if(result instanceof Error) {
+/******/ 					hotSetStatus("abort");
+/******/ 					return callback(result);
+/******/ 				}
+/******/ 				appliedUpdate[moduleId] = hotUpdate[moduleId];
+/******/ 				addAllToSet(outdatedModules, result[0]);
+/******/ 				for(var moduleId in result[1]) {
+/******/ 					if(Object.prototype.hasOwnProperty.call(result[1], moduleId)) {
+/******/ 						if(!outdatedDependencies[moduleId])
+/******/ 							outdatedDependencies[moduleId] = [];
+/******/ 						addAllToSet(outdatedDependencies[moduleId], result[1][moduleId]);
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Store self accepted outdated modules to require them later by the module system
+/******/ 		var outdatedSelfAcceptedModules = [];
+/******/ 		for(var i = 0; i < outdatedModules.length; i++) {
+/******/ 			var moduleId = outdatedModules[i];
+/******/ 			if(installedModules[moduleId] && installedModules[moduleId].hot._selfAccepted)
+/******/ 				outdatedSelfAcceptedModules.push({
+/******/ 					module: moduleId,
+/******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
+/******/ 				});
+/******/ 		}
+/******/ 	
+/******/ 		// Now in "dispose" phase
+/******/ 		hotSetStatus("dispose");
+/******/ 		var queue = outdatedModules.slice();
+/******/ 		while(queue.length > 0) {
+/******/ 			var moduleId = queue.pop();
+/******/ 			var module = installedModules[moduleId];
+/******/ 			if(!module) continue;
+/******/ 	
+/******/ 			var data = {};
+/******/ 	
+/******/ 			// Call dispose handlers
+/******/ 			var disposeHandlers = module.hot._disposeHandlers;
+/******/ 			for(var j = 0; j < disposeHandlers.length; j++) {
+/******/ 				var cb = disposeHandlers[j];
+/******/ 				cb(data);
+/******/ 			}
+/******/ 			hotCurrentModuleData[moduleId] = data;
+/******/ 	
+/******/ 			// disable module (this disables requires from this module)
+/******/ 			module.hot.active = false;
+/******/ 	
+/******/ 			// remove module from cache
+/******/ 			delete installedModules[moduleId];
+/******/ 	
+/******/ 			// remove "parents" references from all children
+/******/ 			for(var j = 0; j < module.children.length; j++) {
+/******/ 				var child = installedModules[module.children[j]];
+/******/ 				if(!child) continue;
+/******/ 				var idx = child.parents.indexOf(moduleId);
+/******/ 				if(idx >= 0) {
+/******/ 					child.parents.splice(idx, 1);
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// remove outdated dependency from module children
+/******/ 		for(var moduleId in outdatedDependencies) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
+/******/ 				var module = installedModules[moduleId];
+/******/ 				var moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 				for(var j = 0; j < moduleOutdatedDependencies.length; j++) {
+/******/ 					var dependency = moduleOutdatedDependencies[j];
+/******/ 					var idx = module.children.indexOf(dependency);
+/******/ 					if(idx >= 0) module.children.splice(idx, 1);
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Not in "apply" phase
+/******/ 		hotSetStatus("apply");
+/******/ 	
+/******/ 		hotCurrentHash = hotUpdateNewHash;
+/******/ 	
+/******/ 		// insert new code
+/******/ 		for(var moduleId in appliedUpdate) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
+/******/ 				modules[moduleId] = appliedUpdate[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// call accept handlers
+/******/ 		var error = null;
+/******/ 		for(var moduleId in outdatedDependencies) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
+/******/ 				var module = installedModules[moduleId];
+/******/ 				var moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 				var callbacks = [];
+/******/ 				for(var i = 0; i < moduleOutdatedDependencies.length; i++) {
+/******/ 					var dependency = moduleOutdatedDependencies[i];
+/******/ 					var cb = module.hot._acceptedDependencies[dependency];
+/******/ 					if(callbacks.indexOf(cb) >= 0) continue;
+/******/ 					callbacks.push(cb);
+/******/ 				}
+/******/ 				for(var i = 0; i < callbacks.length; i++) {
+/******/ 					var cb = callbacks[i];
+/******/ 					try {
+/******/ 						cb(outdatedDependencies);
+/******/ 					} catch(err) {
+/******/ 						if(!error)
+/******/ 							error = err;
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// Load self accepted modules
+/******/ 		for(var i = 0; i < outdatedSelfAcceptedModules.length; i++) {
+/******/ 			var item = outdatedSelfAcceptedModules[i];
+/******/ 			var moduleId = item.module;
+/******/ 			hotCurrentParents = [moduleId];
+/******/ 			try {
+/******/ 				__webpack_require__(moduleId);
+/******/ 			} catch(err) {
+/******/ 				if(typeof item.errorHandler === "function") {
+/******/ 					try {
+/******/ 						item.errorHandler(err);
+/******/ 					} catch(err) {
+/******/ 						if(!error)
+/******/ 							error = err;
+/******/ 					}
+/******/ 				} else if(!error)
+/******/ 					error = err;
+/******/ 			}
+/******/ 		}
+/******/ 	
+/******/ 		// handle errors in accept handlers and self accepted module load
+/******/ 		if(error) {
+/******/ 			hotSetStatus("fail");
+/******/ 			return callback(error);
+/******/ 		}
+/******/ 	
+/******/ 		hotSetStatus("idle");
+/******/ 		callback(null, outdatedModules);
+/******/ 	}
+
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
+/******/ 			hot: hotCreateModule(moduleId),
+/******/ 			parents: hotCurrentParents,
+/******/ 			children: []
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+
+/******/ 	// __webpack_hash__
+/******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
+
+/******/ 	// Load entry module and return exports
+/******/ 	return hotCreateRequire(0)(0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	// css
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./theme.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./photoSwipe/photoswipe.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./photoSwipe/default-skin/default-skin.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__("./assets/src/orientationchange.js")
+
+	var supportOrientation = typeof window.orientation === 'number' && typeof window.onorientationchange === 'object'
+
+	// js
+	var swipe = __webpack_require__("./assets/src/swipe.init.js")
+	var lazyload = __webpack_require__("./assets/src/lazyload.js")
+
+	// todo: fix window
+
+	var lazy = {
+	  init: function () {
+	    var $img = document.getElementsByClassName('js-image')
+	    for (var i = 0, len = $img.length; i < len; i++) {
+	      lazyload({
+	        container: document.getElementsByTagName('body')[0],
+	        $target: $img[i],
+	        selector: '.js-image',
+	      })
+	    }
+	  },
+	}
+
+	var resizeHandle = function (type) {
+	  var iw = window.innerWidth
+	  var ih = window.innerHeight
+	  if (iw <= 750) {
+	    var $thumbs = document.getElementsByClassName('js-photos-thumb')
+	    var width
+	    if (type === 'landscape') {
+	      // 横屏
+	      width = '20%'
+	    } else if (type === 'portrait') {
+	      // 竖屏
+	      width = '33.333333%'
+	    }
+	    for (var i = 0, len = $thumbs.length; i < len; i++) {
+	      $thumbs[i].style.width = width
+	    }
+	  }
+	  lazy.init()
+	}
+
+	var checkImgType = function () {
+	  try {
+	    var $imgWrap = document.getElementsByClassName('js-img-wrap')
+	    var u = window.navigator.userAgent
+	    var isMobile = !!u.match(/AppleWebKit.*Mobile.*/)
+	    var isIos = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+	    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
+	    var isWeixin = u.indexOf('MicroMessenger') === -1
+
+	    if (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0) {
+	      for (var i = 0, len = $imgWrap.length; i < len; i++) {
+	        $imgWrap[i].setAttribute('href', $imgWrap[i].getAttribute('href') + '?tn=2')
+	      }
+	      document.getElementsByTagName('body')[0].className = 'webp'
+	    } else if (isMobile || isIos || isAndroid || isWeixin) {
+	      for (var i = 0, len = $imgWrap.length; i < len; i++) {
+	        $imgWrap[i].setAttribute('href', $imgWrap[i].getAttribute('href') + '?tn=3')
+	        var sizeArr = $imgWrap[i].getAttribute('data-size').split('x')
+	        $imgWrap[i].setAttribute('data-size', '621x' + (sizeArr[1] * 621) / sizeArr[0])
+	      }
+	    }
+	  } catch (err) {}
+	}
+	window.onload = function () {
+	  var curType = window.neworientation.init
+	  resizeHandle(curType)
+	  checkImgType()
+	  swipe.init()
+
+	  window.addEventListener(
+	    'orientationchange',
+	    function () {
+	      if (curType !== window.neworientation.current) {
+	        resizeHandle(window.neworientation.current)
+	        curType = window.neworientation.current
+	      }
+	    },
+	    false
+	  )
+	}
+
+
+/***/ }),
+
+/***/ "./assets/src/orientationchange.js":
+/***/ (function(module, exports) {
+
+	    /**
+	     * orientationchange-fix
+	     * orientationchange修复实用库
+	     */
+	    ;
+	    (function(win) {
+	        var meta = {},
+	            timer;
+
+	        var eventType = 'orientationchange';
+	        // 是否支持orientationchange事件
+	        var isOrientation = ('orientation' in window && 'onorientationchange' in window);
+	        meta.isOrientation = isOrientation;
+
+	        // font-family
+	        var html = document.documentElement,
+	            hstyle = win.getComputedStyle(html, null),
+	            ffstr = hstyle['font-family'];
+	        meta.font = ffstr;
+
+	        // automatically load css script
+	        function loadStyleString(css) {
+	            var _style = document.createElement('style'),
+	                _head = document.head ? document.head : document.getElementsByTagName('head')[0];
+	            _style.type = 'text/css';
+	            try {
+	                _style.appendChild(document.createTextNode(css));
+	            } catch (ex) {
+	                // lower IE support, if you want to know more about this to see http://www.quirksmode.org/dom/w3c_css.html
+	                _style.styleSheet.cssText = css;
+	            }
+	            _head.appendChild(_style);
+	            return _style;
+	        }
+
+	        // 触发原生orientationchange
+	        var isSupportCustomEvent = window.CustomEvent ? true : false,
+	            fireEvent;
+	        
+	        // https://github.com/krambuhl/custom-event-polyfill/blob/master/custom-event-polyfill.js
+	        // Polyfill for creating CustomEvents on IE9/10/11
+	        if (isSupportCustomEvent) {
+	            try {
+	                var ce = new window.CustomEvent('test');
+	                ce.preventDefault();
+	                if (ce.defaultPrevented !== true) {
+	                    // IE has problems with .preventDefault() on custom events
+	                    // http://stackoverflow.com/questions/23349191
+	                    throw new Error('Could not prevent default');
+	                }
+	            } catch (e) {
+	                var CustomEvent = function(event, params) {
+	                    var evt, origPrevent;
+	                    params = params || {
+	                        bubbles: false,
+	                        cancelable: false,
+	                        detail: undefined
+	                    };
+
+	                    evt = document.createEvent("CustomEvent");
+	                    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+	                    origPrevent = evt.preventDefault;
+	                    evt.preventDefault = function() {
+	                        origPrevent.call(this);
+	                        try {
+	                            Object.defineProperty(this, 'defaultPrevented', {
+	                                get: function() {
+	                                    return true;
+	                                }
+	                            });
+	                        } catch (e) {
+	                            this.defaultPrevented = true;
+	                        }
+	                    };
+	                    return evt;
+	                };
+
+	                CustomEvent.prototype = window.Event.prototype;
+	                window.CustomEvent = CustomEvent; // expose definition to window
+	            }
+	        }
+
+	        fireEvent = isSupportCustomEvent ? function(element, eventName, params) {
+	            var evt = document.createEvent('CustomEvent');
+	            if (params) {
+	                evt.initCustomEvent(eventName, params.bubbles, params.cancelable, params.detail);
+	            } else {
+	                evt.initCustomEvent(eventName, false, false, void(0));
+	            }
+	            if (element.dispatchEvent) {
+	                element.dispatchEvent(evt);
+	            }
+	            return evt;
+	        } : function(element, eventName, params) {
+	            var evt = document.createEventObject();
+	            evt.type = eventName;
+	            if (params) {
+	                evt.bubbles = Boolean(params.bubbles);
+	                evt.cancelable = Boolean(params.cancelable);
+	                evt.detail = params.detail;
+	            } else {
+	                evt.bubbles = false;
+	                evt.cancelable = false;
+	                evt.detail = void(0);
+	            }
+	            // fire
+	            if (element[eventName]) {
+	                element[eventName](evt);
+	            } else if (element['on' + eventName]) {
+	                element['on' + eventName](evt);
+	            } else if (element.fireEvent && ('on' + eventName) in element) { //针对IE8及以下版本，fireEvent|attachEvent|detachEvent只能使用如下事件名
+	                element.fireEvent('on' + eventName, evt);
+	            }
+	            return evt;
+	        };
+
+
+	        // callback
+	        var orientationCB = function(e) {
+	            if (win.orientation === 180 || win.orientation === 0) {
+	                meta.init = 'portrait';
+	                meta.current = 'portrait';
+	            }
+	            if (win.orientation === 90 || win.orientation === -90) {
+	                meta.init = 'landscape';
+	                meta.current = 'landscape';
+	            }
+	            return function() {
+	                if (win.orientation === 180 || win.orientation === 0) {
+	                    meta.current = 'portrait';
+	                }
+	                if (win.orientation === 90 || win.orientation === -90) {
+	                    meta.current = 'landscape';
+	                }
+	                fireEvent(window, eventType);
+	            }
+	        };
+	        var resizeCB = function() {
+	            var pstr = "portrait, " + ffstr,
+	                lstr = "landscape, " + ffstr,
+	                cssstr = '@media (orientation: portrait) { .orientation{font-family:' + pstr + ';} } @media (orientation: landscape) {  .orientation{font-family:' + lstr + ';}}';
+
+	            // 载入样式     
+	            loadStyleString(cssstr);
+	            // 添加类
+	            html.className = 'orientation ' + html.className;
+	            if (hstyle['font-family'] === pstr) { //初始化判断
+	                meta.init = 'portrait';
+	                meta.current = 'portrait';
+	            } else {
+	                meta.init = 'landscape';
+	                meta.current = 'landscape';
+	            }
+	            resizeCB = function() {
+	                if (hstyle['font-family'] === pstr) {
+	                    if (meta.current !== 'portrait') {
+	                        meta.current = 'portrait';
+	                        fireEvent(window, eventType);
+	                    }
+	                } else {
+	                    if (meta.current !== 'landscape') {
+	                        meta.current = 'landscape';
+	                        fireEvent(window, eventType);
+	                    }
+	                }
+	            }
+	        };
+	        var callback = isOrientation ? orientationCB() : (function() {
+	            resizeCB();
+	            return function() {
+	                timer && win.clearTimeout(timer);
+	                timer = win.setTimeout(resizeCB, 300);
+	            }
+	        })();
+
+	        // 监听
+	        win.addEventListener(isOrientation ? 'orientationchange' : 'resize', callback, false);
+
+	        win.neworientation = meta;
+	    })(window);
+
+	    module.exports = {};
+
+/***/ }),
+
+/***/ "./assets/src/swipe.init.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+	var PhotoSwipe = __webpack_require__("./assets/src/photoSwipe/photoswipe.js")
+	var PhotoSwipeUI_Default = __webpack_require__("./assets/src/photoSwipe/photoswipe-ui-default.js")
+
+	var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+	  // parse slide data (url, title, size ...) from DOM elements 
+	  // (children of gallerySelector)
+	  var parseThumbnailElements = function(el) {
+	    var thumbElements = el.getElementsByClassName('js-thumb'),
+	      numNodes = thumbElements.length,
+	      items = [],
+	      figureEl,
+	      linkEl,
+	      size,
+	      item;
+
+	    for (var i = 0; i < numNodes; i++) {
+
+	      figureEl = thumbElements[i]; // <figure> element
+
+	      // include only element nodes 
+	      if (figureEl.nodeType !== 1) {
+	        continue;
+	      }
+
+	      linkEl = figureEl.children[0]; // <a> element
+
+	      size = linkEl.getAttribute('data-size').split('x');
+
+	      // create slide object
+	      item = {
+	        src: linkEl.getAttribute('href'),
+	        w: parseInt(size[0], 10),
+	        h: parseInt(size[1], 10)
+	      };
+
+
+
+	      if (figureEl.children.length > 1) {
+	        // <figcaption> content
+	        item.title = figureEl.children[2].innerHTML;
+	      }
+
+	      if (linkEl.children.length > 0) {
+	        // <img> thumbnail element, retrieving thumbnail url
+	        item.msrc = linkEl.children[0].getAttribute('src');
+	      }
+
+	      item.el = figureEl; // save link to element for getThumbBoundsFn
+	      items.push(item);
+	    }
+
+	    return items;
+	  };
+
+	  // find nearest parent element
+	  var closest = function closest(el, fn) {
+	    return el && (fn(el) ? el : closest(el.parentNode, fn));
+	  };
+
+	  // triggers when user clicks on thumbnail
+	  var onThumbnailsClick = function(e) {
+	    e = e || window.event;
+	    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+	    var eTarget = e.target || e.srcElement;
+
+	    // find root element of slide
+	    var clickedListItem = closest(eTarget, function(el) {
+	      return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+	    });
+
+	    if (!clickedListItem) {
+	      return;
+	    }
+
+	    // find index of clicked item by looping through all child nodes
+	    // alternatively, you may define index via data- attribute
+	    var clickedGallery = clickedListItem.parentNode,
+	      childNodes = clickedListItem.parentNode.childNodes,
+	      numChildNodes = childNodes.length,
+	      nodeIndex = 0,
+	      index;
+
+	    for (var i = 0; i < numChildNodes; i++) {
+	      if (childNodes[i].nodeType !== 1) {
+	        continue;
+	      }
+
+	      if (childNodes[i] === clickedListItem) {
+	        index = nodeIndex;
+	        break;
+	      }
+	      nodeIndex++;
+	    }
+
+
+
+	    if (index >= 0) {
+	      // open PhotoSwipe if valid index found
+	      openPhotoSwipe(index, clickedGallery);
+	    }
+	    return false;
+	  };
+
+	  // parse picture index and gallery index from URL (#&pid=1&gid=2)
+	  var photoswipeParseHash = function() {
+	    var hash = window.location.hash.substring(1),
+	      params = {};
+
+	    if (hash.length < 5) {
+	      return params;
+	    }
+
+	    var vars = hash.split('&');
+	    for (var i = 0; i < vars.length; i++) {
+	      if (!vars[i]) {
+	        continue;
+	      }
+	      var pair = vars[i].split('=');
+	      if (pair.length < 2) {
+	        continue;
+	      }
+	      params[pair[0]] = pair[1];
+	    }
+
+	    if (params.gid) {
+	      params.gid = parseInt(params.gid, 10);
+	    }
+
+	    return params;
+	  };
+
+	  var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+	    var pswpElement = document.querySelectorAll('.pswp')[0],
+	      gallery,
+	      options,
+	      items;
+
+	    items = parseThumbnailElements(galleryElement);
+
+	    // define options (if needed)
+	    options = {
+
+	      // define gallery index (for URL)
+	      galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+	      getThumbBoundsFn: function(index) {
+	        // See Options -> getThumbBoundsFn section of documentation for more info
+	        var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+	          pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+	          rect = thumbnail.getBoundingClientRect();
+
+	        return {
+	          x: rect.left,
+	          y: rect.top + pageYScroll,
+	          w: rect.width
+	        };
+	      }
+
+	    };
+
+	    // PhotoSwipe opened from URL
+	    if (fromURL) {
+	      if (options.galleryPIDs) {
+	        // parse real index when custom PIDs are used 
+	        // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+	        for (var j = 0; j < items.length; j++) {
+	          if (items[j].pid == index) {
+	            options.index = j;
+	            break;
+	          }
+	        }
+	      } else {
+	        // in URL indexes start from 1
+	        options.index = parseInt(index, 10) - 1;
+	      }
+	    } else {
+	      options.index = parseInt(index, 10);
+	    }
+
+	    // exit if index not found
+	    if (isNaN(options.index)) {
+	      return;
+	    }
+
+	    if (disableAnimation) {
+	      options.showAnimationDuration = 0;
+	    }
+
+	    // Pass data to PhotoSwipe and initialize it
+	    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+	    gallery.init();
+	  };
+
+	  // loop through all gallery elements and bind events
+	  var galleryElements = document.querySelectorAll(gallerySelector);
+
+	  for (var i = 0, l = galleryElements.length; i < l; i++) {
+	    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+	    galleryElements[i].onclick = onThumbnailsClick;
+	  }
+
+	  // Parse URL and open gallery if it contains #&pid=3&gid=1
+	  var hashData = photoswipeParseHash();
+	  if (hashData.pid && hashData.gid) {
+	    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+	  }
+	};
+
+	var initSecretAlbum = function(albumSlt) {
+	  var albumElements = document.getElementsByClassName(albumSlt);
+	  var $dialog = document.getElementsByClassName('js-dialog')[0];
+	  var $overlay = document.getElementsByClassName('js-overlay')[0];
+	  var $btn = document.getElementsByClassName('js-modal-yes')[0];
+	  var $input = document.getElementsByClassName('js-input-lock')[0];
+	  var $form = document.getElementsByClassName('js-form')[0];
+	  var baseUrl = '';
+	  var tips = '';
+
+	  for (var i = 0, len = albumElements.length; i < len; i++) {
+	    (function(i) {
+	      albumElements[i].addEventListener('click', function(e) {
+	        baseUrl = this.getAttribute('data-href');
+	        tips = this.getAttribute('data-tips');
+	        $dialog.style.display = 'flex';
+	        $overlay.style.display = 'initial';
+	        $form.setAttribute('action', baseUrl);
+	        $input.setAttribute('placeholder', tips);
+	        $input.value = '';
+	        $input.focus();
+	      })
+	    })(i);
+	  }
+
+	  $overlay.addEventListener('click', function(e) {
+	    $dialog.style.display = 'none';
+	    $overlay.style.display = 'none';
+	    $input.value = '';
+	  })
+
+	  $btn.addEventListener('click', function(e) {
+	    $dialog.style.display = 'none';
+	    $overlay.style.display = 'none';
+	    // $btn.submit();
+	    // window.location.href = (baseUrl + '?password=' + $input.value);
+	  })
+
+	  document.onkeydown=function(event){
+	    var e = event || window.event;         
+	    if (e && e.keyCode === 13) {
+	      if ($input.value !== '') {
+	        window.location.href = (baseUrl + '?password=' + $input.value);
+	      }
+	    }
+	  }
+	}
+	function init() {
+	  initPhotoSwipeFromDOM('.photos');
+	  // 是否相册，但这个判断方式不好
+	  if (document.getElementsByClassName('albums').length) {
+	    initSecretAlbum('js-secret-album');
+	  }
+	}
+
+	module.exports = {
+	  init: init
+	}
+
+
+/***/ }),
+
+/***/ "./assets/src/photoSwipe/photoswipe.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe - v4.1.1 - 2015-12-24
 	* http://photoswipe.com
 	* Copyright (c) 2015 Dmitry Semenov; */
-!function(r,a){o=a,i="function"==typeof o?o.call(t,n,t,e):o,!(void 0!==i&&(e.exports=i))}(this,function(){"use strict";var e=function(e,t){function n(t,n,o){var i,r=n.getElementsByClassName("js-download-btn")[0],a=parseInt(r.innerHTML.match(/\(([^)]*)\)/)[1]);try{i=new XMLHttpRequest}catch(l){try{i=new ActiveXObject("Msxml2.XMLHTTP")}catch(l){try{i=new ActiveXObject("Microsoft.XMLHTTP")}catch(l){i=null}}}return i.onprogress=function(e){if(0!==a){var t="";t=""+Math.round(100*e.loaded/a/1024)+"%",r.innerHTML="下载中 ("+t+")"}},i.onload=function(){(i.status>=200&&i.status<300||304==i.status)&&(n.style.display="none",o.src=t,o.onload=function(){e.currItem.src=t,e.currItem.currLoaded=!0;for(var n=document.getElementsByClassName("js-img-wrap"),o=document.getElementsByClassName("js-image"),i=0,r=o.length;i<r;i++)if(o[i].src.indexOf(t)>=0){n[i].setAttribute("href",t);var a=n[i].getAttribute("data-curr-size"),l=a.split("x");e.currItem.currZoomLevel=e.currItem.w*e.currItem.initialZoomLevel/parseInt(l[0]),e.currItem.w=parseInt(l[0]),e.currItem.h=parseInt(l[1]),window.innerWidth,n[i].setAttribute("data-size",a),o[i].setAttribute("src",t);for(var s=o[i].parentNode;s.className.indexOf("js-photos-thumb")<0;)s=s.parentNode;var u=s.getElementsByClassName("js-download");u.length>0&&u[0].remove()}},o.onerror=function(){})},i.open("get",t,!0),i.send(null),i}var o,i,r,a,l,s,u,c,d,f,p,m,h,v,g,w,y,x,b,C=this,I=!1,E=!0,T=!0,A={barsSize:{top:40,bottom:"auto"},closeElClasses:["item","caption","zoom-wrap","ui","top-bar"],timeToIdle:4e3,timeToIdleOutside:1e3,loadingIndicatorDelay:1e3,addCaptionHTMLFn:function(e,t){return e.title?(t.children[0].innerHTML=e.title,_(t),!0):(t.children[0].innerHTML="",_(t),!1)},original:!0,closeEl:!0,captionEl:!0,fullscreenEl:!0,zoomEl:!0,shareEl:!0,counterEl:!0,arrowEl:!0,preloaderEl:!0,tapToClose:!1,tapToToggleControls:!0,clickToCloseNonZoomable:!0,shareButtons:[{id:"facebook",label:"Share on Facebook",url:"https://www.facebook.com/sharer/sharer.php?u={{url}}"},{id:"twitter",label:"Tweet",url:"https://twitter.com/intent/tweet?text={{text}}&url={{url}}"},{id:"pinterest",label:"Pin it",url:"http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}"},{id:"download",label:"Download image",url:"{{raw_image_url}}",download:!0}],getImageURLForShare:function(){return e.currItem.src||""},getPageURLForShare:function(){return window.location.href},getTextForShare:function(){return e.currItem.title||""},indexIndicatorSep:" / ",fitControlsWidth:1200},_=function(o){var i=o.getElementsByClassName("js-download");if(i.length>0){if(e.currItem.currLoaded)return void(i[0].style.display="none");t.bind(i[0],"pswpTap click",function(e){e.stopPropagation();for(var t=document.getElementsByClassName("pswp__zoom-wrap"),o=0,r=t.length;o<r;o++)if(t[o].getAttribute("data-curr")){var a=t[o].getElementsByClassName("js-pswp__img")[0],l=a.src.replace(/\?tn=\w/g,"");n(l,i[0],a)}})}},M=function(e){if(w)return!0;e=e||window.event,g.timeToIdle&&g.mouseUsed&&!d&&Z();for(var n,o,i=e.target||e.srcElement,r=i.getAttribute("class")||"",a=0;a<Y.length;a++)n=Y[a],n.onTap&&r.indexOf("pswp__"+n.name)>-1&&(n.onTap(),o=!0);if(o){e.stopPropagation&&e.stopPropagation(),w=!0;var l=t.features.isOldAndroid?600:30;y=setTimeout(function(){w=!1},l)}},D=function(){return!e.likelyTouchDevice||g.mouseUsed||screen.width>g.fitControlsWidth},O=function(e,n,o){t[(o?"add":"remove")+"Class"](e,"pswp__"+n)},S=function(){var e=1===g.getNumItemsFn();e!==v&&(O(i,"ui--one-slide",e),v=e)},k=function(){O(u,"share-modal--hidden",T)},L=function(){return T=!T,T?(t.removeClass(u,"pswp__share-modal--fade-in"),setTimeout(function(){T&&k()},300)):(k(),setTimeout(function(){T||t.addClass(u,"pswp__share-modal--fade-in")},30)),T||R(),!1},F=function(t){t=t||window.event;var n=t.target||t.srcElement;return e.shout("shareLinkClick",t,n),!!n.href&&(!!n.hasAttribute("download")||(window.open(n.href,"pswp_share","scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,top=100,left="+(window.screen?Math.round(screen.width/2-275):100)),T||L(),!1))},R=function(){for(var e,t,n,o,i,r="",a=0;a<g.shareButtons.length;a++)e=g.shareButtons[a],n=g.getImageURLForShare(e),o=g.getPageURLForShare(e),i=g.getTextForShare(e),t=e.url.replace("{{url}}",encodeURIComponent(o)).replace("{{image_url}}",encodeURIComponent(n)).replace("{{raw_image_url}}",n).replace("{{text}}",encodeURIComponent(i)),r+='<a href="'+t+'" target="_blank" class="pswp__share--'+e.id+'"'+(e.download?"download":"")+">"+e.label+"</a>",g.parseShareButtonOut&&(r=g.parseShareButtonOut(e,r));u.children[0].innerHTML=r,u.children[0].onclick=F},N=function(e){for(var n=0;n<g.closeElClasses.length;n++)if(t.hasClass(e,"pswp__"+g.closeElClasses[n]))return!0},P=0,Z=function(){clearTimeout(b),P=0,d&&C.setIdle(!1)},z=function(e){e=e?e:window.event;var t=e.relatedTarget||e.toElement;t&&"HTML"!==t.nodeName||(clearTimeout(b),b=setTimeout(function(){C.setIdle(!0)},g.timeToIdleOutside))},B=function(){g.fullscreenEl&&!t.features.isOldAndroid&&(o||(o=C.getFullscreenAPI()),o?(t.bind(document,o.eventK,C.updateFullscreen),C.updateFullscreen(),t.addClass(e.template,"pswp--supports-fs")):t.removeClass(e.template,"pswp--supports-fs"))},U=function(){g.preloaderEl&&(j(!0),f("beforeChange",function(){clearTimeout(h),h=setTimeout(function(){e.currItem&&e.currItem.loading?(!e.allowProgressiveImg()||e.currItem.img&&!e.currItem.img.naturalWidth)&&j(!1):j(!0)},g.loadingIndicatorDelay)}),f("imageLoadComplete",function(t,n){e.currItem===n&&j(!0)}))},j=function(e){m!==e&&(O(p,"preloader--active",!e),m=e)},H=function(e){var n=e.vGap;if(D()){var o=g.barsSize;if(g.captionEl&&"auto"===o.bottom)if(a||(a=t.createEl("pswp__caption pswp__caption--fake"),a.appendChild(t.createEl("pswp__caption__center")),i.insertBefore(a,r),t.addClass(i,"pswp__ui--fit")),g.addCaptionHTMLFn(e,a,!0)){var l=a.clientHeight;n.bottom=parseInt(l,10)||44}else n.bottom=o.top;else n.bottom="auto"===o.bottom?0:o.bottom;n.top=o.top}else n.top=n.bottom=0},W=function(){g.timeToIdle&&f("mouseUsed",function(){t.bind(document,"mousemove",Z),t.bind(document,"mouseout",z),x=setInterval(function(){P++,2===P&&C.setIdle(!0)},g.timeToIdle/2)})},K=function(){f("onVerticalDrag",function(e){E&&e<.95?C.hideControls():!E&&e>=.95&&C.showControls()});var e;f("onPinchClose",function(t){E&&t<.9?(C.hideControls(),e=!0):e&&!E&&t>.9&&C.showControls()}),f("zoomGestureEnded",function(){e=!1,e&&!E&&C.showControls()})},Y=[{name:"caption",option:"captionEl",onInit:function(e){r=e}},{name:"share-modal",option:"shareEl",onInit:function(e){u=e},onTap:function(){L()}},{name:"button--share",option:"shareEl",onInit:function(e){s=e},onTap:function(){L()}},{name:"button--zoom",option:"zoomEl",onTap:e.toggleDesktopZoom},{name:"counter",option:"counterEl",onInit:function(e){l=e}},{name:"button--close",option:"closeEl",onTap:e.close},{name:"button--arrow--left",option:"arrowEl",onTap:e.prev},{name:"button--arrow--right",option:"arrowEl",onTap:e.next},{name:"button--close2",option:"original",onTap:e.close},{name:"button--fs",option:"fullscreenEl",onTap:function(){o.isFullscreen()?o.exit():o.enter()}},{name:"preloader",option:"preloaderEl",onInit:function(e){p=e}}],G=function(){var e,n,o,r=function(i){if(i)for(var r=i.length,a=0;a<r;a++){e=i[a],n=e.className;for(var l=0;l<Y.length;l++)o=Y[l],n.indexOf("pswp__"+o.name)>-1&&(g[o.option]?(t.removeClass(e,"pswp__element--disabled"),o.onInit&&o.onInit(e)):t.addClass(e,"pswp__element--disabled"))}};r(i.children);var a=t.getChildByClass(i,"pswp__top-bar");a&&r(a.children)};C.init=function(){t.extend(e.options,A,!0),g=e.options,i=t.getChildByClass(e.scrollWrap,"pswp__ui"),f=e.listen,K(),f("beforeChange",C.update),f("doubleTap",function(t){var n=e.currItem.initialZoomLevel,o=e.currItem.currZoomLevel;e.getZoomLevel()!==n?(o&&(e.setZoom(o),e.currItem.initialZoomLevel=o,e.currItem.currZoomLevel=null),e.zoomTo(n,t,333)):(o&&(e.setZoom(o),e.currItem.initialPosition.x=e.currItem.initialPosition.x*e.currItem.initialZoomLevel/o,e.currItem.initialPosition.y=e.currItem.initialPosition.y*e.currItem.initialZoomLevel/o,e.currItem.fitRatio=o,e.currItem.initialZoomLevel=o,e.currItem.currZoomLevel=null),e.zoomTo(g.getDoubleTapZoom(!1,e.currItem),t,333))}),f("preventDragEvent",function(e,t,n){var o=e.target||e.srcElement;o&&o.getAttribute("class")&&e.type.indexOf("mouse")>-1&&(o.getAttribute("class").indexOf("__caption")>0||/(SMALL|STRONG|EM)/i.test(o.tagName))&&(n.prevent=!1)}),f("bindEvents",function(){t.bind(i,"pswpTap click",M),t.bind(e.scrollWrap,"pswpTap",C.onGlobalTap),e.likelyTouchDevice||t.bind(e.scrollWrap,"mouseover",C.onMouseOver)}),f("unbindEvents",function(){T||L(),x&&clearInterval(x),t.unbind(document,"mouseout",z),t.unbind(document,"mousemove",Z),t.unbind(i,"pswpTap click",M),t.unbind(e.scrollWrap,"pswpTap",C.onGlobalTap),t.unbind(e.scrollWrap,"mouseover",C.onMouseOver),o&&(t.unbind(document,o.eventK,C.updateFullscreen),o.isFullscreen()&&(g.hideAnimationDuration=0,o.exit()),o=null)}),f("destroy",function(){g.captionEl&&(a&&i.removeChild(a),t.removeClass(r,"pswp__caption--empty")),u&&(u.children[0].onclick=null),t.removeClass(i,"pswp__ui--over-close"),t.addClass(i,"pswp__ui--hidden"),C.setIdle(!1)}),g.showAnimationDuration||t.removeClass(i,"pswp__ui--hidden"),f("initialZoomIn",function(){g.showAnimationDuration&&(window.innerWidth<750&&window.innerWidth>window.innerHeight?E=!1:t.removeClass(i,"pswp__ui--hidden"))}),f("initialZoomOut",function(){t.addClass(i,"pswp__ui--hidden")}),f("parseVerticalMargin",H),G(),g.shareEl&&s&&u&&(T=!0),S(),W(),B(),U()},C.setIdle=function(e){d=e,O(i,"ui--idle",e)},C.update=function(){E&&e.currItem?(C.updateIndexIndicator(),g.captionEl&&(g.addCaptionHTMLFn(e.currItem,r),O(r,"caption--empty",!e.currItem.title)),I=!0):I=!1,T||L(),S()},C.updateFullscreen=function(n){n&&setTimeout(function(){e.setScrollOffset(0,t.getScrollY())},50),t[(o.isFullscreen()?"add":"remove")+"Class"](e.template,"pswp--fs")},C.updateIndexIndicator=function(){g.counterEl&&(l.innerHTML=e.getCurrentIndex()+1+g.indexIndicatorSep+g.getNumItemsFn())},C.onGlobalTap=function(n){n=n||window.event;var o=n.target||n.srcElement;if(!w)if(n.detail&&"mouse"===n.detail.pointerType){if(N(o))return void e.close();t.hasClass(o,"pswp__img")&&(1===e.getZoomLevel()&&e.getZoomLevel()<=e.currItem.fitRatio?g.clickToCloseNonZoomable&&e.close():e.toggleDesktopZoom(n.detail.releasePoint))}else if(g.tapToToggleControls&&(E?C.hideControls():C.showControls()),g.tapToClose&&(t.hasClass(o,"pswp__img")||N(o)))return void e.close()},C.onMouseOver=function(e){e=e||window.event;var t=e.target||e.srcElement;O(i,"ui--over-close",N(t))},C.hideControls=function(){t.addClass(i,"pswp__ui--hidden"),E=!1},C.showControls=function(){E=!0,I||C.update(),t.removeClass(i,"pswp__ui--hidden")},C.supportsFullscreen=function(){var e=document;return!!(e.exitFullscreen||e.mozCancelFullScreen||e.webkitExitFullscreen||e.msExitFullscreen)},C.getFullscreenAPI=function(){var t,n=document.documentElement,o="fullscreenchange";return n.requestFullscreen?t={enterK:"requestFullscreen",exitK:"exitFullscreen",elementK:"fullscreenElement",eventK:o}:n.mozRequestFullScreen?t={enterK:"mozRequestFullScreen",exitK:"mozCancelFullScreen",elementK:"mozFullScreenElement",eventK:"moz"+o}:n.webkitRequestFullscreen?t={enterK:"webkitRequestFullscreen",exitK:"webkitExitFullscreen",elementK:"webkitFullscreenElement",eventK:"webkit"+o}:n.msRequestFullscreen&&(t={enterK:"msRequestFullscreen",exitK:"msExitFullscreen",elementK:"msFullscreenElement",eventK:"MSFullscreenChange"}),t&&(t.enter=function(){return c=g.closeOnScroll,g.closeOnScroll=!1,"webkitRequestFullscreen"!==this.enterK?e.template[this.enterK]():void e.template[this.enterK](Element.ALLOW_KEYBOARD_INPUT)},t.exit=function(){return g.closeOnScroll=c,document[this.exitK]()},t.isFullscreen=function(){return document[this.elementK]}),t}};return e})},function(e,t,n){var o,i;/*! PhotoSwipe - v4.1.1 - 2015-12-24
+	(function (root, factory) {
+		if (true) {
+			!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else if (typeof exports === 'object') {
+			module.exports = factory();
+		} else {
+			root.PhotoSwipe = factory();
+		}
+	})(this, function () {
+		'use strict';
+		var _orientationChangeTimeout;
+		var PhotoSwipe = function (template, UiClass, items, options) {
+
+			/*>>framework-bridge*/
+			/**
+			 *
+			 * Set of generic functions used by gallery.
+			 * 
+			 * You're free to modify anything here as long as functionality is kept.
+			 * 
+			 */
+			var framework = {
+				features: null,
+				bind: function (target, type, listener, unbind) {
+					if (!target) {
+						return;
+					}
+					var methodName = (unbind ? 'remove' : 'add') + 'EventListener';
+					type = type.split(' ');
+					for (var i = 0; i < type.length; i++) {
+						if (type[i]) {
+							target[methodName](type[i], listener, false);
+						}
+					}
+				},
+				isArray: function (obj) {
+					return (obj instanceof Array);
+				},
+				createEl: function (classes, tag) {
+					var el = document.createElement(tag || 'div');
+					if (classes) {
+						el.className = classes;
+					}
+					return el;
+				},
+				getScrollY: function () {
+					var yOffset = window.pageYOffset;
+					return yOffset !== undefined ? yOffset : document.documentElement.scrollTop;
+				},
+				unbind: function (target, type, listener) {
+					framework.bind(target, type, listener, true);
+				},
+				removeClass: function (el, className) {
+					var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+					el.className = el.className.replace(reg, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+				},
+				addClass: function (el, className) {
+					if (!framework.hasClass(el, className)) {
+						el.className += (el.className ? ' ' : '') + className;
+					}
+				},
+				hasClass: function (el, className) {
+					return el.className && new RegExp('(^|\\s)' + className + '(\\s|$)').test(el.className);
+				},
+				getChildByClass: function (parentEl, childClassName) {
+					var node = parentEl.firstChild;
+					while (node) {
+						if (framework.hasClass(node, childClassName)) {
+							return node;
+						}
+						node = node.nextSibling;
+					}
+				},
+				arraySearch: function (array, value, key) {
+					var i = array.length;
+					while (i--) {
+						if (array[i][key] === value) {
+							return i;
+						}
+					}
+					return -1;
+				},
+				extend: function (o1, o2, preventOverwrite) {
+					for (var prop in o2) {
+						if (o2.hasOwnProperty(prop)) {
+							if (preventOverwrite && o1.hasOwnProperty(prop)) {
+								continue;
+							}
+							o1[prop] = o2[prop];
+						}
+					}
+				},
+				easing: {
+					sine: {
+						out: function (k) {
+							return Math.sin(k * (Math.PI / 2));
+						},
+						inOut: function (k) {
+							return - (Math.cos(Math.PI * k) - 1) / 2;
+						}
+					},
+					cubic: {
+						out: function (k) {
+							return --k * k * k + 1;
+						}
+					}
+					/*
+						elastic: {
+							out: function ( k ) {
+			
+								var s, a = 0.1, p = 0.4;
+								if ( k === 0 ) return 0;
+								if ( k === 1 ) return 1;
+								if ( !a || a < 1 ) { a = 1; s = p / 4; }
+								else s = p * Math.asin( 1 / a ) / ( 2 * Math.PI );
+								return ( a * Math.pow( 2, - 10 * k) * Math.sin( ( k - s ) * ( 2 * Math.PI ) / p ) + 1 );
+			
+							},
+						},
+						back: {
+							out: function ( k ) {
+								var s = 1.70158;
+								return --k * k * ( ( s + 1 ) * k + s ) + 1;
+							}
+						}
+					*/
+				},
+
+				/**
+				 * 
+				 * @return {object}
+				 * 
+				 * {
+				 *  raf : request animation frame function
+				 *  caf : cancel animation frame function
+				 *  transfrom : transform property key (with vendor), or null if not supported
+				 *  oldIE : IE8 or below
+				 * }
+				 * 
+				 */
+				detectFeatures: function () {
+					if (framework.features) {
+						return framework.features;
+					}
+					var helperEl = framework.createEl(),
+						helperStyle = helperEl.style,
+						vendor = '',
+						features = {};
+
+					// IE8 and below
+					features.oldIE = document.all && !document.addEventListener;
+
+					features.touch = 'ontouchstart' in window;
+
+					if (window.requestAnimationFrame) {
+						features.raf = window.requestAnimationFrame;
+						features.caf = window.cancelAnimationFrame;
+					}
+
+					features.pointerEvent = navigator.pointerEnabled || navigator.msPointerEnabled;
+
+					// fix false-positive detection of old Android in new IE
+					// (IE11 ua string contains "Android 4.0")
+
+					if (!features.pointerEvent) {
+
+						var ua = navigator.userAgent;
+
+						// Detect if device is iPhone or iPod and if it's older than iOS 8
+						// http://stackoverflow.com/a/14223920
+						// 
+						// This detection is made because of buggy top/bottom toolbars
+						// that don't trigger window.resize event.
+						// For more info refer to _isFixedPosition variable in core.js
+
+						if (/iP(hone|od)/.test(navigator.platform)) {
+							var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+							if (v && v.length > 0) {
+								v = parseInt(v[1], 10);
+								if (v >= 1 && v < 8) {
+									features.isOldIOSPhone = true;
+								}
+							}
+						}
+
+						// Detect old Android (before KitKat)
+						// due to bugs related to position:fixed
+						// http://stackoverflow.com/questions/7184573/pick-up-the-android-version-in-the-browser-by-javascript
+
+						var match = ua.match(/Android\s([0-9\.]*)/);
+						var androidversion = match ? match[1] : 0;
+						androidversion = parseFloat(androidversion);
+						if (androidversion >= 1) {
+							if (androidversion < 4.4) {
+								features.isOldAndroid = true; // for fixed position bug & performance
+							}
+							features.androidVersion = androidversion; // for touchend bug
+						}
+						features.isMobileOpera = /opera mini|opera mobi/i.test(ua);
+
+						// p.s. yes, yes, UA sniffing is bad, propose your solution for above bugs.
+					}
+
+					var styleChecks = ['transform', 'perspective', 'animationName'],
+						vendors = ['', 'webkit', 'Moz', 'ms', 'O'],
+						styleCheckItem,
+						styleName;
+
+					for (var i = 0; i < 4; i++) {
+						vendor = vendors[i];
+
+						for (var a = 0; a < 3; a++) {
+							styleCheckItem = styleChecks[a];
+
+							// uppercase first letter of property name, if vendor is present
+							styleName = vendor + (vendor ?
+								styleCheckItem.charAt(0).toUpperCase() + styleCheckItem.slice(1) :
+								styleCheckItem);
+
+							if (!features[styleCheckItem] && styleName in helperStyle) {
+								features[styleCheckItem] = styleName;
+							}
+						}
+
+						if (vendor && !features.raf) {
+							vendor = vendor.toLowerCase();
+							features.raf = window[vendor + 'RequestAnimationFrame'];
+							if (features.raf) {
+								features.caf = window[vendor + 'CancelAnimationFrame'] ||
+									window[vendor + 'CancelRequestAnimationFrame'];
+							}
+						}
+					}
+
+					if (!features.raf) {
+						var lastTime = 0;
+						features.raf = function (fn) {
+							var currTime = new Date().getTime();
+							var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+							var id = window.setTimeout(function () { fn(currTime + timeToCall); }, timeToCall);
+							lastTime = currTime + timeToCall;
+							return id;
+						};
+						features.caf = function (id) { clearTimeout(id); };
+					}
+
+					// Detect SVG support
+					features.svg = !!document.createElementNS &&
+						!!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
+
+					framework.features = features;
+
+					return features;
+				}
+			};
+
+			framework.detectFeatures();
+
+			// Override addEventListener for old versions of IE
+			if (framework.features.oldIE) {
+
+				framework.bind = function (target, type, listener, unbind) {
+
+					type = type.split(' ');
+
+					var methodName = (unbind ? 'detach' : 'attach') + 'Event',
+						evName,
+						_handleEv = function () {
+							listener.handleEvent.call(listener);
+						};
+
+					for (var i = 0; i < type.length; i++) {
+						evName = type[i];
+						if (evName) {
+
+							if (typeof listener === 'object' && listener.handleEvent) {
+								if (!unbind) {
+									listener['oldIE' + evName] = _handleEv;
+								} else {
+									if (!listener['oldIE' + evName]) {
+										return false;
+									}
+								}
+
+								target[methodName]('on' + evName, listener['oldIE' + evName]);
+							} else {
+								target[methodName]('on' + evName, listener);
+							}
+
+						}
+					}
+				};
+
+			}
+
+			/*>>framework-bridge*/
+
+			/*>>core*/
+			//function(template, UiClass, items, options)
+
+			var self = this;
+
+			/**
+			 * Static vars, don't change unless you know what you're doing.
+			 */
+			var DOUBLE_TAP_RADIUS = 25,
+				NUM_HOLDERS = 3;
+
+			/**
+			 * Options
+			 */
+			var _options = {
+				allowPanToNext: true,
+				spacing: 0.12,
+				bgOpacity: 1,
+				mouseUsed: false,
+				loop: true,
+				pinchToClose: true,
+				closeOnScroll: true,
+				closeOnVerticalDrag: true,
+				verticalDragRange: 0.75,
+				hideAnimationDuration: 333,
+				showAnimationDuration: 333,
+				showHideOpacity: false,
+				focus: true,
+				escKey: true,
+				arrowKeys: true,
+				mainScrollEndFriction: 0.35,
+				panEndFriction: 0.35,
+				isClickableElement: function (el) {
+					return el.tagName === 'A';
+				},
+				getDoubleTapZoom: function (isMouseClick, item) {
+					if (isMouseClick) {
+						return 1;
+					} else {
+						return item.initialZoomLevel < 0.7 ? 1 : 1.33;
+					}
+				},
+				maxSpreadZoom: 1.33,
+				modal: true,
+
+				// not fully implemented yet
+				scaleMode: 'fit' // TODO
+			};
+			framework.extend(_options, options);
+
+
+			/**
+			 * Private helper variables & functions
+			 */
+
+			var _getEmptyPoint = function () {
+				return { x: 0, y: 0 };
+			};
+
+			var _isOpen,
+				_isDestroying,
+				_closedByScroll,
+				_currentItemIndex,
+				_containerStyle,
+				_containerShiftIndex,
+				_currPanDist = _getEmptyPoint(),
+				_startPanOffset = _getEmptyPoint(),
+				_panOffset = _getEmptyPoint(),
+				_upMoveEvents, // drag move, drag end & drag cancel events array
+				_downEvents, // drag start events array
+				_globalEventHandlers,
+				_viewportSize = {},
+				_currZoomLevel,
+				_startZoomLevel,
+				_translatePrefix,
+				_translateSufix,
+				_updateSizeInterval,
+				_itemsNeedUpdate,
+				_currPositionIndex = 0,
+				_offset = {},
+				_slideSize = _getEmptyPoint(), // size of slide area, including spacing
+				_itemHolders,
+				_prevItemIndex,
+				_indexDiff = 0, // difference of indexes since last content update
+				_dragStartEvent,
+				_dragMoveEvent,
+				_dragEndEvent,
+				_dragCancelEvent,
+				_transformKey,
+				_pointerEventEnabled,
+				_isFixedPosition = true,
+				_likelyTouchDevice,
+				_modules = [],
+				_requestAF,
+				_cancelAF,
+				_initalClassName,
+				_initalWindowScrollY,
+				_oldIE,
+				_currentWindowScrollY,
+				_features,
+				_windowVisibleSize = {},
+				_renderMaxResolution = false,
+
+				// Registers PhotoSWipe module (History, Controller ...)
+				_registerModule = function (name, module) {
+					framework.extend(self, module.publicMethods);
+					_modules.push(name);
+				},
+
+				_getLoopedId = function (index) {
+					var numSlides = _getNumItems();
+					if (index > numSlides - 1) {
+						return index - numSlides;
+					} else if (index < 0) {
+						return numSlides + index;
+					}
+					return index;
+				},
+
+				// Micro bind/trigger
+				_listeners = {},
+				_listen = function (name, fn) {
+					if (!_listeners[name]) {
+						_listeners[name] = [];
+					}
+					return _listeners[name].push(fn);
+				},
+				_shout = function (name) {
+					var listeners = _listeners[name];
+
+					if (listeners) {
+						var args = Array.prototype.slice.call(arguments);
+						args.shift();
+
+						for (var i = 0; i < listeners.length; i++) {
+							listeners[i].apply(self, args);
+						}
+					}
+				},
+
+				_getCurrentTime = function () {
+					return new Date().getTime();
+				},
+				_applyBgOpacity = function (opacity) {
+					_bgOpacity = opacity;
+					self.bg.style.opacity = opacity * _options.bgOpacity;
+				},
+
+				_applyZoomTransform = function (styleObj, x, y, zoom, item) {
+					if (!_renderMaxResolution || (item && item !== self.currItem)) {
+						zoom = zoom / (item ? item.fitRatio : self.currItem.fitRatio);
+					}
+
+					styleObj[_transformKey] = _translatePrefix + x + 'px, ' + y + 'px' + _translateSufix + ' scale(' + zoom + ')';
+				},
+				_applyCurrentZoomPan = function (allowRenderResolution) {
+					if (_currZoomElementStyle) {
+
+						if (allowRenderResolution) {
+							if (_currZoomLevel > self.currItem.fitRatio) {
+								if (!_renderMaxResolution) {
+									_setImageSize(self.currItem, false, true);
+									_renderMaxResolution = true;
+								}
+							} else {
+								if (_renderMaxResolution) {
+									_setImageSize(self.currItem);
+									_renderMaxResolution = false;
+								}
+							}
+						}
+
+
+						_applyZoomTransform(_currZoomElementStyle, _panOffset.x, _panOffset.y, _currZoomLevel);
+					}
+				},
+				_applyZoomPanToItem = function (item) {
+					if (item.container) {
+						_applyZoomTransform(item.container.style,
+							item.initialPosition.x,
+							item.initialPosition.y,
+							item.initialZoomLevel,
+							item);
+					}
+				},
+				_setTranslateX = function (x, elStyle) {
+					elStyle[_transformKey] = _translatePrefix + x + 'px, 0px' + _translateSufix;
+				},
+				_moveMainScroll = function (x, dragging) {
+
+					if (!_options.loop && dragging) {
+						var newSlideIndexOffset = _currentItemIndex + (_slideSize.x * _currPositionIndex - x) / _slideSize.x,
+							delta = Math.round(x - _mainScrollPos.x);
+
+						if ((newSlideIndexOffset < 0 && delta > 0) ||
+							(newSlideIndexOffset >= _getNumItems() - 1 && delta < 0)) {
+							x = _mainScrollPos.x + delta * _options.mainScrollEndFriction;
+						}
+					}
+
+					_mainScrollPos.x = x;
+					_setTranslateX(x, _containerStyle);
+				},
+				_calculatePanOffset = function (axis, zoomLevel) {
+					var m = _midZoomPoint[axis] - _offset[axis];
+					return _startPanOffset[axis] + _currPanDist[axis] + m - m * (zoomLevel / _startZoomLevel);
+				},
+
+				_equalizePoints = function (p1, p2) {
+					p1.x = p2.x;
+					p1.y = p2.y;
+					if (p2.id) {
+						p1.id = p2.id;
+					}
+				},
+				_roundPoint = function (p) {
+					p.x = Math.round(p.x);
+					p.y = Math.round(p.y);
+				},
+
+				_mouseMoveTimeout = null,
+				_onFirstMouseMove = function () {
+					// Wait until mouse move event is fired at least twice during 100ms
+					// We do this, because some mobile browsers trigger it on touchstart
+					if (_mouseMoveTimeout) {
+						framework.unbind(document, 'mousemove', _onFirstMouseMove);
+						framework.addClass(template, 'pswp--has_mouse');
+						_options.mouseUsed = true;
+						_shout('mouseUsed');
+					}
+					_mouseMoveTimeout = setTimeout(function () {
+						_mouseMoveTimeout = null;
+					}, 100);
+				},
+
+				_bindEvents = function () {
+					framework.bind(document, 'keydown', self);
+
+					if (_features.transform) {
+						// don't bind click event in browsers that don't support transform (mostly IE8)
+						framework.bind(self.scrollWrap, 'click', self);
+					}
+
+
+					if (!_options.mouseUsed) {
+						framework.bind(document, 'mousemove', _onFirstMouseMove);
+					}
+
+					framework.bind(window, 'orientationchange resize scroll', self);
+
+					_shout('bindEvents');
+				},
+
+				_unbindEvents = function () {
+					framework.unbind(window, 'orientationchange', self);
+					framework.unbind(window, 'resize', self);
+					framework.unbind(window, 'scroll', _globalEventHandlers.scroll);
+					framework.unbind(document, 'keydown', self);
+					framework.unbind(document, 'mousemove', _onFirstMouseMove);
+
+					if (_features.transform) {
+						framework.unbind(self.scrollWrap, 'click', self);
+					}
+
+					if (_isDragging) {
+						framework.unbind(window, _upMoveEvents, self);
+					}
+
+					_shout('unbindEvents');
+				},
+
+				_calculatePanBounds = function (zoomLevel, update) {
+					var bounds = _calculateItemSize(self.currItem, _viewportSize, zoomLevel);
+					if (update) {
+						_currPanBounds = bounds;
+					}
+					return bounds;
+				},
+
+				_getMinZoomLevel = function (item) {
+					if (!item) {
+						item = self.currItem;
+					}
+					return item.initialZoomLevel;
+				},
+				_getMaxZoomLevel = function (item) {
+					if (!item) {
+						item = self.currItem;
+					}
+					return item.w > 0 ? _options.maxSpreadZoom : 1;
+				},
+
+				// Return true if offset is out of the bounds
+				_modifyDestPanOffset = function (axis, destPanBounds, destPanOffset, destZoomLevel) {
+					if (destZoomLevel === self.currItem.initialZoomLevel) {
+						destPanOffset[axis] = self.currItem.initialPosition[axis];
+						return true;
+					} else {
+						destPanOffset[axis] = _calculatePanOffset(axis, destZoomLevel);
+
+						if (destPanOffset[axis] > destPanBounds.min[axis]) {
+							destPanOffset[axis] = destPanBounds.min[axis];
+							return true;
+						} else if (destPanOffset[axis] < destPanBounds.max[axis]) {
+							destPanOffset[axis] = destPanBounds.max[axis];
+							return true;
+						}
+					}
+					return false;
+				},
+
+				_setupTransforms = function () {
+
+					if (_transformKey) {
+						// setup 3d transforms
+						var allow3dTransform = _features.perspective && !_likelyTouchDevice;
+						_translatePrefix = 'translate' + (allow3dTransform ? '3d(' : '(');
+						_translateSufix = _features.perspective ? ', 0px)' : ')';
+						return;
+					}
+
+					// Override zoom/pan/move functions in case old browser is used (most likely IE)
+					// (so they use left/top/width/height, instead of CSS transform)
+
+					_transformKey = 'left';
+					framework.addClass(template, 'pswp--ie');
+
+					_setTranslateX = function (x, elStyle) {
+						elStyle.left = x + 'px';
+					};
+					_applyZoomPanToItem = function (item) {
+
+						var zoomRatio = item.fitRatio > 1 ? 1 : item.fitRatio,
+							s = item.container.style,
+							w = zoomRatio * item.w,
+							h = zoomRatio * item.h;
+
+						s.width = w + 'px';
+						s.height = h + 'px';
+						s.left = item.initialPosition.x + 'px';
+						s.top = item.initialPosition.y + 'px';
+
+					};
+					_applyCurrentZoomPan = function () {
+						if (_currZoomElementStyle) {
+
+							var s = _currZoomElementStyle,
+								item = self.currItem,
+								zoomRatio = item.fitRatio > 1 ? 1 : item.fitRatio,
+								w = zoomRatio * item.w,
+								h = zoomRatio * item.h;
+
+							s.width = w + 'px';
+							s.height = h + 'px';
+
+
+							s.left = _panOffset.x + 'px';
+							s.top = _panOffset.y + 'px';
+						}
+
+					};
+				},
+
+				_onKeyDown = function (e) {
+					var keydownAction = '';
+					if (_options.escKey && e.keyCode === 27) {
+						keydownAction = 'close';
+					} else if (_options.arrowKeys) {
+						if (e.keyCode === 37) {
+							keydownAction = 'prev';
+						} else if (e.keyCode === 39) {
+							keydownAction = 'next';
+						}
+					}
+
+					if (keydownAction) {
+						// don't do anything if special key pressed to prevent from overriding default browser actions
+						// e.g. in Chrome on Mac cmd+arrow-left returns to previous page
+						if (!e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey) {
+							if (e.preventDefault) {
+								e.preventDefault();
+							} else {
+								e.returnValue = false;
+							}
+							self[keydownAction]();
+						}
+					}
+				},
+
+				_onGlobalClick = function (e) {
+					if (!e) {
+						return;
+					}
+
+					// don't allow click event to pass through when triggering after drag or some other gesture
+					if (_moved || _zoomStarted || _mainScrollAnimating || _verticalDragInitiated) {
+						e.preventDefault();
+						e.stopPropagation();
+					}
+				},
+
+				_updatePageScrollOffset = function () {
+					self.setScrollOffset(0, framework.getScrollY());
+				};
+
+
+
+
+
+
+
+			// Micro animation engine
+			var _animations = {},
+				_numAnimations = 0,
+				_stopAnimation = function (name) {
+					if (_animations[name]) {
+						if (_animations[name].raf) {
+							_cancelAF(_animations[name].raf);
+						}
+						_numAnimations--;
+						delete _animations[name];
+					}
+				},
+				_registerStartAnimation = function (name) {
+					if (_animations[name]) {
+						_stopAnimation(name);
+					}
+					if (!_animations[name]) {
+						_numAnimations++;
+						_animations[name] = {};
+					}
+				},
+				_stopAllAnimations = function () {
+					for (var prop in _animations) {
+
+						if (_animations.hasOwnProperty(prop)) {
+							_stopAnimation(prop);
+						}
+
+					}
+				},
+				_animateProp = function (name, b, endProp, d, easingFn, onUpdate, onComplete) {
+					var startAnimTime = _getCurrentTime(), t;
+					_registerStartAnimation(name);
+
+					var animloop = function () {
+						if (_animations[name]) {
+
+							t = _getCurrentTime() - startAnimTime; // time diff
+							//b - beginning (start prop)
+							//d - anim duration
+
+							if (t >= d) {
+								_stopAnimation(name);
+								onUpdate(endProp);
+								if (onComplete) {
+									onComplete();
+								}
+								return;
+							}
+							onUpdate((endProp - b) * easingFn(t / d) + b);
+
+							_animations[name].raf = _requestAF(animloop);
+						}
+					};
+					animloop();
+				};
+
+
+
+			var publicMethods = {
+
+				// make a few local variables and functions public
+				shout: _shout,
+				listen: _listen,
+				viewportSize: _viewportSize,
+				options: _options,
+
+				isMainScrollAnimating: function () {
+					return _mainScrollAnimating;
+				},
+				getZoomLevel: function () {
+					return _currZoomLevel;
+				},
+				getCurrentIndex: function () {
+					return _currentItemIndex;
+				},
+				isDragging: function () {
+					return _isDragging;
+				},
+				isZooming: function () {
+					return _isZooming;
+				},
+				setScrollOffset: function (x, y) {
+					_offset.x = x;
+					_currentWindowScrollY = _offset.y = y;
+					_shout('updateScrollOffset', _offset);
+				},
+				applyZoomPan: function (zoomLevel, panX, panY, allowRenderResolution) {
+					_panOffset.x = panX;
+					_panOffset.y = panY;
+					_currZoomLevel = zoomLevel;
+					_applyCurrentZoomPan(allowRenderResolution);
+				},
+
+				init: function () {
+
+					if (_isOpen || _isDestroying) {
+						return;
+					}
+
+					var i;
+
+					self.framework = framework; // basic functionality
+					self.template = template; // root DOM element of PhotoSwipe
+					self.bg = framework.getChildByClass(template, 'pswp__bg');
+
+					_initalClassName = template.className;
+					_isOpen = true;
+
+					_features = framework.detectFeatures();
+					_requestAF = _features.raf;
+					_cancelAF = _features.caf;
+					_transformKey = _features.transform;
+					_oldIE = _features.oldIE;
+
+					self.scrollWrap = framework.getChildByClass(template, 'pswp__scroll-wrap');
+					self.container = framework.getChildByClass(self.scrollWrap, 'pswp__container');
+
+					_containerStyle = self.container.style; // for fast access
+
+					// Objects that hold slides (there are only 3 in DOM)
+					self.itemHolders = _itemHolders = [
+						{ el: self.container.children[0], wrap: 0, index: -1 },
+						{ el: self.container.children[1], wrap: 0, index: -1 },
+						{ el: self.container.children[2], wrap: 0, index: -1 }
+					];
+
+					// hide nearby item holders until initial zoom animation finishes (to avoid extra Paints)
+					_itemHolders[0].el.style.display = _itemHolders[2].el.style.display = 'none';
+
+					_setupTransforms();
+
+					// Setup global events
+					_globalEventHandlers = {
+						orientationchange: function (e) {
+							clearTimeout(_orientationChangeTimeout);
+							_orientationChangeTimeout = setTimeout(function () {
+								if (_viewportSize.x !== self.scrollWrap.clientWidth) {
+									self.updateSize(e);
+								}
+							}, 500);
+						},
+						resize: self.updateSize,
+						scroll: _updatePageScrollOffset,
+						keydown: _onKeyDown,
+						click: _onGlobalClick
+					};
+
+					// disable show/hide effects on old browsers that don't support CSS animations or transforms, 
+					// old IOS, Android and Opera mobile. Blackberry seems to work fine, even older models.
+					var oldPhone = _features.isOldIOSPhone || _features.isOldAndroid || _features.isMobileOpera;
+					if (!_features.animationName || !_features.transform || oldPhone) {
+						_options.showAnimationDuration = _options.hideAnimationDuration = 0;
+					}
+
+					// init modules
+					for (i = 0; i < _modules.length; i++) {
+						self['init' + _modules[i]]();
+					}
+
+					// init
+					if (UiClass) {
+						var ui = self.ui = new UiClass(self, framework);
+						ui.init();
+					}
+
+					_shout('firstUpdate');
+					_currentItemIndex = _currentItemIndex || _options.index || 0;
+					// validate index
+					if (isNaN(_currentItemIndex) || _currentItemIndex < 0 || _currentItemIndex >= _getNumItems()) {
+						_currentItemIndex = 0;
+					}
+					self.currItem = _getItemAt(_currentItemIndex);
+
+
+					if (_features.isOldIOSPhone || _features.isOldAndroid) {
+						_isFixedPosition = false;
+					}
+
+					template.setAttribute('aria-hidden', 'false');
+					if (_options.modal) {
+						if (!_isFixedPosition) {
+							template.style.position = 'absolute';
+							template.style.top = framework.getScrollY() + 'px';
+						} else {
+							template.style.position = 'fixed';
+						}
+					}
+
+					if (_currentWindowScrollY === undefined) {
+						_shout('initialLayout');
+						_currentWindowScrollY = _initalWindowScrollY = framework.getScrollY();
+					}
+
+					// add classes to root element of PhotoSwipe
+					var rootClasses = 'pswp--open ';
+					if (_options.mainClass) {
+						rootClasses += _options.mainClass + ' ';
+					}
+					if (_options.showHideOpacity) {
+						rootClasses += 'pswp--animate_opacity ';
+					}
+					rootClasses += _likelyTouchDevice ? 'pswp--touch' : 'pswp--notouch';
+					rootClasses += _features.animationName ? ' pswp--css_animation' : '';
+					rootClasses += _features.svg ? ' pswp--svg' : '';
+					framework.addClass(template, rootClasses);
+
+					self.updateSize();
+
+					// initial update
+					_containerShiftIndex = -1;
+					_indexDiff = null;
+					for (i = 0; i < NUM_HOLDERS; i++) {
+						_setTranslateX((i + _containerShiftIndex) * _slideSize.x, _itemHolders[i].el.style);
+					}
+
+					if (!_oldIE) {
+						framework.bind(self.scrollWrap, _downEvents, self); // no dragging for old IE
+					}
+
+					_listen('initialZoomInEnd', function () {
+						self.setContent(_itemHolders[0], _currentItemIndex - 1);
+						self.setContent(_itemHolders[2], _currentItemIndex + 1);
+
+						_itemHolders[0].el.style.display = _itemHolders[2].el.style.display = 'block';
+
+						if (_options.focus) {
+							// focus causes layout, 
+							// which causes lag during the animation, 
+							// that's why we delay it untill the initial zoom transition ends
+							template.focus();
+						}
+
+
+						_bindEvents();
+					});
+
+					// set content for center slide (first time)
+					self.setContent(_itemHolders[1], _currentItemIndex);
+
+					self.updateCurrItem();
+
+					_shout('afterInit');
+
+					if (!_isFixedPosition) {
+
+						// On all versions of iOS lower than 8.0, we check size of viewport every second.
+						// 
+						// This is done to detect when Safari top & bottom bars appear, 
+						// as this action doesn't trigger any events (like resize). 
+						// 
+						// On iOS8 they fixed this.
+						// 
+						// 10 Nov 2014: iOS 7 usage ~40%. iOS 8 usage 56%.
+
+						_updateSizeInterval = setInterval(function () {
+							if (!_numAnimations && !_isDragging && !_isZooming && (_currZoomLevel === self.currItem.initialZoomLevel)) {
+								self.updateSize();
+							}
+						}, 1000);
+					}
+
+					framework.addClass(template, 'pswp--visible');
+				},
+
+				// Close the gallery, then destroy it
+				close: function () {
+					if (!_isOpen) {
+						return;
+					}
+
+					_isOpen = false;
+					_isDestroying = true;
+					_shout('close');
+					_unbindEvents();
+
+					_showOrHide(self.currItem, null, true, self.destroy);
+				},
+
+				// destroys the gallery (unbinds events, cleans up intervals and timeouts to avoid memory leaks)
+				destroy: function () {
+					_shout('destroy');
+
+					if (_showOrHideTimeout) {
+						clearTimeout(_showOrHideTimeout);
+					}
+
+					template.setAttribute('aria-hidden', 'true');
+					template.className = _initalClassName;
+
+					if (_updateSizeInterval) {
+						clearInterval(_updateSizeInterval);
+					}
+
+					framework.unbind(self.scrollWrap, _downEvents, self);
+
+					// we unbind scroll event at the end, as closing animation may depend on it
+					framework.unbind(window, 'scroll', self);
+
+					_stopDragUpdateLoop();
+
+					_stopAllAnimations();
+
+					_listeners = null;
+				},
+
+				/**
+				 * Pan image to position
+				 * @param {Number} x     
+				 * @param {Number} y     
+				 * @param {Boolean} force Will ignore bounds if set to true.
+				 */
+				panTo: function (x, y, force) {
+					if (!force) {
+						if (x > _currPanBounds.min.x) {
+							x = _currPanBounds.min.x;
+						} else if (x < _currPanBounds.max.x) {
+							x = _currPanBounds.max.x;
+						}
+
+						if (y > _currPanBounds.min.y) {
+							y = _currPanBounds.min.y;
+						} else if (y < _currPanBounds.max.y) {
+							y = _currPanBounds.max.y;
+						}
+					}
+
+					_panOffset.x = x;
+					_panOffset.y = y;
+					_applyCurrentZoomPan();
+				},
+
+				handleEvent: function (e) {
+					e = e || window.event;
+					if (_globalEventHandlers[e.type]) {
+						_globalEventHandlers[e.type](e);
+					}
+				},
+
+
+				goTo: function (index) {
+
+					index = _getLoopedId(index);
+
+					var diff = index - _currentItemIndex;
+					_indexDiff = diff;
+
+					_currentItemIndex = index;
+					self.currItem = _getItemAt(_currentItemIndex);
+					_currPositionIndex -= diff;
+
+					_moveMainScroll(_slideSize.x * _currPositionIndex);
+
+
+					_stopAllAnimations();
+					_mainScrollAnimating = false;
+
+					self.updateCurrItem();
+				},
+				next: function () {
+					self.goTo(_currentItemIndex + 1);
+				},
+				prev: function () {
+					self.goTo(_currentItemIndex - 1);
+				},
+
+				// update current zoom/pan objects
+				updateCurrZoomItem: function (emulateSetContent) {
+					if (emulateSetContent) {
+						_shout('beforeChange', 0);
+					}
+
+					// itemHolder[1] is middle (current) item
+					if (_itemHolders[1].el.children.length) {
+						var zoomElement = _itemHolders[1].el.children[0];
+						if (framework.hasClass(zoomElement, 'pswp__zoom-wrap')) {
+							_currZoomElementStyle = zoomElement.style;
+						} else {
+							_currZoomElementStyle = null;
+						}
+					} else {
+						_currZoomElementStyle = null;
+					}
+
+					_currPanBounds = self.currItem.bounds;
+					_startZoomLevel = _currZoomLevel = self.currItem.initialZoomLevel;
+
+					_panOffset.x = _currPanBounds.center.x;
+					_panOffset.y = _currPanBounds.center.y;
+
+					if (emulateSetContent) {
+						_shout('afterChange');
+					}
+				},
+
+
+				invalidateCurrItems: function () {
+					_itemsNeedUpdate = true;
+					for (var i = 0; i < NUM_HOLDERS; i++) {
+						if (_itemHolders[i].item) {
+							_itemHolders[i].item.needsUpdate = true;
+						}
+					}
+				},
+
+				updateCurrItem: function (beforeAnimation) {
+
+					if (_indexDiff === 0) {
+						return;
+					}
+
+					var diffAbs = Math.abs(_indexDiff),
+						tempHolder;
+
+					if (beforeAnimation && diffAbs < 2) {
+						return;
+					}
+
+
+					self.currItem = _getItemAt(_currentItemIndex);
+					_renderMaxResolution = false;
+
+					_shout('beforeChange', _indexDiff);
+
+					if (diffAbs >= NUM_HOLDERS) {
+						_containerShiftIndex += _indexDiff + (_indexDiff > 0 ? -NUM_HOLDERS : NUM_HOLDERS);
+						diffAbs = NUM_HOLDERS;
+					}
+					for (var i = 0; i < diffAbs; i++) {
+						if (_indexDiff > 0) {
+							tempHolder = _itemHolders.shift();
+							_itemHolders[NUM_HOLDERS - 1] = tempHolder; // move first to last
+
+							_containerShiftIndex++;
+							_setTranslateX((_containerShiftIndex + 2) * _slideSize.x, tempHolder.el.style);
+							self.setContent(tempHolder, _currentItemIndex - diffAbs + i + 1 + 1);
+						} else {
+							tempHolder = _itemHolders.pop();
+							_itemHolders.unshift(tempHolder); // move last to first
+
+							_containerShiftIndex--;
+							_setTranslateX(_containerShiftIndex * _slideSize.x, tempHolder.el.style);
+							self.setContent(tempHolder, _currentItemIndex + diffAbs - i - 1 - 1);
+						}
+
+					}
+
+					// reset zoom/pan on previous item
+					if (_currZoomElementStyle && Math.abs(_indexDiff) === 1) {
+
+						var prevItem = _getItemAt(_prevItemIndex);
+						if (prevItem.initialZoomLevel !== _currZoomLevel) {
+							_calculateItemSize(prevItem, _viewportSize);
+							_setImageSize(prevItem);
+							_applyZoomPanToItem(prevItem);
+						}
+
+					}
+
+					// reset diff after update
+					_indexDiff = 0;
+
+					self.updateCurrZoomItem();
+
+					_prevItemIndex = _currentItemIndex;
+
+					_shout('afterChange');
+
+					// 设置一个标志
+					var $item = document.getElementsByClassName('pswp__zoom-wrap');
+					for (var i = 0, len = $item.length; i < len; i++) {
+						$item[i].removeAttribute('data-curr');
+					}
+					self.currItem.container.setAttribute('data-curr', 'true');
+				},
+
+
+
+				updateSize: function (force) {
+					if (!_isFixedPosition && _options.modal) {
+						var windowScrollY = framework.getScrollY();
+						if (_currentWindowScrollY !== windowScrollY) {
+							template.style.top = windowScrollY + 'px';
+							_currentWindowScrollY = windowScrollY;
+						}
+						if (!force && _windowVisibleSize.x === window.innerWidth && _windowVisibleSize.y === window.innerHeight) {
+							return;
+						}
+						_windowVisibleSize.x = window.innerWidth;
+						_windowVisibleSize.y = window.innerHeight;
+
+						//template.style.width = _windowVisibleSize.x + 'px';
+						template.style.height = _windowVisibleSize.y + 'px';
+					}
+
+
+
+					_viewportSize.x = self.scrollWrap.clientWidth;
+					_viewportSize.y = self.scrollWrap.clientHeight;
+
+					_updatePageScrollOffset();
+
+					_slideSize.x = _viewportSize.x + Math.round(_viewportSize.x * _options.spacing);
+					_slideSize.y = _viewportSize.y;
+
+					_moveMainScroll(_slideSize.x * _currPositionIndex);
+
+					_shout('beforeResize'); // even may be used for example to switch image sources
+
+
+					// don't re-calculate size on inital size update
+					if (_containerShiftIndex !== undefined) {
+
+						var holder,
+							item,
+							hIndex;
+
+						for (var i = 0; i < NUM_HOLDERS; i++) {
+							holder = _itemHolders[i];
+							_setTranslateX((i + _containerShiftIndex) * _slideSize.x, holder.el.style);
+
+							hIndex = _currentItemIndex + i - 1;
+
+							if (_options.loop && _getNumItems() > 2) {
+								hIndex = _getLoopedId(hIndex);
+							}
+
+							// update zoom level on items and refresh source (if needsUpdate)
+							item = _getItemAt(hIndex);
+							// re-render gallery item if `needsUpdate`,
+							// or doesn't have `bounds` (entirely new slide object)
+							if (item && (_itemsNeedUpdate || item.needsUpdate || !item.bounds)) {
+
+								self.cleanSlide(item);
+
+								self.setContent(holder, hIndex);
+
+								// if "center" slide
+								if (i === 1) {
+									self.currItem = item;
+									self.updateCurrZoomItem(true);
+								}
+
+								item.needsUpdate = false;
+
+							} else if (holder.index === -1 && hIndex >= 0) {
+								// add content first time
+								self.setContent(holder, hIndex);
+							}
+							if (item && item.container) {
+								_calculateItemSize(item, _viewportSize);
+								_setImageSize(item);
+								_applyZoomPanToItem(item);
+							}
+
+						}
+						_itemsNeedUpdate = false;
+					}
+
+					_startZoomLevel = _currZoomLevel = self.currItem.initialZoomLevel;
+					_currPanBounds = self.currItem.bounds;
+
+					if (_currPanBounds) {
+						_panOffset.x = _currPanBounds.center.x;
+						_panOffset.y = _currPanBounds.center.y;
+						_applyCurrentZoomPan(true);
+					}
+
+					_shout('resize');
+					_shout('orientationchange');
+				},
+				setZoom: function (currZoomLevel) {
+					_currZoomLevel = currZoomLevel;
+				},
+				// Zoom current item to
+				zoomTo: function (destZoomLevel, centerPoint, speed, easingFn, updateFn) {
+					/*
+						if(destZoomLevel === 'fit') {
+							destZoomLevel = self.currItem.fitRatio;
+						} else if(destZoomLevel === 'fill') {
+							destZoomLevel = self.currItem.fillRatio;
+						}
+					*/
+					//_currZoomLevel = 0.29296875;
+					// _panOffset.x = _calculatePanOffset('x', _currZoomLevel);
+					// _panOffset.y = _calculatePanOffset('y', _currZoomLevel);
+					// console.log(_currZoomLevel, _panOffset);
+					if (centerPoint) {
+						_startZoomLevel = _currZoomLevel;
+						_midZoomPoint.x = Math.abs(centerPoint.x) - _panOffset.x;
+						_midZoomPoint.y = Math.abs(centerPoint.y) - _panOffset.y;
+						_equalizePoints(_startPanOffset, _panOffset);
+					}
+
+					var destPanBounds = _calculatePanBounds(destZoomLevel, false),
+						destPanOffset = {};
+
+					_modifyDestPanOffset('x', destPanBounds, destPanOffset, destZoomLevel);
+					_modifyDestPanOffset('y', destPanBounds, destPanOffset, destZoomLevel);
+
+					var initialZoomLevel = _currZoomLevel;
+					var initialPanOffset = {
+						x: _panOffset.x,
+						y: _panOffset.y
+					};
+
+					_roundPoint(destPanOffset);
+
+					var onUpdate = function (now) {
+						if (now === 1) {
+							// console.log('from', destZoomLevel, initialZoomLevel)
+							_currZoomLevel = destZoomLevel;
+							_panOffset.x = destPanOffset.x;
+							_panOffset.y = destPanOffset.y;
+						} else {
+							_currZoomLevel = (destZoomLevel - initialZoomLevel) * now + initialZoomLevel;
+							_panOffset.x = (destPanOffset.x - initialPanOffset.x) * now + initialPanOffset.x;
+							_panOffset.y = (destPanOffset.y - initialPanOffset.y) * now + initialPanOffset.y;
+						}
+
+						if (updateFn) {
+							updateFn(now);
+						}
+
+						_applyCurrentZoomPan(now === 1);
+					};
+
+					if (speed) {
+						_animateProp('customZoomTo', 0, 1, speed, easingFn || framework.easing.sine.inOut, onUpdate);
+					} else {
+						onUpdate(1);
+					}
+				}
+
+
+			};
+
+
+			/*>>core*/
+
+			/*>>gestures*/
+			/**
+			 * Mouse/touch/pointer event handlers.
+			 * 
+			 * separated from @core.js for readability
+			 */
+
+			var MIN_SWIPE_DISTANCE = 30,
+				DIRECTION_CHECK_OFFSET = 10; // amount of pixels to drag to determine direction of swipe
+
+			var _gestureStartTime,
+				_gestureCheckSpeedTime,
+
+				// pool of objects that are used during dragging of zooming
+				p = {}, // first point
+				p2 = {}, // second point (for zoom gesture)
+				delta = {},
+				_currPoint = {},
+				_startPoint = {},
+				_currPointers = [],
+				_startMainScrollPos = {},
+				_releaseAnimData,
+				_posPoints = [], // array of points during dragging, used to determine type of gesture
+				_tempPoint = {},
+
+				_isZoomingIn,
+				_verticalDragInitiated,
+				_oldAndroidTouchEndTimeout,
+				_currZoomedItemIndex = 0,
+				_centerPoint = _getEmptyPoint(),
+				_lastReleaseTime = 0,
+				_isDragging, // at least one pointer is down
+				_isMultitouch, // at least two _pointers are down
+				_zoomStarted, // zoom level changed during zoom gesture
+				_moved,
+				_dragAnimFrame,
+				_mainScrollShifted,
+				_currentPoints, // array of current touch points
+				_isZooming,
+				_currPointsDistance,
+				_startPointsDistance,
+				_currPanBounds,
+				_mainScrollPos = _getEmptyPoint(),
+				_currZoomElementStyle,
+				_mainScrollAnimating, // true, if animation after swipe gesture is running
+				_midZoomPoint = _getEmptyPoint(),
+				_currCenterPoint = _getEmptyPoint(),
+				_direction,
+				_isFirstMove,
+				_opacityChanged,
+				_bgOpacity,
+				_wasOverInitialZoom,
+
+				_isEqualPoints = function (p1, p2) {
+					return p1.x === p2.x && p1.y === p2.y;
+				},
+				_isNearbyPoints = function (touch0, touch1) {
+					return Math.abs(touch0.x - touch1.x) < DOUBLE_TAP_RADIUS && Math.abs(touch0.y - touch1.y) < DOUBLE_TAP_RADIUS;
+				},
+				_calculatePointsDistance = function (p1, p2) {
+					_tempPoint.x = Math.abs(p1.x - p2.x);
+					_tempPoint.y = Math.abs(p1.y - p2.y);
+					return Math.sqrt(_tempPoint.x * _tempPoint.x + _tempPoint.y * _tempPoint.y);
+				},
+				_stopDragUpdateLoop = function () {
+					if (_dragAnimFrame) {
+						_cancelAF(_dragAnimFrame);
+						_dragAnimFrame = null;
+					}
+				},
+				_dragUpdateLoop = function () {
+					if (_isDragging) {
+						_dragAnimFrame = _requestAF(_dragUpdateLoop);
+						_renderMovement();
+					}
+				},
+				_canPan = function () {
+					return !(_options.scaleMode === 'fit' && _currZoomLevel === self.currItem.initialZoomLevel);
+				},
+
+				// find the closest parent DOM element
+				_closestElement = function (el, fn) {
+					if (!el || el === document) {
+						return false;
+					}
+
+					// don't search elements above pswp__scroll-wrap
+					if (el.getAttribute('class') && el.getAttribute('class').indexOf('pswp__scroll-wrap') > -1) {
+						return false;
+					}
+
+					if (fn(el)) {
+						return el;
+					}
+
+					return _closestElement(el.parentNode, fn);
+				},
+
+				_preventObj = {},
+				_preventDefaultEventBehaviour = function (e, isDown) {
+					_preventObj.prevent = !_closestElement(e.target, _options.isClickableElement);
+
+					_shout('preventDragEvent', e, isDown, _preventObj);
+					return _preventObj.prevent;
+
+				},
+				_convertTouchToPoint = function (touch, p) {
+					p.x = touch.pageX;
+					p.y = touch.pageY;
+					p.id = touch.identifier;
+					return p;
+				},
+				_findCenterOfPoints = function (p1, p2, pCenter) {
+					pCenter.x = (p1.x + p2.x) * 0.5;
+					pCenter.y = (p1.y + p2.y) * 0.5;
+				},
+				_pushPosPoint = function (time, x, y) {
+					if (time - _gestureCheckSpeedTime > 50) {
+						var o = _posPoints.length > 2 ? _posPoints.shift() : {};
+						o.x = x;
+						o.y = y;
+						_posPoints.push(o);
+						_gestureCheckSpeedTime = time;
+					}
+				},
+
+				_calculateVerticalDragOpacityRatio = function () {
+					var yOffset = _panOffset.y - self.currItem.initialPosition.y; // difference between initial and current position
+					return 1 - Math.abs(yOffset / (_viewportSize.y / 2));
+				},
+
+
+				// points pool, reused during touch events
+				_ePoint1 = {},
+				_ePoint2 = {},
+				_tempPointsArr = [],
+				_tempCounter,
+				_getTouchPoints = function (e) {
+					// clean up previous points, without recreating array
+					while (_tempPointsArr.length > 0) {
+						_tempPointsArr.pop();
+					}
+
+					if (!_pointerEventEnabled) {
+						if (e.type.indexOf('touch') > -1) {
+
+							if (e.touches && e.touches.length > 0) {
+								_tempPointsArr[0] = _convertTouchToPoint(e.touches[0], _ePoint1);
+								if (e.touches.length > 1) {
+									_tempPointsArr[1] = _convertTouchToPoint(e.touches[1], _ePoint2);
+								}
+							}
+
+						} else {
+							_ePoint1.x = e.pageX;
+							_ePoint1.y = e.pageY;
+							_ePoint1.id = '';
+							_tempPointsArr[0] = _ePoint1;//_ePoint1;
+						}
+					} else {
+						_tempCounter = 0;
+						// we can use forEach, as pointer events are supported only in modern browsers
+						_currPointers.forEach(function (p) {
+							if (_tempCounter === 0) {
+								_tempPointsArr[0] = p;
+							} else if (_tempCounter === 1) {
+								_tempPointsArr[1] = p;
+							}
+							_tempCounter++;
+
+						});
+					}
+					return _tempPointsArr;
+				},
+
+				_panOrMoveMainScroll = function (axis, delta) {
+
+					var panFriction,
+						overDiff = 0,
+						newOffset = _panOffset[axis] + delta[axis],
+						startOverDiff,
+						dir = delta[axis] > 0,
+						newMainScrollPosition = _mainScrollPos.x + delta.x,
+						mainScrollDiff = _mainScrollPos.x - _startMainScrollPos.x,
+						newPanPos,
+						newMainScrollPos;
+
+					// calculate fdistance over the bounds and friction
+					if (newOffset > _currPanBounds.min[axis] || newOffset < _currPanBounds.max[axis]) {
+						panFriction = _options.panEndFriction;
+						// Linear increasing of friction, so at 1/4 of viewport it's at max value. 
+						// Looks not as nice as was expected. Left for history.
+						// panFriction = (1 - (_panOffset[axis] + delta[axis] + panBounds.min[axis]) / (_viewportSize[axis] / 4) );
+					} else {
+						panFriction = 1;
+					}
+
+					newOffset = _panOffset[axis] + delta[axis] * panFriction;
+
+					// move main scroll or start panning
+					if (_options.allowPanToNext || _currZoomLevel === self.currItem.initialZoomLevel) {
+
+
+						if (!_currZoomElementStyle) {
+
+							newMainScrollPos = newMainScrollPosition;
+
+						} else if (_direction === 'h' && axis === 'x' && !_zoomStarted) {
+
+							if (dir) {
+								if (newOffset > _currPanBounds.min[axis]) {
+									panFriction = _options.panEndFriction;
+									overDiff = _currPanBounds.min[axis] - newOffset;
+									startOverDiff = _currPanBounds.min[axis] - _startPanOffset[axis];
+								}
+
+								// drag right
+								if ((startOverDiff <= 0 || mainScrollDiff < 0) && _getNumItems() > 1) {
+									newMainScrollPos = newMainScrollPosition;
+									if (mainScrollDiff < 0 && newMainScrollPosition > _startMainScrollPos.x) {
+										newMainScrollPos = _startMainScrollPos.x;
+									}
+								} else {
+									if (_currPanBounds.min.x !== _currPanBounds.max.x) {
+										newPanPos = newOffset;
+									}
+
+								}
+
+							} else {
+
+								if (newOffset < _currPanBounds.max[axis]) {
+									panFriction = _options.panEndFriction;
+									overDiff = newOffset - _currPanBounds.max[axis];
+									startOverDiff = _startPanOffset[axis] - _currPanBounds.max[axis];
+								}
+
+								if ((startOverDiff <= 0 || mainScrollDiff > 0) && _getNumItems() > 1) {
+									newMainScrollPos = newMainScrollPosition;
+
+									if (mainScrollDiff > 0 && newMainScrollPosition < _startMainScrollPos.x) {
+										newMainScrollPos = _startMainScrollPos.x;
+									}
+
+								} else {
+									if (_currPanBounds.min.x !== _currPanBounds.max.x) {
+										newPanPos = newOffset;
+									}
+								}
+
+							}
+
+
+							//
+						}
+
+						if (axis === 'x') {
+
+							if (newMainScrollPos !== undefined) {
+								_moveMainScroll(newMainScrollPos, true);
+								if (newMainScrollPos === _startMainScrollPos.x) {
+									_mainScrollShifted = false;
+								} else {
+									_mainScrollShifted = true;
+								}
+							}
+
+							if (_currPanBounds.min.x !== _currPanBounds.max.x) {
+								if (newPanPos !== undefined) {
+									_panOffset.x = newPanPos;
+								} else if (!_mainScrollShifted) {
+									_panOffset.x += delta.x * panFriction;
+								}
+							}
+
+							return newMainScrollPos !== undefined;
+						}
+
+					}
+
+					if (!_mainScrollAnimating) {
+
+						if (!_mainScrollShifted) {
+							if (_currZoomLevel > self.currItem.fitRatio) {
+								_panOffset[axis] += delta[axis] * panFriction;
+
+							}
+						}
+
+
+					}
+
+				},
+
+				// Pointerdown/touchstart/mousedown handler
+				_onDragStart = function (e) {
+
+					// Allow dragging only via left mouse button.
+					// As this handler is not added in IE8 - we ignore e.which
+					// 
+					// http://www.quirksmode.org/js/events_properties.html
+					// https://developer.mozilla.org/en-US/docs/Web/API/event.button
+					if (e.type === 'mousedown' && e.button > 0) {
+						return;
+					}
+
+					if (_initialZoomRunning) {
+						e.preventDefault();
+						return;
+					}
+
+					if (_oldAndroidTouchEndTimeout && e.type === 'mousedown') {
+						return;
+					}
+
+					if (_preventDefaultEventBehaviour(e, true)) {
+						e.preventDefault();
+					}
+
+
+
+					_shout('pointerDown');
+
+					if (_pointerEventEnabled) {
+						var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+						if (pointerIndex < 0) {
+							pointerIndex = _currPointers.length;
+						}
+						_currPointers[pointerIndex] = { x: e.pageX, y: e.pageY, id: e.pointerId };
+					}
+
+
+
+					var startPointsList = _getTouchPoints(e),
+						numPoints = startPointsList.length;
+
+					_currentPoints = null;
+
+					_stopAllAnimations();
+
+					// init drag
+					if (!_isDragging || numPoints === 1) {
+
+
+
+						_isDragging = _isFirstMove = true;
+						framework.bind(window, _upMoveEvents, self);
+
+						_isZoomingIn =
+							_wasOverInitialZoom =
+							_opacityChanged =
+							_verticalDragInitiated =
+							_mainScrollShifted =
+							_moved =
+							_isMultitouch =
+							_zoomStarted = false;
+
+						_direction = null;
+
+						_shout('firstTouchStart', startPointsList);
+
+						_equalizePoints(_startPanOffset, _panOffset);
+
+						_currPanDist.x = _currPanDist.y = 0;
+						_equalizePoints(_currPoint, startPointsList[0]);
+						_equalizePoints(_startPoint, _currPoint);
+
+						//_equalizePoints(_startMainScrollPos, _mainScrollPos);
+						_startMainScrollPos.x = _slideSize.x * _currPositionIndex;
+
+						_posPoints = [{
+							x: _currPoint.x,
+							y: _currPoint.y
+						}];
+
+						_gestureCheckSpeedTime = _gestureStartTime = _getCurrentTime();
+
+						//_mainScrollAnimationEnd(true);
+						_calculatePanBounds(_currZoomLevel, true);
+
+						// Start rendering
+						_stopDragUpdateLoop();
+						_dragUpdateLoop();
+
+					}
+
+					// init zoom
+					if (!_isZooming && numPoints > 1 && !_mainScrollAnimating && !_mainScrollShifted) {
+						_startZoomLevel = _currZoomLevel;
+						_zoomStarted = false; // true if zoom changed at least once
+
+						_isZooming = _isMultitouch = true;
+						_currPanDist.y = _currPanDist.x = 0;
+
+						_equalizePoints(_startPanOffset, _panOffset);
+
+						_equalizePoints(p, startPointsList[0]);
+						_equalizePoints(p2, startPointsList[1]);
+
+						_findCenterOfPoints(p, p2, _currCenterPoint);
+
+						_midZoomPoint.x = Math.abs(_currCenterPoint.x) - _panOffset.x;
+						_midZoomPoint.y = Math.abs(_currCenterPoint.y) - _panOffset.y;
+						_currPointsDistance = _startPointsDistance = _calculatePointsDistance(p, p2);
+					}
+
+
+				},
+
+				// Pointermove/touchmove/mousemove handler
+				_onDragMove = function (e) {
+
+					e.preventDefault();
+
+					if (_pointerEventEnabled) {
+						var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+						if (pointerIndex > -1) {
+							var p = _currPointers[pointerIndex];
+							p.x = e.pageX;
+							p.y = e.pageY;
+						}
+					}
+
+					if (_isDragging) {
+						var touchesList = _getTouchPoints(e);
+						if (!_direction && !_moved && !_isZooming) {
+
+							if (_mainScrollPos.x !== _slideSize.x * _currPositionIndex) {
+								// if main scroll position is shifted – direction is always horizontal
+								_direction = 'h';
+							} else {
+								var diff = Math.abs(touchesList[0].x - _currPoint.x) - Math.abs(touchesList[0].y - _currPoint.y);
+								// check the direction of movement
+								if (Math.abs(diff) >= DIRECTION_CHECK_OFFSET) {
+									_direction = diff > 0 ? 'h' : 'v';
+									_currentPoints = touchesList;
+								}
+							}
+
+						} else {
+							_currentPoints = touchesList;
+						}
+					}
+				},
+				// 
+				_renderMovement = function () {
+
+					if (!_currentPoints) {
+						return;
+					}
+
+					var numPoints = _currentPoints.length;
+
+					if (numPoints === 0) {
+						return;
+					}
+
+					_equalizePoints(p, _currentPoints[0]);
+
+					delta.x = p.x - _currPoint.x;
+					delta.y = p.y - _currPoint.y;
+
+					if (_isZooming && numPoints > 1) {
+						// Handle behaviour for more than 1 point
+
+						_currPoint.x = p.x;
+						_currPoint.y = p.y;
+
+						// check if one of two points changed
+						if (!delta.x && !delta.y && _isEqualPoints(_currentPoints[1], p2)) {
+							return;
+						}
+
+						_equalizePoints(p2, _currentPoints[1]);
+
+
+						if (!_zoomStarted) {
+							_zoomStarted = true;
+							_shout('zoomGestureStarted');
+						}
+
+						// Distance between two points
+						var pointsDistance = _calculatePointsDistance(p, p2);
+
+						var zoomLevel = _calculateZoomLevel(pointsDistance);
+
+						// slightly over the of initial zoom level
+						if (zoomLevel > self.currItem.initialZoomLevel + self.currItem.initialZoomLevel / 15) {
+							_wasOverInitialZoom = true;
+						}
+
+						// Apply the friction if zoom level is out of the bounds
+						var zoomFriction = 1,
+							minZoomLevel = _getMinZoomLevel(),
+							maxZoomLevel = _getMaxZoomLevel();
+
+						if (zoomLevel < minZoomLevel) {
+
+							if (_options.pinchToClose && !_wasOverInitialZoom && _startZoomLevel <= self.currItem.initialZoomLevel) {
+								// fade out background if zooming out
+								var minusDiff = minZoomLevel - zoomLevel;
+								var percent = 1 - minusDiff / (minZoomLevel / 1.2);
+
+								_applyBgOpacity(percent);
+								_shout('onPinchClose', percent);
+								_opacityChanged = true;
+							} else {
+								zoomFriction = (minZoomLevel - zoomLevel) / minZoomLevel;
+								if (zoomFriction > 1) {
+									zoomFriction = 1;
+								}
+								zoomLevel = minZoomLevel - zoomFriction * (minZoomLevel / 3);
+							}
+
+						} else if (zoomLevel > maxZoomLevel) {
+							// 1.5 - extra zoom level above the max. E.g. if max is x6, real max 6 + 1.5 = 7.5
+							zoomFriction = (zoomLevel - maxZoomLevel) / (minZoomLevel * 6);
+							if (zoomFriction > 1) {
+								zoomFriction = 1;
+							}
+							zoomLevel = maxZoomLevel + zoomFriction * minZoomLevel;
+						}
+
+						if (zoomFriction < 0) {
+							zoomFriction = 0;
+						}
+
+						// distance between touch points after friction is applied
+						_currPointsDistance = pointsDistance;
+
+						// _centerPoint - The point in the middle of two pointers
+						_findCenterOfPoints(p, p2, _centerPoint);
+
+						// paning with two pointers pressed
+						_currPanDist.x += _centerPoint.x - _currCenterPoint.x;
+						_currPanDist.y += _centerPoint.y - _currCenterPoint.y;
+						_equalizePoints(_currCenterPoint, _centerPoint);
+
+						_panOffset.x = _calculatePanOffset('x', zoomLevel);
+						_panOffset.y = _calculatePanOffset('y', zoomLevel);
+
+						_isZoomingIn = zoomLevel > _currZoomLevel;
+						_currZoomLevel = zoomLevel;
+						_applyCurrentZoomPan();
+
+					} else {
+
+						// handle behaviour for one point (dragging or panning)
+
+						if (!_direction) {
+							return;
+						}
+
+						if (_isFirstMove) {
+							_isFirstMove = false;
+
+							// subtract drag distance that was used during the detection direction  
+
+							if (Math.abs(delta.x) >= DIRECTION_CHECK_OFFSET) {
+								delta.x -= _currentPoints[0].x - _startPoint.x;
+							}
+
+							if (Math.abs(delta.y) >= DIRECTION_CHECK_OFFSET) {
+								delta.y -= _currentPoints[0].y - _startPoint.y;
+							}
+						}
+
+						_currPoint.x = p.x;
+						_currPoint.y = p.y;
+
+						// do nothing if pointers position hasn't changed
+						if (delta.x === 0 && delta.y === 0) {
+							return;
+						}
+
+						if (_direction === 'v' && _options.closeOnVerticalDrag) {
+							if (!_canPan()) {
+								_currPanDist.y += delta.y;
+								_panOffset.y += delta.y;
+
+								var opacityRatio = _calculateVerticalDragOpacityRatio();
+
+								_verticalDragInitiated = true;
+								_shout('onVerticalDrag', opacityRatio);
+
+								_applyBgOpacity(opacityRatio);
+								_applyCurrentZoomPan();
+								return;
+							}
+						}
+
+						_pushPosPoint(_getCurrentTime(), p.x, p.y);
+
+						_moved = true;
+						_currPanBounds = self.currItem.bounds;
+
+						var mainScrollChanged = _panOrMoveMainScroll('x', delta);
+						if (!mainScrollChanged) {
+							_panOrMoveMainScroll('y', delta);
+
+							_roundPoint(_panOffset);
+							_applyCurrentZoomPan();
+						}
+
+					}
+
+				},
+
+				// Pointerup/pointercancel/touchend/touchcancel/mouseup event handler
+				_onDragRelease = function (e) {
+
+					if (_features.isOldAndroid) {
+
+						if (_oldAndroidTouchEndTimeout && e.type === 'mouseup') {
+							return;
+						}
+
+						// on Android (v4.1, 4.2, 4.3 & possibly older) 
+						// ghost mousedown/up event isn't preventable via e.preventDefault,
+						// which causes fake mousedown event
+						// so we block mousedown/up for 600ms
+						if (e.type.indexOf('touch') > -1) {
+							clearTimeout(_oldAndroidTouchEndTimeout);
+							_oldAndroidTouchEndTimeout = setTimeout(function () {
+								_oldAndroidTouchEndTimeout = 0;
+							}, 600);
+						}
+
+					}
+
+					_shout('pointerUp');
+
+					if (_preventDefaultEventBehaviour(e, false)) {
+						e.preventDefault();
+					}
+
+					var releasePoint;
+
+					if (_pointerEventEnabled) {
+						var pointerIndex = framework.arraySearch(_currPointers, e.pointerId, 'id');
+
+						if (pointerIndex > -1) {
+							releasePoint = _currPointers.splice(pointerIndex, 1)[0];
+
+							if (navigator.pointerEnabled) {
+								releasePoint.type = e.pointerType || 'mouse';
+							} else {
+								var MSPOINTER_TYPES = {
+									4: 'mouse', // event.MSPOINTER_TYPE_MOUSE
+									2: 'touch', // event.MSPOINTER_TYPE_TOUCH 
+									3: 'pen' // event.MSPOINTER_TYPE_PEN
+								};
+								releasePoint.type = MSPOINTER_TYPES[e.pointerType];
+
+								if (!releasePoint.type) {
+									releasePoint.type = e.pointerType || 'mouse';
+								}
+							}
+
+						}
+					}
+
+					var touchList = _getTouchPoints(e),
+						gestureType,
+						numPoints = touchList.length;
+
+					if (e.type === 'mouseup') {
+						numPoints = 0;
+					}
+
+					// Do nothing if there were 3 touch points or more
+					if (numPoints === 2) {
+						_currentPoints = null;
+						return true;
+					}
+
+					// if second pointer released
+					if (numPoints === 1) {
+						_equalizePoints(_startPoint, touchList[0]);
+					}
+
+
+					// pointer hasn't moved, send "tap release" point
+					if (numPoints === 0 && !_direction && !_mainScrollAnimating) {
+						if (!releasePoint) {
+							if (e.type === 'mouseup') {
+								releasePoint = { x: e.pageX, y: e.pageY, type: 'mouse' };
+							} else if (e.changedTouches && e.changedTouches[0]) {
+								releasePoint = { x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY, type: 'touch' };
+							}
+						}
+
+						_shout('touchRelease', e, releasePoint);
+					}
+
+					// Difference in time between releasing of two last touch points (zoom gesture)
+					var releaseTimeDiff = -1;
+
+					// Gesture completed, no pointers left
+					if (numPoints === 0) {
+						_isDragging = false;
+						framework.unbind(window, _upMoveEvents, self);
+
+						_stopDragUpdateLoop();
+
+						if (_isZooming) {
+							// Two points released at the same time
+							releaseTimeDiff = 0;
+						} else if (_lastReleaseTime !== -1) {
+							releaseTimeDiff = _getCurrentTime() - _lastReleaseTime;
+						}
+					}
+					_lastReleaseTime = numPoints === 1 ? _getCurrentTime() : -1;
+
+					if (releaseTimeDiff !== -1 && releaseTimeDiff < 150) {
+						gestureType = 'zoom';
+					} else {
+						gestureType = 'swipe';
+					}
+
+					if (_isZooming && numPoints < 2) {
+						_isZooming = false;
+
+						// Only second point released
+						if (numPoints === 1) {
+							gestureType = 'zoomPointerUp';
+						}
+						_shout('zoomGestureEnded');
+					}
+
+					_currentPoints = null;
+					if (!_moved && !_zoomStarted && !_mainScrollAnimating && !_verticalDragInitiated) {
+						// nothing to animate
+						return;
+					}
+
+					_stopAllAnimations();
+
+
+					if (!_releaseAnimData) {
+						_releaseAnimData = _initDragReleaseAnimationData();
+					}
+
+					_releaseAnimData.calculateSwipeSpeed('x');
+
+
+					if (_verticalDragInitiated) {
+
+						var opacityRatio = _calculateVerticalDragOpacityRatio();
+
+						if (opacityRatio < _options.verticalDragRange) {
+							self.close();
+						} else {
+							var initalPanY = _panOffset.y,
+								initialBgOpacity = _bgOpacity;
+
+							_animateProp('verticalDrag', 0, 1, 300, framework.easing.cubic.out, function (now) {
+
+								_panOffset.y = (self.currItem.initialPosition.y - initalPanY) * now + initalPanY;
+
+								_applyBgOpacity((1 - initialBgOpacity) * now + initialBgOpacity);
+								_applyCurrentZoomPan();
+							});
+
+							_shout('onVerticalDrag', 1);
+						}
+
+						return;
+					}
+
+
+					// main scroll 
+					if ((_mainScrollShifted || _mainScrollAnimating) && numPoints === 0) {
+						var itemChanged = _finishSwipeMainScrollGesture(gestureType, _releaseAnimData);
+						if (itemChanged) {
+							return;
+						}
+						gestureType = 'zoomPointerUp';
+					}
+
+					// prevent zoom/pan animation when main scroll animation runs
+					if (_mainScrollAnimating) {
+						return;
+					}
+
+					// Complete simple zoom gesture (reset zoom level if it's out of the bounds)  
+					if (gestureType !== 'swipe') {
+						_completeZoomGesture();
+						return;
+					}
+
+					// Complete pan gesture if main scroll is not shifted, and it's possible to pan current image
+					if (!_mainScrollShifted && _currZoomLevel > self.currItem.fitRatio) {
+						_completePanGesture(_releaseAnimData);
+					}
+				},
+
+
+				// Returns object with data about gesture
+				// It's created only once and then reused
+				_initDragReleaseAnimationData = function () {
+					// temp local vars
+					var lastFlickDuration,
+						tempReleasePos;
+
+					// s = this
+					var s = {
+						lastFlickOffset: {},
+						lastFlickDist: {},
+						lastFlickSpeed: {},
+						slowDownRatio: {},
+						slowDownRatioReverse: {},
+						speedDecelerationRatio: {},
+						speedDecelerationRatioAbs: {},
+						distanceOffset: {},
+						backAnimDestination: {},
+						backAnimStarted: {},
+						calculateSwipeSpeed: function (axis) {
+
+
+							if (_posPoints.length > 1) {
+								lastFlickDuration = _getCurrentTime() - _gestureCheckSpeedTime + 50;
+								tempReleasePos = _posPoints[_posPoints.length - 2][axis];
+							} else {
+								lastFlickDuration = _getCurrentTime() - _gestureStartTime; // total gesture duration
+								tempReleasePos = _startPoint[axis];
+							}
+							s.lastFlickOffset[axis] = _currPoint[axis] - tempReleasePos;
+							s.lastFlickDist[axis] = Math.abs(s.lastFlickOffset[axis]);
+							if (s.lastFlickDist[axis] > 20) {
+								s.lastFlickSpeed[axis] = s.lastFlickOffset[axis] / lastFlickDuration;
+							} else {
+								s.lastFlickSpeed[axis] = 0;
+							}
+							if (Math.abs(s.lastFlickSpeed[axis]) < 0.1) {
+								s.lastFlickSpeed[axis] = 0;
+							}
+
+							s.slowDownRatio[axis] = 0.95;
+							s.slowDownRatioReverse[axis] = 1 - s.slowDownRatio[axis];
+							s.speedDecelerationRatio[axis] = 1;
+						},
+
+						calculateOverBoundsAnimOffset: function (axis, speed) {
+							if (!s.backAnimStarted[axis]) {
+
+								if (_panOffset[axis] > _currPanBounds.min[axis]) {
+									s.backAnimDestination[axis] = _currPanBounds.min[axis];
+
+								} else if (_panOffset[axis] < _currPanBounds.max[axis]) {
+									s.backAnimDestination[axis] = _currPanBounds.max[axis];
+								}
+
+								if (s.backAnimDestination[axis] !== undefined) {
+									s.slowDownRatio[axis] = 0.7;
+									s.slowDownRatioReverse[axis] = 1 - s.slowDownRatio[axis];
+									if (s.speedDecelerationRatioAbs[axis] < 0.05) {
+
+										s.lastFlickSpeed[axis] = 0;
+										s.backAnimStarted[axis] = true;
+
+										_animateProp('bounceZoomPan' + axis, _panOffset[axis],
+											s.backAnimDestination[axis],
+											speed || 300,
+											framework.easing.sine.out,
+											function (pos) {
+												_panOffset[axis] = pos;
+												_applyCurrentZoomPan();
+											}
+										);
+
+									}
+								}
+							}
+						},
+
+						// Reduces the speed by slowDownRatio (per 10ms)
+						calculateAnimOffset: function (axis) {
+							if (!s.backAnimStarted[axis]) {
+								s.speedDecelerationRatio[axis] = s.speedDecelerationRatio[axis] * (s.slowDownRatio[axis] +
+									s.slowDownRatioReverse[axis] -
+									s.slowDownRatioReverse[axis] * s.timeDiff / 10);
+
+								s.speedDecelerationRatioAbs[axis] = Math.abs(s.lastFlickSpeed[axis] * s.speedDecelerationRatio[axis]);
+								s.distanceOffset[axis] = s.lastFlickSpeed[axis] * s.speedDecelerationRatio[axis] * s.timeDiff;
+								_panOffset[axis] += s.distanceOffset[axis];
+
+							}
+						},
+
+						panAnimLoop: function () {
+							if (_animations.zoomPan) {
+								_animations.zoomPan.raf = _requestAF(s.panAnimLoop);
+
+								s.now = _getCurrentTime();
+								s.timeDiff = s.now - s.lastNow;
+								s.lastNow = s.now;
+
+								s.calculateAnimOffset('x');
+								s.calculateAnimOffset('y');
+
+								_applyCurrentZoomPan();
+
+								s.calculateOverBoundsAnimOffset('x');
+								s.calculateOverBoundsAnimOffset('y');
+
+
+								if (s.speedDecelerationRatioAbs.x < 0.05 && s.speedDecelerationRatioAbs.y < 0.05) {
+
+									// round pan position
+									_panOffset.x = Math.round(_panOffset.x);
+									_panOffset.y = Math.round(_panOffset.y);
+									_applyCurrentZoomPan();
+
+									_stopAnimation('zoomPan');
+									return;
+								}
+							}
+
+						}
+					};
+					return s;
+				},
+
+				_completePanGesture = function (animData) {
+					// calculate swipe speed for Y axis (paanning)
+					animData.calculateSwipeSpeed('y');
+
+					_currPanBounds = self.currItem.bounds;
+
+					animData.backAnimDestination = {};
+					animData.backAnimStarted = {};
+
+					// Avoid acceleration animation if speed is too low
+					if (Math.abs(animData.lastFlickSpeed.x) <= 0.05 && Math.abs(animData.lastFlickSpeed.y) <= 0.05) {
+						animData.speedDecelerationRatioAbs.x = animData.speedDecelerationRatioAbs.y = 0;
+
+						// Run pan drag release animation. E.g. if you drag image and release finger without momentum.
+						animData.calculateOverBoundsAnimOffset('x');
+						animData.calculateOverBoundsAnimOffset('y');
+						return true;
+					}
+
+					// Animation loop that controls the acceleration after pan gesture ends
+					_registerStartAnimation('zoomPan');
+					animData.lastNow = _getCurrentTime();
+					animData.panAnimLoop();
+				},
+
+
+				_finishSwipeMainScrollGesture = function (gestureType, _releaseAnimData) {
+
+					var itemChanged;
+					if (!_mainScrollAnimating) {
+						_currZoomedItemIndex = _currentItemIndex;
+					}
+
+
+
+					var itemsDiff;
+
+					if (gestureType === 'swipe') {
+						var totalShiftDist = _currPoint.x - _startPoint.x,
+							isFastLastFlick = _releaseAnimData.lastFlickDist.x < 10;
+
+						// if container is shifted for more than MIN_SWIPE_DISTANCE, 
+						// and last flick gesture was in right direction
+						if (totalShiftDist > MIN_SWIPE_DISTANCE &&
+							(isFastLastFlick || _releaseAnimData.lastFlickOffset.x > 20)) {
+							// go to prev item
+							itemsDiff = -1;
+						} else if (totalShiftDist < -MIN_SWIPE_DISTANCE &&
+							(isFastLastFlick || _releaseAnimData.lastFlickOffset.x < -20)) {
+							// go to next item
+							itemsDiff = 1;
+						}
+					}
+
+					var nextCircle;
+
+					if (itemsDiff) {
+
+						_currentItemIndex += itemsDiff;
+
+						if (_currentItemIndex < 0) {
+							_currentItemIndex = _options.loop ? _getNumItems() - 1 : 0;
+							nextCircle = true;
+						} else if (_currentItemIndex >= _getNumItems()) {
+							_currentItemIndex = _options.loop ? 0 : _getNumItems() - 1;
+							nextCircle = true;
+						}
+
+						if (!nextCircle || _options.loop) {
+							_indexDiff += itemsDiff;
+							_currPositionIndex -= itemsDiff;
+							itemChanged = true;
+						}
+
+
+
+					}
+
+					var animateToX = _slideSize.x * _currPositionIndex;
+					var animateToDist = Math.abs(animateToX - _mainScrollPos.x);
+					var finishAnimDuration;
+
+
+					if (!itemChanged && animateToX > _mainScrollPos.x !== _releaseAnimData.lastFlickSpeed.x > 0) {
+						// "return to current" duration, e.g. when dragging from slide 0 to -1
+						finishAnimDuration = 333;
+					} else {
+						finishAnimDuration = Math.abs(_releaseAnimData.lastFlickSpeed.x) > 0 ?
+							animateToDist / Math.abs(_releaseAnimData.lastFlickSpeed.x) :
+							333;
+
+						finishAnimDuration = Math.min(finishAnimDuration, 400);
+						finishAnimDuration = Math.max(finishAnimDuration, 250);
+					}
+
+					if (_currZoomedItemIndex === _currentItemIndex) {
+						itemChanged = false;
+					}
+
+					_mainScrollAnimating = true;
+
+					_shout('mainScrollAnimStart');
+
+					_animateProp('mainScroll', _mainScrollPos.x, animateToX, finishAnimDuration, framework.easing.cubic.out,
+						_moveMainScroll,
+						function () {
+							_stopAllAnimations();
+							_mainScrollAnimating = false;
+							_currZoomedItemIndex = -1;
+
+							if (itemChanged || _currZoomedItemIndex !== _currentItemIndex) {
+								self.updateCurrItem();
+							}
+
+							_shout('mainScrollAnimComplete');
+						}
+					);
+
+					if (itemChanged) {
+						self.updateCurrItem(true);
+					}
+
+					return itemChanged;
+				},
+
+				_calculateZoomLevel = function (touchesDistance) {
+					return 1 / _startPointsDistance * touchesDistance * _startZoomLevel;
+				},
+
+				// Resets zoom if it's out of bounds
+				_completeZoomGesture = function () {
+					var destZoomLevel = _currZoomLevel,
+						minZoomLevel = _getMinZoomLevel(),
+						maxZoomLevel = _getMaxZoomLevel();
+
+					if (_currZoomLevel < minZoomLevel) {
+						destZoomLevel = minZoomLevel;
+					} else if (_currZoomLevel > maxZoomLevel) {
+						destZoomLevel = maxZoomLevel;
+					}
+
+					var destOpacity = 1,
+						onUpdate,
+						initialOpacity = _bgOpacity;
+
+					if (_opacityChanged && !_isZoomingIn && !_wasOverInitialZoom && _currZoomLevel < minZoomLevel) {
+						//_closedByScroll = true;
+						self.close();
+						return true;
+					}
+
+					if (_opacityChanged) {
+						onUpdate = function (now) {
+							_applyBgOpacity((destOpacity - initialOpacity) * now + initialOpacity);
+						};
+					}
+
+					self.zoomTo(destZoomLevel, 0, 200, framework.easing.cubic.out, onUpdate);
+					return true;
+				};
+
+
+			_registerModule('Gestures', {
+				publicMethods: {
+
+					initGestures: function () {
+
+						// helper function that builds touch/pointer/mouse events
+						var addEventNames = function (pref, down, move, up, cancel) {
+							_dragStartEvent = pref + down;
+							_dragMoveEvent = pref + move;
+							_dragEndEvent = pref + up;
+							if (cancel) {
+								_dragCancelEvent = pref + cancel;
+							} else {
+								_dragCancelEvent = '';
+							}
+						};
+
+						_pointerEventEnabled = _features.pointerEvent;
+						if (_pointerEventEnabled && _features.touch) {
+							// we don't need touch events, if browser supports pointer events
+							_features.touch = false;
+						}
+
+						if (_pointerEventEnabled) {
+							if (navigator.pointerEnabled) {
+								addEventNames('pointer', 'down', 'move', 'up', 'cancel');
+							} else {
+								// IE10 pointer events are case-sensitive
+								addEventNames('MSPointer', 'Down', 'Move', 'Up', 'Cancel');
+							}
+						} else if (_features.touch) {
+							addEventNames('touch', 'start', 'move', 'end', 'cancel');
+							_likelyTouchDevice = true;
+						} else {
+							addEventNames('mouse', 'down', 'move', 'up');
+						}
+
+						_upMoveEvents = _dragMoveEvent + ' ' + _dragEndEvent + ' ' + _dragCancelEvent;
+						_downEvents = _dragStartEvent;
+
+						if (_pointerEventEnabled && !_likelyTouchDevice) {
+							_likelyTouchDevice = (navigator.maxTouchPoints > 1) || (navigator.msMaxTouchPoints > 1);
+						}
+						// make variable public
+						self.likelyTouchDevice = _likelyTouchDevice;
+
+						_globalEventHandlers[_dragStartEvent] = _onDragStart;
+						_globalEventHandlers[_dragMoveEvent] = _onDragMove;
+						_globalEventHandlers[_dragEndEvent] = _onDragRelease; // the Kraken
+
+						if (_dragCancelEvent) {
+							_globalEventHandlers[_dragCancelEvent] = _globalEventHandlers[_dragEndEvent];
+						}
+
+						// Bind mouse events on device with detected hardware touch support, in case it supports multiple types of input.
+						if (_features.touch) {
+							_downEvents += ' mousedown';
+							_upMoveEvents += ' mousemove mouseup';
+							_globalEventHandlers.mousedown = _globalEventHandlers[_dragStartEvent];
+							_globalEventHandlers.mousemove = _globalEventHandlers[_dragMoveEvent];
+							_globalEventHandlers.mouseup = _globalEventHandlers[_dragEndEvent];
+						}
+
+						if (!_likelyTouchDevice) {
+							// don't allow pan to next slide from zoomed state on Desktop
+							_options.allowPanToNext = false;
+						}
+					}
+
+				}
+			});
+
+
+			/*>>gestures*/
+
+			/*>>show-hide-transition*/
+			/**
+			 * show-hide-transition.js:
+			 *
+			 * Manages initial opening or closing transition.
+			 *
+			 * If you're not planning to use transition for gallery at all,
+			 * you may set options hideAnimationDuration and showAnimationDuration to 0,
+			 * and just delete startAnimation function.
+			 * 
+			 */
+
+
+			var _showOrHideTimeout,
+				_showOrHide = function (item, img, out, completeFn) {
+
+					if (_showOrHideTimeout) {
+						clearTimeout(_showOrHideTimeout);
+					}
+
+					_initialZoomRunning = true;
+					_initialContentSet = true;
+
+					// dimensions of small thumbnail {x:,y:,w:}.
+					// Height is optional, as calculated based on large image.
+					var thumbBounds;
+					if (item.initialLayout) {
+						thumbBounds = item.initialLayout;
+						item.initialLayout = null;
+					} else {
+						thumbBounds = _options.getThumbBoundsFn && _options.getThumbBoundsFn(_currentItemIndex);
+					}
+
+					var duration = out ? _options.hideAnimationDuration : _options.showAnimationDuration;
+
+					var onComplete = function () {
+						_stopAnimation('initialZoom');
+						if (!out) {
+							_applyBgOpacity(1);
+							if (img) {
+								img.style.display = 'block';
+							}
+							framework.addClass(template, 'pswp--animated-in');
+							_shout('initialZoom' + (out ? 'OutEnd' : 'InEnd'));
+						} else {
+							self.template.removeAttribute('style');
+							self.bg.removeAttribute('style');
+						}
+
+						if (completeFn) {
+							completeFn();
+						}
+						_initialZoomRunning = false;
+					};
+
+					// if bounds aren't provided, just open gallery without animation
+					if (!duration || !thumbBounds || thumbBounds.x === undefined) {
+
+						_shout('initialZoom' + (out ? 'Out' : 'In'));
+
+						_currZoomLevel = item.initialZoomLevel;
+						_equalizePoints(_panOffset, item.initialPosition);
+						_applyCurrentZoomPan();
+
+						template.style.opacity = out ? 0 : 1;
+						_applyBgOpacity(1);
+
+						if (duration) {
+							setTimeout(function () {
+								onComplete();
+							}, duration);
+						} else {
+							onComplete();
+						}
+
+						return;
+					}
+
+					var startAnimation = function () {
+						var closeWithRaf = _closedByScroll,
+							fadeEverything = !self.currItem.src || self.currItem.loadError || _options.showHideOpacity;
+
+						// apply hw-acceleration to image
+						if (item.miniImg) {
+							item.miniImg.style.webkitBackfaceVisibility = 'hidden';
+						}
+
+						if (!out) {
+							_currZoomLevel = thumbBounds.w / item.w;
+							_panOffset.x = thumbBounds.x;
+							_panOffset.y = thumbBounds.y - _initalWindowScrollY;
+
+							self[fadeEverything ? 'template' : 'bg'].style.opacity = 0.001;
+							_applyCurrentZoomPan();
+						}
+
+						_registerStartAnimation('initialZoom');
+
+						if (out && !closeWithRaf) {
+							framework.removeClass(template, 'pswp--animated-in');
+						}
+
+						if (fadeEverything) {
+							if (out) {
+								framework[(closeWithRaf ? 'remove' : 'add') + 'Class'](template, 'pswp--animate_opacity');
+							} else {
+								setTimeout(function () {
+									framework.addClass(template, 'pswp--animate_opacity');
+								}, 30);
+							}
+						}
+
+						_showOrHideTimeout = setTimeout(function () {
+
+							_shout('initialZoom' + (out ? 'Out' : 'In'));
+
+
+							if (!out) {
+
+								// "in" animation always uses CSS transitions (instead of rAF).
+								// CSS transition work faster here, 
+								// as developer may also want to animate other things, 
+								// like ui on top of sliding area, which can be animated just via CSS
+
+								_currZoomLevel = item.initialZoomLevel;
+								_equalizePoints(_panOffset, item.initialPosition);
+								_applyCurrentZoomPan();
+								_applyBgOpacity(1);
+
+								if (fadeEverything) {
+									template.style.opacity = 1;
+								} else {
+									_applyBgOpacity(1);
+								}
+
+								_showOrHideTimeout = setTimeout(onComplete, duration + 20);
+							} else {
+
+								// "out" animation uses rAF only when PhotoSwipe is closed by browser scroll, to recalculate position
+								var destZoomLevel = thumbBounds.w / item.w,
+									initialPanOffset = {
+										x: _panOffset.x,
+										y: _panOffset.y
+									},
+									initialZoomLevel = _currZoomLevel,
+									initalBgOpacity = _bgOpacity,
+									onUpdate = function (now) {
+
+										if (now === 1) {
+											_currZoomLevel = destZoomLevel;
+											_panOffset.x = thumbBounds.x;
+											_panOffset.y = thumbBounds.y - _currentWindowScrollY;
+										} else {
+											_currZoomLevel = (destZoomLevel - initialZoomLevel) * now + initialZoomLevel;
+											_panOffset.x = (thumbBounds.x - initialPanOffset.x) * now + initialPanOffset.x;
+											_panOffset.y = (thumbBounds.y - _currentWindowScrollY - initialPanOffset.y) * now + initialPanOffset.y;
+										}
+
+										_applyCurrentZoomPan();
+										if (fadeEverything) {
+											template.style.opacity = 1 - now;
+										} else {
+											_applyBgOpacity(initalBgOpacity - now * initalBgOpacity);
+										}
+									};
+
+								if (closeWithRaf) {
+									_animateProp('initialZoom', 0, 1, duration, framework.easing.cubic.out, onUpdate, onComplete);
+								} else {
+									onUpdate(1);
+									_showOrHideTimeout = setTimeout(onComplete, duration + 20);
+								}
+							}
+
+						}, out ? 25 : 90); // Main purpose of this delay is to give browser time to paint and
+						// create composite layers of PhotoSwipe UI parts (background, controls, caption, arrows).
+						// Which avoids lag at the beginning of scale transition.
+					};
+					startAnimation();
+
+
+				};
+
+			/*>>show-hide-transition*/
+
+			/*>>items-controller*/
+			/**
+			*
+			* Controller manages gallery items, their dimensions, and their content.
+			* 
+			*/
+
+			var _items,
+				_tempPanAreaSize = {},
+				_imagesToAppendPool = [],
+				_initialContentSet,
+				_initialZoomRunning,
+				_controllerDefaultOptions = {
+					index: 0,
+					errorMsg: '<div class="pswp__error-msg"><a href="%url%" target="_blank">The image</a> could not be loaded.</div>',
+					forceProgressiveLoading: false, // TODO
+					preload: [1, 1],
+					getNumItemsFn: function () {
+						return _items.length;
+					}
+				};
+
+
+			var _getItemAt,
+				_getNumItems,
+				_initialIsLoop,
+				_getZeroBounds = function () {
+					return {
+						center: { x: 0, y: 0 },
+						max: { x: 0, y: 0 },
+						min: { x: 0, y: 0 }
+					};
+				},
+				_calculateSingleItemPanBounds = function (item, realPanElementW, realPanElementH) {
+					var bounds = item.bounds;
+
+					// position of element when it's centered
+					bounds.center.x = Math.round((_tempPanAreaSize.x - realPanElementW) / 2);
+					bounds.center.y = Math.round((_tempPanAreaSize.y - realPanElementH) / 2) + item.vGap.top;
+
+					// maximum pan position
+					bounds.max.x = (realPanElementW > _tempPanAreaSize.x) ?
+						Math.round(_tempPanAreaSize.x - realPanElementW) :
+						bounds.center.x;
+
+					bounds.max.y = (realPanElementH > _tempPanAreaSize.y) ?
+						Math.round(_tempPanAreaSize.y - realPanElementH) + item.vGap.top :
+						bounds.center.y;
+
+					// minimum pan position
+					bounds.min.x = (realPanElementW > _tempPanAreaSize.x) ? 0 : bounds.center.x;
+					bounds.min.y = (realPanElementH > _tempPanAreaSize.y) ? item.vGap.top : bounds.center.y;
+				},
+				_calculateItemSize = function (item, viewportSize, zoomLevel) {
+					if (item.src && !item.loadError) {
+						var isInitial = !zoomLevel;
+
+						if (isInitial) {
+							if (!item.vGap) {
+								item.vGap = { top: 0, bottom: 0 };
+							}
+							// allows overriding vertical margin for individual items
+							_shout('parseVerticalMargin', item);
+						}
+
+
+						_tempPanAreaSize.x = viewportSize.x;
+						_tempPanAreaSize.y = viewportSize.y - item.vGap.top - item.vGap.bottom;
+
+						if (isInitial) {
+							var hRatio = _tempPanAreaSize.x / item.w;
+							var vRatio = _tempPanAreaSize.y / item.h;
+
+							item.fitRatio = hRatio < vRatio ? hRatio : vRatio;
+							//item.fillRatio = hRatio > vRatio ? hRatio : vRatio;
+
+							var scaleMode = _options.scaleMode;
+
+							if (scaleMode === 'orig') {
+								zoomLevel = 1;
+							} else if (scaleMode === 'fit') {
+								zoomLevel = item.fitRatio;
+							}
+
+							if (zoomLevel > 1) {
+								zoomLevel = 1;
+							}
+
+							item.initialZoomLevel = zoomLevel;
+
+							if (!item.bounds) {
+								// reuse bounds object
+								item.bounds = _getZeroBounds();
+							}
+						}
+
+						if (!zoomLevel) {
+							return;
+						}
+
+						_calculateSingleItemPanBounds(item, item.w * zoomLevel, item.h * zoomLevel);
+
+						if (isInitial && zoomLevel === item.initialZoomLevel) {
+							item.initialPosition = item.bounds.center;
+						}
+
+						return item.bounds;
+					} else {
+						item.w = item.h = 0;
+						item.initialZoomLevel = item.fitRatio = 1;
+						item.bounds = _getZeroBounds();
+						item.initialPosition = item.bounds.center;
+
+						// if it's not image, we return zero bounds (content is not zoomable)
+						return item.bounds;
+					}
+
+				},
+
+
+
+
+				_appendImage = function (index, item, baseDiv, img, preventAnimation, keepPlaceholder) {
+
+
+					if (item.loadError) {
+						return;
+					}
+
+					if (img) {
+
+						item.imageAppended = true;
+						_setImageSize(item, img, (item === self.currItem && _renderMaxResolution));
+
+						baseDiv.appendChild(img);
+
+						if (keepPlaceholder) {
+							setTimeout(function () {
+								if (item && item.loaded && item.placeholder) {
+									item.placeholder.style.display = 'none';
+									item.placeholder = null;
+								}
+							}, 500);
+						}
+					}
+				},
+
+
+
+				_preloadImage = function (item) {
+					item.loading = true;
+					item.loaded = false;
+					var img = item.img = framework.createEl('pswp__img js-pswp__img', 'img');
+					var onComplete = function () {
+						item.loading = false;
+						item.loaded = true;
+
+						if (item.loadComplete) {
+							item.loadComplete(item);
+						} else {
+							item.img = null; // no need to store image object
+						}
+						img.onload = img.onerror = null;
+						img = null;
+					};
+					img.onload = onComplete;
+					img.onerror = function () {
+						item.loadError = true;
+						onComplete();
+					};
+
+					img.src = item.src;// + '?a=' + Math.random();
+
+					return img;
+				},
+				_checkForError = function (item, cleanUp) {
+					if (item.src && item.loadError && item.container) {
+
+						if (cleanUp) {
+							item.container.innerHTML = '';
+						}
+
+						item.container.innerHTML = _options.errorMsg.replace('%url%', item.src);
+						return true;
+
+					}
+				},
+				_setImageSize = function (item, img, maxRes) {
+					if (!item.src) {
+						return;
+					}
+
+					if (!img) {
+						img = item.container.lastChild;
+					}
+
+					var w = maxRes ? item.w : Math.round(item.w * item.fitRatio),
+						h = maxRes ? item.h : Math.round(item.h * item.fitRatio);
+
+					if (item.placeholder && !item.loaded) {
+						item.placeholder.style.width = w + 'px';
+						item.placeholder.style.height = h + 'px';
+					}
+
+					img.style.width = w + 'px';
+					img.style.height = h + 'px';
+				},
+				_appendImagesPool = function () {
+
+					if (_imagesToAppendPool.length) {
+						var poolItem;
+
+						for (var i = 0; i < _imagesToAppendPool.length; i++) {
+							poolItem = _imagesToAppendPool[i];
+							if (poolItem.holder.index === poolItem.index) {
+								_appendImage(poolItem.index, poolItem.item, poolItem.baseDiv, poolItem.img, false, poolItem.clearPlaceholder);
+							}
+						}
+						_imagesToAppendPool = [];
+					}
+				};
+
+
+
+			_registerModule('Controller', {
+
+				publicMethods: {
+
+					lazyLoadItem: function (index) {
+						index = _getLoopedId(index);
+						var item = _getItemAt(index);
+
+						if (!item || ((item.loaded || item.loading) && !_itemsNeedUpdate)) {
+							return;
+						}
+
+						_shout('gettingData', index, item);
+
+						if (!item.src) {
+							return;
+						}
+
+						_preloadImage(item);
+					},
+					initController: function () {
+						framework.extend(_options, _controllerDefaultOptions, true);
+						self.items = _items = items;
+						_getItemAt = self.getItemAt;
+						_getNumItems = _options.getNumItemsFn; //self.getNumItems;
+
+
+
+						_initialIsLoop = _options.loop;
+						if (_getNumItems() < 3) {
+							_options.loop = false; // disable loop if less then 3 items
+						}
+
+						_listen('beforeChange', function (diff) {
+
+							var p = _options.preload,
+								isNext = diff === null ? true : (diff >= 0),
+								preloadBefore = Math.min(p[0], _getNumItems()),
+								preloadAfter = Math.min(p[1], _getNumItems()),
+								i;
+
+
+							for (i = 1; i <= (isNext ? preloadAfter : preloadBefore); i++) {
+								self.lazyLoadItem(_currentItemIndex + i);
+							}
+							for (i = 1; i <= (isNext ? preloadBefore : preloadAfter); i++) {
+								self.lazyLoadItem(_currentItemIndex - i);
+							}
+						});
+
+						_listen('initialLayout', function () {
+							self.currItem.initialLayout = _options.getThumbBoundsFn && _options.getThumbBoundsFn(_currentItemIndex);
+						});
+
+						_listen('mainScrollAnimComplete', _appendImagesPool);
+						_listen('initialZoomInEnd', _appendImagesPool);
+
+
+
+						_listen('destroy', function () {
+							var item;
+							for (var i = 0; i < _items.length; i++) {
+								item = _items[i];
+								// remove reference to DOM elements, for GC
+								if (item.container) {
+									item.container = null;
+								}
+								if (item.placeholder) {
+									item.placeholder = null;
+								}
+								if (item.img) {
+									item.img = null;
+								}
+								if (item.preloader) {
+									item.preloader = null;
+								}
+								if (item.loadError) {
+									item.loaded = item.loadError = false;
+								}
+							}
+							_imagesToAppendPool = null;
+						});
+					},
+
+
+					getItemAt: function (index) {
+						if (index >= 0) {
+							return _items[index] !== undefined ? _items[index] : false;
+						}
+						return false;
+					},
+
+					allowProgressiveImg: function () {
+						// 1. Progressive image loading isn't working on webkit/blink 
+						//    when hw-acceleration (e.g. translateZ) is applied to IMG element.
+						//    That's why in PhotoSwipe parent element gets zoom transform, not image itself.
+						//    
+						// 2. Progressive image loading sometimes blinks in webkit/blink when applying animation to parent element.
+						//    That's why it's disabled on touch devices (mainly because of swipe transition)
+						//    
+						// 3. Progressive image loading sometimes doesn't work in IE (up to 11).
+
+						// Don't allow progressive loading on non-large touch devices
+						return _options.forceProgressiveLoading || !_likelyTouchDevice || _options.mouseUsed || screen.width > 1200;
+						// 1200 - to eliminate touch devices with large screen (like Chromebook Pixel)
+					},
+
+					setContent: function (holder, index) {
+
+						if (_options.loop) {
+							index = _getLoopedId(index);
+						}
+
+						var prevItem = self.getItemAt(holder.index);
+						if (prevItem) {
+							prevItem.container = null;
+						}
+
+						var item = self.getItemAt(index),
+							img;
+
+						if (!item) {
+							holder.el.innerHTML = '';
+							return;
+						}
+
+						// allow to override data
+						_shout('gettingData', index, item);
+
+						holder.index = index;
+						holder.item = item;
+
+						// base container DIV is created only once for each of 3 holders
+						var baseDiv = item.container = framework.createEl('pswp__zoom-wrap');
+
+
+
+						if (!item.src && item.html) {
+							if (item.html.tagName) {
+								baseDiv.appendChild(item.html);
+							} else {
+								baseDiv.innerHTML = item.html;
+							}
+						}
+
+						_checkForError(item);
+						_calculateItemSize(item, _viewportSize);
+
+						if (item.src && !item.loadError && !item.loaded) {
+
+							item.loadComplete = function (item) {
+
+								// gallery closed before image finished loading
+								if (!_isOpen) {
+									return;
+								}
+
+								// check if holder hasn't changed while image was loading
+								if (holder && holder.index === index) {
+									if (_checkForError(item, true)) {
+										item.loadComplete = item.img = null;
+										_calculateItemSize(item, _viewportSize);
+										_applyZoomPanToItem(item);
+
+										if (holder.index === _currentItemIndex) {
+											// recalculate dimensions
+											self.updateCurrZoomItem();
+										}
+										return;
+									}
+									if (!item.imageAppended) {
+										if (_features.transform && (_mainScrollAnimating || _initialZoomRunning)) {
+											_imagesToAppendPool.push({
+												item: item,
+												baseDiv: baseDiv,
+												img: item.img,
+												index: index,
+												holder: holder,
+												clearPlaceholder: true
+											});
+										} else {
+											_appendImage(index, item, baseDiv, item.img, _mainScrollAnimating || _initialZoomRunning, true);
+										}
+									} else {
+										// remove preloader & mini-img
+										if (!_initialZoomRunning && item.placeholder) {
+											item.placeholder.style.display = 'none';
+											item.placeholder = null;
+										}
+									}
+								}
+
+								item.loadComplete = null;
+								item.img = null; // no need to store image element after it's added
+
+								_shout('imageLoadComplete', index, item);
+							};
+
+							if (framework.features.transform) {
+
+								var placeholderClassName = 'pswp__img pswp__img--placeholder';
+								placeholderClassName += (item.msrc ? '' : ' pswp__img--placeholder--blank');
+
+								var placeholder = framework.createEl(placeholderClassName, item.msrc ? 'img' : '');
+								if (item.msrc) {
+									placeholder.src = item.msrc;
+								}
+
+								_setImageSize(item, placeholder);
+
+								baseDiv.appendChild(placeholder);
+								item.placeholder = placeholder;
+
+							}
+
+
+
+
+							if (!item.loading) {
+								_preloadImage(item);
+							}
+
+
+							if (self.allowProgressiveImg()) {
+								// just append image
+								if (!_initialContentSet && _features.transform) {
+									_imagesToAppendPool.push({
+										item: item,
+										baseDiv: baseDiv,
+										img: item.img,
+										index: index,
+										holder: holder
+									});
+								} else {
+									_appendImage(index, item, baseDiv, item.img, true, true);
+								}
+							}
+
+						} else if (item.src && !item.loadError) {
+							// image object is created every time, due to bugs of image loading & delay when switching images
+							img = framework.createEl('pswp__img js-pswp__img', 'img');
+							img.style.opacity = 1;
+							img.src = item.src;
+							_setImageSize(item, img);
+							_appendImage(index, item, baseDiv, img, true);
+						}
+
+
+						if (!_initialContentSet && index === _currentItemIndex) {
+							_currZoomElementStyle = baseDiv.style;
+							_showOrHide(item, (img || item.img));
+						} else {
+							_applyZoomPanToItem(item);
+						}
+
+						holder.el.innerHTML = '';
+						holder.el.appendChild(baseDiv);
+					},
+
+					cleanSlide: function (item) {
+						if (item.img) {
+							item.img.onload = item.img.onerror = null;
+						}
+						item.loaded = item.loading = item.img = item.imageAppended = false;
+					}
+
+				}
+			});
+
+			/*>>items-controller*/
+
+			/*>>tap*/
+			/**
+			 * tap.js:
+			 *
+			 * Displatches tap and double-tap events.
+			 * 
+			 */
+
+			var tapTimer,
+				tapReleasePoint = {},
+				_dispatchTapEvent = function (origEvent, releasePoint, pointerType) {
+					var e = document.createEvent('CustomEvent'),
+						eDetail = {
+							origEvent: origEvent,
+							target: origEvent.target,
+							releasePoint: releasePoint,
+							pointerType: pointerType || 'touch'
+						};
+
+					e.initCustomEvent('pswpTap', true, true, eDetail);
+					origEvent.target.dispatchEvent(e);
+				};
+
+			_registerModule('Tap', {
+				publicMethods: {
+					initTap: function () {
+						_listen('firstTouchStart', self.onTapStart);
+						_listen('touchRelease', self.onTapRelease);
+						_listen('destroy', function () {
+							tapReleasePoint = {};
+							tapTimer = null;
+						});
+					},
+					onTapStart: function (touchList) {
+						if (touchList.length > 1) {
+							clearTimeout(tapTimer);
+							tapTimer = null;
+						}
+					},
+					onTapRelease: function (e, releasePoint) {
+						if (!releasePoint) {
+							return;
+						}
+
+						if (!_moved && !_isMultitouch && !_numAnimations) {
+							var p0 = releasePoint;
+							if (tapTimer) {
+								clearTimeout(tapTimer);
+								tapTimer = null;
+
+								// Check if taped on the same place
+								if (_isNearbyPoints(p0, tapReleasePoint)) {
+									_shout('doubleTap', p0);
+									return;
+								}
+							}
+
+							if (releasePoint.type === 'mouse') {
+								_dispatchTapEvent(e, releasePoint, 'mouse');
+								return;
+							}
+
+							var clickedTagName = e.target.tagName.toUpperCase();
+							// avoid double tap delay on buttons and elements that have class pswp__single-tap
+							if (clickedTagName === 'BUTTON' || framework.hasClass(e.target, 'pswp__single-tap')) {
+								_dispatchTapEvent(e, releasePoint);
+								return;
+							}
+
+							_equalizePoints(tapReleasePoint, p0);
+
+							tapTimer = setTimeout(function () {
+								_dispatchTapEvent(e, releasePoint);
+								tapTimer = null;
+							}, 300);
+						}
+					}
+				}
+			});
+
+			/*>>tap*/
+
+			/*>>desktop-zoom*/
+			/**
+			 *
+			 * desktop-zoom.js:
+			 *
+			 * - Binds mousewheel event for paning zoomed image.
+			 * - Manages "dragging", "zoomed-in", "zoom-out" classes.
+			 *   (which are used for cursors and zoom icon)
+			 * - Adds toggleDesktopZoom function.
+			 * 
+			 */
+
+			var _wheelDelta;
+
+			_registerModule('DesktopZoom', {
+
+				publicMethods: {
+
+					initDesktopZoom: function () {
+
+						if (_oldIE) {
+							// no zoom for old IE (<=8)
+							return;
+						}
+
+						if (_likelyTouchDevice) {
+							// if detected hardware touch support, we wait until mouse is used,
+							// and only then apply desktop-zoom features
+							_listen('mouseUsed', function () {
+								self.setupDesktopZoom();
+							});
+						} else {
+							self.setupDesktopZoom(true);
+						}
+
+					},
+
+					setupDesktopZoom: function (onInit) {
+
+						_wheelDelta = {};
+
+						var events = 'wheel mousewheel DOMMouseScroll';
+
+						_listen('bindEvents', function () {
+							framework.bind(template, events, self.handleMouseWheel);
+						});
+
+						_listen('unbindEvents', function () {
+							if (_wheelDelta) {
+								framework.unbind(template, events, self.handleMouseWheel);
+							}
+						});
+
+						self.mouseZoomedIn = false;
+
+						var hasDraggingClass,
+							updateZoomable = function () {
+								if (self.mouseZoomedIn) {
+									framework.removeClass(template, 'pswp--zoomed-in');
+									self.mouseZoomedIn = false;
+								}
+								if (_currZoomLevel < 1) {
+									framework.addClass(template, 'pswp--zoom-allowed');
+								} else {
+									framework.removeClass(template, 'pswp--zoom-allowed');
+								}
+								removeDraggingClass();
+							},
+							removeDraggingClass = function () {
+								if (hasDraggingClass) {
+									framework.removeClass(template, 'pswp--dragging');
+									hasDraggingClass = false;
+								}
+							};
+
+						_listen('resize', updateZoomable);
+						_listen('orientationchange', updateZoomable);
+						_listen('afterChange', updateZoomable);
+						_listen('pointerDown', function () {
+							if (self.mouseZoomedIn) {
+								hasDraggingClass = true;
+								framework.addClass(template, 'pswp--dragging');
+							}
+						});
+						_listen('pointerUp', removeDraggingClass);
+
+						if (!onInit) {
+							updateZoomable();
+						}
+
+					},
+
+					handleMouseWheel: function (e) {
+
+						if (_currZoomLevel <= self.currItem.fitRatio) {
+							if (_options.modal) {
+
+								if (!_options.closeOnScroll || _numAnimations || _isDragging) {
+									e.preventDefault();
+								} else if (_transformKey && Math.abs(e.deltaY) > 2) {
+									// close PhotoSwipe
+									// if browser supports transforms & scroll changed enough
+									_closedByScroll = true;
+									self.close();
+								}
+
+							}
+							return true;
+						}
+
+						// allow just one event to fire
+						e.stopPropagation();
+
+						// https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+						_wheelDelta.x = 0;
+
+						if ('deltaX' in e) {
+							if (e.deltaMode === 1 /* DOM_DELTA_LINE */) {
+								// 18 - average line height
+								_wheelDelta.x = e.deltaX * 18;
+								_wheelDelta.y = e.deltaY * 18;
+							} else {
+								_wheelDelta.x = e.deltaX;
+								_wheelDelta.y = e.deltaY;
+							}
+						} else if ('wheelDelta' in e) {
+							if (e.wheelDeltaX) {
+								_wheelDelta.x = -0.16 * e.wheelDeltaX;
+							}
+							if (e.wheelDeltaY) {
+								_wheelDelta.y = -0.16 * e.wheelDeltaY;
+							} else {
+								_wheelDelta.y = -0.16 * e.wheelDelta;
+							}
+						} else if ('detail' in e) {
+							_wheelDelta.y = e.detail;
+						} else {
+							return;
+						}
+
+						_calculatePanBounds(_currZoomLevel, true);
+
+						var newPanX = _panOffset.x - _wheelDelta.x,
+							newPanY = _panOffset.y - _wheelDelta.y;
+
+						// only prevent scrolling in nonmodal mode when not at edges
+						if (_options.modal ||
+							(
+								newPanX <= _currPanBounds.min.x && newPanX >= _currPanBounds.max.x &&
+								newPanY <= _currPanBounds.min.y && newPanY >= _currPanBounds.max.y
+							)) {
+							e.preventDefault();
+						}
+
+						// TODO: use rAF instead of mousewheel?
+						self.panTo(newPanX, newPanY);
+					},
+
+					toggleDesktopZoom: function (centerPoint) {
+						centerPoint = centerPoint || { x: _viewportSize.x / 2 + _offset.x, y: _viewportSize.y / 2 + _offset.y };
+
+						var doubleTapZoomLevel = _options.getDoubleTapZoom(true, self.currItem);
+						var zoomOut = _currZoomLevel === doubleTapZoomLevel;
+
+						self.mouseZoomedIn = !zoomOut;
+
+						self.zoomTo(zoomOut ? self.currItem.initialZoomLevel : doubleTapZoomLevel, centerPoint, 333);
+						framework[(!zoomOut ? 'add' : 'remove') + 'Class'](template, 'pswp--zoomed-in');
+					}
+
+				}
+			});
+
+
+			/*>>desktop-zoom*/
+
+			/*>>history*/
+			/**
+			 *
+			 * history.js:
+			 *
+			 * - Back button to close gallery.
+			 * 
+			 * - Unique URL for each slide: example.com/&pid=1&gid=3
+			 *   (where PID is picture index, and GID and gallery index)
+			 *   
+			 * - Switch URL when slides change.
+			 * 
+			 */
+
+
+			var _historyDefaultOptions = {
+				history: true,
+				galleryUID: 1
+			};
+
+			var _historyUpdateTimeout,
+				_hashChangeTimeout,
+				_hashAnimCheckTimeout,
+				_hashChangedByScript,
+				_hashChangedByHistory,
+				_hashReseted,
+				_initialHash,
+				_historyChanged,
+				_closedFromURL,
+				_urlChangedOnce,
+				_windowLoc,
+
+				_supportsPushState,
+
+				_getHash = function () {
+					return _windowLoc.hash.substring(1);
+				},
+				_cleanHistoryTimeouts = function () {
+
+					if (_historyUpdateTimeout) {
+						clearTimeout(_historyUpdateTimeout);
+					}
+
+					if (_hashAnimCheckTimeout) {
+						clearTimeout(_hashAnimCheckTimeout);
+					}
+				},
+
+				// pid - Picture index
+				// gid - Gallery index
+				_parseItemIndexFromURL = function () {
+					var hash = _getHash(),
+						params = {};
+
+					if (hash.length < 5) { // pid=1
+						return params;
+					}
+
+					var i, vars = hash.split('&');
+					for (i = 0; i < vars.length; i++) {
+						if (!vars[i]) {
+							continue;
+						}
+						var pair = vars[i].split('=');
+						if (pair.length < 2) {
+							continue;
+						}
+						params[pair[0]] = pair[1];
+					}
+					if (_options.galleryPIDs) {
+						// detect custom pid in hash and search for it among the items collection
+						var searchfor = params.pid;
+						params.pid = 0; // if custom pid cannot be found, fallback to the first item
+						for (i = 0; i < _items.length; i++) {
+							if (_items[i].pid === searchfor) {
+								params.pid = i;
+								break;
+							}
+						}
+					} else {
+						params.pid = parseInt(params.pid, 10) - 1;
+					}
+					if (params.pid < 0) {
+						params.pid = 0;
+					}
+					return params;
+				},
+				_updateHash = function () {
+
+					if (_hashAnimCheckTimeout) {
+						clearTimeout(_hashAnimCheckTimeout);
+					}
+
+
+					if (_numAnimations || _isDragging) {
+						// changing browser URL forces layout/paint in some browsers, which causes noticable lag during animation
+						// that's why we update hash only when no animations running
+						_hashAnimCheckTimeout = setTimeout(_updateHash, 500);
+						return;
+					}
+
+					if (_hashChangedByScript) {
+						clearTimeout(_hashChangeTimeout);
+					} else {
+						_hashChangedByScript = true;
+					}
+
+
+					var pid = (_currentItemIndex + 1);
+					var item = _getItemAt(_currentItemIndex);
+					if (item.hasOwnProperty('pid')) {
+						// carry forward any custom pid assigned to the item
+						pid = item.pid;
+					}
+					var newHash = _initialHash + '&' + 'gid=' + _options.galleryUID + '&' + 'pid=' + pid;
+
+					if (!_historyChanged) {
+						if (_windowLoc.hash.indexOf(newHash) === -1) {
+							_urlChangedOnce = true;
+						}
+						// first time - add new hisory record, then just replace
+					}
+
+					var newURL = _windowLoc.href.split('#')[0] + '#' + newHash;
+
+					if (_supportsPushState) {
+
+						if ('#' + newHash !== window.location.hash) {
+							history[_historyChanged ? 'replaceState' : 'pushState']('', document.title, newURL);
+						}
+
+					} else {
+						if (_historyChanged) {
+							_windowLoc.replace(newURL);
+						} else {
+							_windowLoc.hash = newHash;
+						}
+					}
+
+
+
+					_historyChanged = true;
+					_hashChangeTimeout = setTimeout(function () {
+						_hashChangedByScript = false;
+					}, 60);
+				};
+
+
+
+
+
+			_registerModule('History', {
+
+
+
+				publicMethods: {
+					initHistory: function () {
+
+						framework.extend(_options, _historyDefaultOptions, true);
+
+						if (!_options.history) {
+							return;
+						}
+
+
+						_windowLoc = window.location;
+						_urlChangedOnce = false;
+						_closedFromURL = false;
+						_historyChanged = false;
+						_initialHash = _getHash();
+						_supportsPushState = ('pushState' in history);
+
+
+						if (_initialHash.indexOf('gid=') > -1) {
+							_initialHash = _initialHash.split('&gid=')[0];
+							_initialHash = _initialHash.split('?gid=')[0];
+						}
+
+
+						_listen('afterChange', self.updateURL);
+						_listen('unbindEvents', function () {
+							framework.unbind(window, 'hashchange', self.onHashChange);
+						});
+
+
+						var returnToOriginal = function () {
+							_hashReseted = true;
+							if (!_closedFromURL) {
+
+								if (_urlChangedOnce) {
+									history.back();
+								} else {
+
+									if (_initialHash) {
+										_windowLoc.hash = _initialHash;
+									} else {
+										if (_supportsPushState) {
+
+											// remove hash from url without refreshing it or scrolling to top
+											history.pushState('', document.title, _windowLoc.pathname + _windowLoc.search);
+										} else {
+											_windowLoc.hash = '';
+										}
+									}
+								}
+
+							}
+
+							_cleanHistoryTimeouts();
+						};
+
+
+						_listen('unbindEvents', function () {
+							if (_closedByScroll) {
+								// if PhotoSwipe is closed by scroll, we go "back" before the closing animation starts
+								// this is done to keep the scroll position
+								returnToOriginal();
+							}
+						});
+						_listen('destroy', function () {
+							if (!_hashReseted) {
+								returnToOriginal();
+							}
+						});
+						_listen('firstUpdate', function () {
+							_currentItemIndex = _parseItemIndexFromURL().pid;
+						});
+
+
+
+
+						var index = _initialHash.indexOf('pid=');
+						if (index > -1) {
+							_initialHash = _initialHash.substring(0, index);
+							if (_initialHash.slice(-1) === '&') {
+								_initialHash = _initialHash.slice(0, -1);
+							}
+						}
+
+
+						setTimeout(function () {
+							if (_isOpen) { // hasn't destroyed yet
+								framework.bind(window, 'hashchange', self.onHashChange);
+							}
+						}, 40);
+
+					},
+					onHashChange: function () {
+
+						if (_getHash() === _initialHash) {
+
+							_closedFromURL = true;
+							self.close();
+							return;
+						}
+						if (!_hashChangedByScript) {
+
+							_hashChangedByHistory = true;
+							self.goTo(_parseItemIndexFromURL().pid);
+							_hashChangedByHistory = false;
+						}
+
+					},
+					updateURL: function () {
+
+						// Delay the update of URL, to avoid lag during transition, 
+						// and to not to trigger actions like "refresh page sound" or "blinking favicon" to often
+
+						_cleanHistoryTimeouts();
+
+
+						if (_hashChangedByHistory) {
+							return;
+						}
+
+						if (!_historyChanged) {
+							_updateHash(); // first time
+						} else {
+							_historyUpdateTimeout = setTimeout(_updateHash, 800);
+						}
+					}
+
+				}
+			});
+
+
+			/*>>history*/
+			framework.extend(self, publicMethods);
+		};
+		return PhotoSwipe;
+	});
+
+/***/ }),
+
+/***/ "./assets/src/photoSwipe/photoswipe-ui-default.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe Default UI - 4.1.1 - 2015-12-24
 	* http://photoswipe.com
 	* Copyright (c) 2015 Dmitry Semenov; */
-!function(r,a){o=a,i="function"==typeof o?o.call(t,n,t,e):o,!(void 0!==i&&(e.exports=i))}(this,function(){"use strict";var e,t=function(t,n,o,i){var r={features:null,bind:function(e,t,n,o){if(e){var i=(o?"remove":"add")+"EventListener";t=t.split(" ");for(var r=0;r<t.length;r++)t[r]&&e[i](t[r],n,!1)}},isArray:function(e){return e instanceof Array},createEl:function(e,t){var n=document.createElement(t||"div");return e&&(n.className=e),n},getScrollY:function(){var e=window.pageYOffset;return void 0!==e?e:document.documentElement.scrollTop},unbind:function(e,t,n){r.bind(e,t,n,!0)},removeClass:function(e,t){var n=new RegExp("(\\s|^)"+t+"(\\s|$)");e.className=e.className.replace(n," ").replace(/^\s\s*/,"").replace(/\s\s*$/,"")},addClass:function(e,t){r.hasClass(e,t)||(e.className+=(e.className?" ":"")+t)},hasClass:function(e,t){return e.className&&new RegExp("(^|\\s)"+t+"(\\s|$)").test(e.className)},getChildByClass:function(e,t){for(var n=e.firstChild;n;){if(r.hasClass(n,t))return n;n=n.nextSibling}},arraySearch:function(e,t,n){for(var o=e.length;o--;)if(e[o][n]===t)return o;return-1},extend:function(e,t,n){for(var o in t)if(t.hasOwnProperty(o)){if(n&&e.hasOwnProperty(o))continue;e[o]=t[o]}},easing:{sine:{out:function(e){return Math.sin(e*(Math.PI/2))},inOut:function(e){return-(Math.cos(Math.PI*e)-1)/2}},cubic:{out:function(e){return--e*e*e+1}}},detectFeatures:function(){if(r.features)return r.features;var e=r.createEl(),t=e.style,n="",o={};if(o.oldIE=document.all&&!document.addEventListener,o.touch="ontouchstart"in window,window.requestAnimationFrame&&(o.raf=window.requestAnimationFrame,o.caf=window.cancelAnimationFrame),o.pointerEvent=navigator.pointerEnabled||navigator.msPointerEnabled,!o.pointerEvent){var i=navigator.userAgent;if(/iP(hone|od)/.test(navigator.platform)){var a=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);a&&a.length>0&&(a=parseInt(a[1],10),a>=1&&a<8&&(o.isOldIOSPhone=!0))}var l=i.match(/Android\s([0-9\.]*)/),s=l?l[1]:0;s=parseFloat(s),s>=1&&(s<4.4&&(o.isOldAndroid=!0),o.androidVersion=s),o.isMobileOpera=/opera mini|opera mobi/i.test(i)}for(var u,c,d=["transform","perspective","animationName"],f=["","webkit","Moz","ms","O"],p=0;p<4;p++){n=f[p];for(var m=0;m<3;m++)u=d[m],c=n+(n?u.charAt(0).toUpperCase()+u.slice(1):u),!o[u]&&c in t&&(o[u]=c);n&&!o.raf&&(n=n.toLowerCase(),o.raf=window[n+"RequestAnimationFrame"],o.raf&&(o.caf=window[n+"CancelAnimationFrame"]||window[n+"CancelRequestAnimationFrame"]))}if(!o.raf){var h=0;o.raf=function(e){var t=(new Date).getTime(),n=Math.max(0,16-(t-h)),o=window.setTimeout(function(){e(t+n)},n);return h=t+n,o},o.caf=function(e){clearTimeout(e)}}return o.svg=!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,r.features=o,o}};r.detectFeatures(),r.features.oldIE&&(r.bind=function(e,t,n,o){t=t.split(" ");for(var i,r=(o?"detach":"attach")+"Event",a=function(){n.handleEvent.call(n)},l=0;l<t.length;l++)if(i=t[l])if("object"==typeof n&&n.handleEvent){if(o){if(!n["oldIE"+i])return!1}else n["oldIE"+i]=a;e[r]("on"+i,n["oldIE"+i])}else e[r]("on"+i,n)});var a=this,l=25,s=3,u={allowPanToNext:!0,spacing:.12,bgOpacity:1,mouseUsed:!1,loop:!0,pinchToClose:!0,closeOnScroll:!0,closeOnVerticalDrag:!0,verticalDragRange:.75,hideAnimationDuration:333,showAnimationDuration:333,showHideOpacity:!1,focus:!0,escKey:!0,arrowKeys:!0,mainScrollEndFriction:.35,panEndFriction:.35,isClickableElement:function(e){return"A"===e.tagName},getDoubleTapZoom:function(e,t){return e?1:t.initialZoomLevel<.7?1:1.33},maxSpreadZoom:1.33,modal:!0,scaleMode:"fit"};r.extend(u,i);var c,d,f,p,m,h,v,g,w,y,x,b,C,I,E,T,A,_,M,D,O,S,k,L,F,R,N,P,Z,z,B,U,j,H,W,K,Y,G,q,X,V,$,J,Q,ee,te,ne,oe,ie,re,ae,le,se,ue,ce,de,fe=function(){return{x:0,y:0}},pe=fe(),me=fe(),he=fe(),ve={},ge=0,we={},ye=fe(),xe=0,be=!0,Ce=[],Ie={},Ee=!1,Te=function(e,t){r.extend(a,t.publicMethods),Ce.push(e)},Ae=function(e){var t=en();return e>t-1?e-t:e<0?t+e:e},_e={},Me=function(e,t){return _e[e]||(_e[e]=[]),_e[e].push(t)},De=function(e){var t=_e[e];if(t){var n=Array.prototype.slice.call(arguments);n.shift();for(var o=0;o<t.length;o++)t[o].apply(a,n)}},Oe=function(){return(new Date).getTime()},Se=function(e){ue=e,a.bg.style.opacity=e*u.bgOpacity},ke=function(e,t,n,o,i){(!Ee||i&&i!==a.currItem)&&(o/=i?i.fitRatio:a.currItem.fitRatio),e[S]=b+t+"px, "+n+"px"+C+" scale("+o+")"},Le=function(e){ie&&(e&&(y>a.currItem.fitRatio?Ee||(pn(a.currItem,!1,!0),Ee=!0):Ee&&(pn(a.currItem),Ee=!1)),ke(ie,he.x,he.y,y))},Fe=function(e){e.container&&ke(e.container.style,e.initialPosition.x,e.initialPosition.y,e.initialZoomLevel,e)},Re=function(e,t){t[S]=b+e+"px, 0px"+C},Ne=function(e,t){if(!u.loop&&t){var n=p+(ye.x*ge-e)/ye.x,o=Math.round(e-yt.x);(n<0&&o>0||n>=en()-1&&o<0)&&(e=yt.x+o*u.mainScrollEndFriction)}yt.x=e,Re(e,m)},Pe=function(e,t){var n=xt[e]-we[e];return me[e]+pe[e]+n-n*(t/x)},Ze=function(e,t){e.x=t.x,e.y=t.y,t.id&&(e.id=t.id)},ze=function(e){e.x=Math.round(e.x),e.y=Math.round(e.y)},Be=null,Ue=function(){Be&&(r.unbind(document,"mousemove",Ue),r.addClass(t,"pswp--has_mouse"),u.mouseUsed=!0,De("mouseUsed")),Be=setTimeout(function(){Be=null},100)},je=function(){r.bind(document,"keydown",a),B.transform&&r.bind(a.scrollWrap,"click",a),u.mouseUsed||r.bind(document,"mousemove",Ue),r.bind(window,"orientationchange resize scroll",a),De("bindEvents")},He=function(){r.unbind(window,"orientationchange",a),r.unbind(window,"resize",a),r.unbind(window,"scroll",w.scroll),r.unbind(document,"keydown",a),r.unbind(document,"mousemove",Ue),B.transform&&r.unbind(a.scrollWrap,"click",a),G&&r.unbind(window,v,a),De("unbindEvents")},We=function(e,t){var n=un(a.currItem,ve,e);return t&&(oe=n),n},Ke=function(e){return e||(e=a.currItem),e.initialZoomLevel},Ye=function(e){return e||(e=a.currItem),e.w>0?u.maxSpreadZoom:1},Ge=function(e,t,n,o){return o===a.currItem.initialZoomLevel?(n[e]=a.currItem.initialPosition[e],!0):(n[e]=Pe(e,o),n[e]>t.min[e]?(n[e]=t.min[e],!0):n[e]<t.max[e]&&(n[e]=t.max[e],!0))},qe=function(){if(S){var e=B.perspective&&!L;return b="translate"+(e?"3d(":"("),void(C=B.perspective?", 0px)":")")}S="left",r.addClass(t,"pswp--ie"),Re=function(e,t){t.left=e+"px"},Fe=function(e){var t=e.fitRatio>1?1:e.fitRatio,n=e.container.style,o=t*e.w,i=t*e.h;n.width=o+"px",n.height=i+"px",n.left=e.initialPosition.x+"px",n.top=e.initialPosition.y+"px"},Le=function(){if(ie){var e=ie,t=a.currItem,n=t.fitRatio>1?1:t.fitRatio,o=n*t.w,i=n*t.h;e.width=o+"px",e.height=i+"px",e.left=he.x+"px",e.top=he.y+"px"}}},Xe=function(e){var t="";u.escKey&&27===e.keyCode?t="close":u.arrowKeys&&(37===e.keyCode?t="prev":39===e.keyCode&&(t="next")),t&&(e.ctrlKey||e.altKey||e.shiftKey||e.metaKey||(e.preventDefault?e.preventDefault():e.returnValue=!1,a[t]()))},Ve=function(e){e&&(V||X||re||K)&&(e.preventDefault(),e.stopPropagation())},$e=function(){a.setScrollOffset(0,r.getScrollY())},Je={},Qe=0,et=function(e){Je[e]&&(Je[e].raf&&R(Je[e].raf),Qe--,delete Je[e])},tt=function(e){Je[e]&&et(e),Je[e]||(Qe++,Je[e]={})},nt=function(){for(var e in Je)Je.hasOwnProperty(e)&&et(e)},ot=function(e,t,n,o,i,r,a){var l,s=Oe();tt(e);var u=function(){if(Je[e]){if(l=Oe()-s,l>=o)return et(e),r(n),void(a&&a());r((n-t)*i(l/o)+t),Je[e].raf=F(u)}};u()},it={shout:De,listen:Me,viewportSize:ve,options:u,isMainScrollAnimating:function(){return re},getZoomLevel:function(){return y},getCurrentIndex:function(){return p},isDragging:function(){return G},isZooming:function(){return ee},setScrollOffset:function(e,t){we.x=e,z=we.y=t,De("updateScrollOffset",we)},applyZoomPan:function(e,t,n,o){he.x=t,he.y=n,y=e,Le(o)},init:function(){if(!c&&!d){var o;a.framework=r,a.template=t,a.bg=r.getChildByClass(t,"pswp__bg"),N=t.className,c=!0,B=r.detectFeatures(),F=B.raf,R=B.caf,S=B.transform,Z=B.oldIE,a.scrollWrap=r.getChildByClass(t,"pswp__scroll-wrap"),a.container=r.getChildByClass(a.scrollWrap,"pswp__container"),m=a.container.style,a.itemHolders=T=[{el:a.container.children[0],wrap:0,index:-1},{el:a.container.children[1],wrap:0,index:-1},{el:a.container.children[2],wrap:0,index:-1}],T[0].el.style.display=T[2].el.style.display="none",qe(),w={orientationchange:function(t){clearTimeout(e),e=setTimeout(function(){ve.x!==a.scrollWrap.clientWidth&&a.updateSize(t)},500)},resize:a.updateSize,scroll:$e,keydown:Xe,click:Ve};var i=B.isOldIOSPhone||B.isOldAndroid||B.isMobileOpera;for(B.animationName&&B.transform&&!i||(u.showAnimationDuration=u.hideAnimationDuration=0),o=0;o<Ce.length;o++)a["init"+Ce[o]]();if(n){var l=a.ui=new n(a,r);l.init()}De("firstUpdate"),p=p||u.index||0,(isNaN(p)||p<0||p>=en())&&(p=0),a.currItem=Qt(p),(B.isOldIOSPhone||B.isOldAndroid)&&(be=!1),t.setAttribute("aria-hidden","false"),u.modal&&(be?t.style.position="fixed":(t.style.position="absolute",t.style.top=r.getScrollY()+"px")),void 0===z&&(De("initialLayout"),z=P=r.getScrollY());var f="pswp--open ";for(u.mainClass&&(f+=u.mainClass+" "),u.showHideOpacity&&(f+="pswp--animate_opacity "),f+=L?"pswp--touch":"pswp--notouch",f+=B.animationName?" pswp--css_animation":"",f+=B.svg?" pswp--svg":"",r.addClass(t,f),a.updateSize(),h=-1,xe=null,o=0;o<s;o++)Re((o+h)*ye.x,T[o].el.style);Z||r.bind(a.scrollWrap,g,a),Me("initialZoomInEnd",function(){a.setContent(T[0],p-1),a.setContent(T[2],p+1),T[0].el.style.display=T[2].el.style.display="block",u.focus&&t.focus(),je()}),a.setContent(T[1],p),a.updateCurrItem(),De("afterInit"),be||(I=setInterval(function(){Qe||G||ee||y!==a.currItem.initialZoomLevel||a.updateSize()},1e3)),r.addClass(t,"pswp--visible")}},close:function(){c&&(c=!1,d=!0,De("close"),He(),nn(a.currItem,null,!0,a.destroy))},destroy:function(){De("destroy"),Xt&&clearTimeout(Xt),t.setAttribute("aria-hidden","true"),t.className=N,I&&clearInterval(I),r.unbind(a.scrollWrap,g,a),r.unbind(window,"scroll",a),Tt(),nt(),_e=null},panTo:function(e,t,n){n||(e>oe.min.x?e=oe.min.x:e<oe.max.x&&(e=oe.max.x),t>oe.min.y?t=oe.min.y:t<oe.max.y&&(t=oe.max.y)),he.x=e,he.y=t,Le()},handleEvent:function(e){e=e||window.event,w[e.type]&&w[e.type](e)},goTo:function(e){e=Ae(e);var t=e-p;xe=t,p=e,a.currItem=Qt(p),ge-=t,Ne(ye.x*ge),nt(),re=!1,a.updateCurrItem()},next:function(){a.goTo(p+1)},prev:function(){a.goTo(p-1)},updateCurrZoomItem:function(e){if(e&&De("beforeChange",0),T[1].el.children.length){var t=T[1].el.children[0];ie=r.hasClass(t,"pswp__zoom-wrap")?t.style:null}else ie=null;oe=a.currItem.bounds,x=y=a.currItem.initialZoomLevel,he.x=oe.center.x,he.y=oe.center.y,e&&De("afterChange")},invalidateCurrItems:function(){E=!0;for(var e=0;e<s;e++)T[e].item&&(T[e].item.needsUpdate=!0)},updateCurrItem:function(e){if(0!==xe){var t,n=Math.abs(xe);if(!(e&&n<2)){a.currItem=Qt(p),Ee=!1,De("beforeChange",xe),n>=s&&(h+=xe+(xe>0?-s:s),n=s);for(var o=0;o<n;o++)xe>0?(t=T.shift(),T[s-1]=t,h++,Re((h+2)*ye.x,t.el.style),a.setContent(t,p-n+o+1+1)):(t=T.pop(),T.unshift(t),h--,Re(h*ye.x,t.el.style),a.setContent(t,p+n-o-1-1));if(ie&&1===Math.abs(xe)){var i=Qt(A);i.initialZoomLevel!==y&&(un(i,ve),pn(i),Fe(i))}xe=0,a.updateCurrZoomItem(),A=p,De("afterChange");for(var r=document.getElementsByClassName("pswp__zoom-wrap"),o=0,l=r.length;o<l;o++)r[o].removeAttribute("data-curr");a.currItem.container.setAttribute("data-curr","true")}}},updateSize:function(e){if(!be&&u.modal){var n=r.getScrollY();if(z!==n&&(t.style.top=n+"px",z=n),!e&&Ie.x===window.innerWidth&&Ie.y===window.innerHeight)return;Ie.x=window.innerWidth,Ie.y=window.innerHeight,t.style.height=Ie.y+"px"}if(ve.x=a.scrollWrap.clientWidth,ve.y=a.scrollWrap.clientHeight,$e(),ye.x=ve.x+Math.round(ve.x*u.spacing),ye.y=ve.y,Ne(ye.x*ge),De("beforeResize"),void 0!==h){for(var o,i,l,c=0;c<s;c++)o=T[c],Re((c+h)*ye.x,o.el.style),l=p+c-1,u.loop&&en()>2&&(l=Ae(l)),i=Qt(l),i&&(E||i.needsUpdate||!i.bounds)?(a.cleanSlide(i),a.setContent(o,l),1===c&&(a.currItem=i,a.updateCurrZoomItem(!0)),i.needsUpdate=!1):o.index===-1&&l>=0&&a.setContent(o,l),i&&i.container&&(un(i,ve),pn(i),Fe(i));E=!1}x=y=a.currItem.initialZoomLevel,oe=a.currItem.bounds,oe&&(he.x=oe.center.x,he.y=oe.center.y,Le(!0)),De("resize"),De("orientationchange")},setZoom:function(e){y=e},zoomTo:function(e,t,n,o,i){t&&(x=y,xt.x=Math.abs(t.x)-he.x,xt.y=Math.abs(t.y)-he.y,Ze(me,he));var a=We(e,!1),l={};Ge("x",a,l,e),Ge("y",a,l,e);var s=y,u={x:he.x,y:he.y};ze(l);var c=function(t){1===t?(y=e,he.x=l.x,he.y=l.y):(y=(e-s)*t+s,he.x=(l.x-u.x)*t+u.x,he.y=(l.y-u.y)*t+u.y),i&&i(t),Le(1===t)};n?ot("customZoomTo",0,1,n,o||r.easing.sine.inOut,c):c(1)}},rt=30,at=10,lt={},st={},ut={},ct={},dt={},ft=[],pt={},mt=[],ht={},vt=0,gt=fe(),wt=0,yt=fe(),xt=fe(),bt=fe(),Ct=function(e,t){return e.x===t.x&&e.y===t.y},It=function(e,t){return Math.abs(e.x-t.x)<l&&Math.abs(e.y-t.y)<l},Et=function(e,t){return ht.x=Math.abs(e.x-t.x),ht.y=Math.abs(e.y-t.y),Math.sqrt(ht.x*ht.x+ht.y*ht.y)},Tt=function(){$&&(R($),$=null)},At=function(){G&&($=F(At),jt())},_t=function(){return!("fit"===u.scaleMode&&y===a.currItem.initialZoomLevel)},Mt=function(e,t){return!(!e||e===document)&&(!(e.getAttribute("class")&&e.getAttribute("class").indexOf("pswp__scroll-wrap")>-1)&&(t(e)?e:Mt(e.parentNode,t)))},Dt={},Ot=function(e,t){return Dt.prevent=!Mt(e.target,u.isClickableElement),De("preventDragEvent",e,t,Dt),Dt.prevent},St=function(e,t){return t.x=e.pageX,t.y=e.pageY,t.id=e.identifier,t},kt=function(e,t,n){n.x=.5*(e.x+t.x),n.y=.5*(e.y+t.y)},Lt=function(e,t,n){if(e-j>50){var o=mt.length>2?mt.shift():{};o.x=t,o.y=n,mt.push(o),j=e}},Ft=function(){var e=he.y-a.currItem.initialPosition.y;return 1-Math.abs(e/(ve.y/2))},Rt={},Nt={},Pt=[],Zt=function(e){for(;Pt.length>0;)Pt.pop();return k?(de=0,ft.forEach(function(e){0===de?Pt[0]=e:1===de&&(Pt[1]=e),de++})):e.type.indexOf("touch")>-1?e.touches&&e.touches.length>0&&(Pt[0]=St(e.touches[0],Rt),e.touches.length>1&&(Pt[1]=St(e.touches[1],Nt))):(Rt.x=e.pageX,Rt.y=e.pageY,Rt.id="",Pt[0]=Rt),Pt},zt=function(e,t){var n,o,i,r,l=0,s=he[e]+t[e],c=t[e]>0,d=yt.x+t.x,f=yt.x-pt.x;return n=s>oe.min[e]||s<oe.max[e]?u.panEndFriction:1,s=he[e]+t[e]*n,!u.allowPanToNext&&y!==a.currItem.initialZoomLevel||(ie?"h"!==ae||"x"!==e||X||(c?(s>oe.min[e]&&(n=u.panEndFriction,l=oe.min[e]-s,o=oe.min[e]-me[e]),(o<=0||f<0)&&en()>1?(r=d,f<0&&d>pt.x&&(r=pt.x)):oe.min.x!==oe.max.x&&(i=s)):(s<oe.max[e]&&(n=u.panEndFriction,l=s-oe.max[e],o=me[e]-oe.max[e]),(o<=0||f>0)&&en()>1?(r=d,f>0&&d<pt.x&&(r=pt.x)):oe.min.x!==oe.max.x&&(i=s))):r=d,"x"!==e)?void(re||J||y>a.currItem.fitRatio&&(he[e]+=t[e]*n)):(void 0!==r&&(Ne(r,!0),J=r!==pt.x),oe.min.x!==oe.max.x&&(void 0!==i?he.x=i:J||(he.x+=t.x*n)),void 0!==r)},Bt=function(e){if(!("mousedown"===e.type&&e.button>0)){if(Jt)return void e.preventDefault();if(!Y||"mousedown"!==e.type){if(Ot(e,!0)&&e.preventDefault(),De("pointerDown"),k){var t=r.arraySearch(ft,e.pointerId,"id");t<0&&(t=ft.length),ft[t]={x:e.pageX,y:e.pageY,id:e.pointerId}}var n=Zt(e),o=n.length;Q=null,nt(),G&&1!==o||(G=le=!0,r.bind(window,v,a),W=ce=se=K=J=V=q=X=!1,ae=null,De("firstTouchStart",n),Ze(me,he),pe.x=pe.y=0,Ze(ct,n[0]),Ze(dt,ct),pt.x=ye.x*ge,mt=[{x:ct.x,y:ct.y}],j=U=Oe(),We(y,!0),Tt(),At()),!ee&&o>1&&!re&&!J&&(x=y,X=!1,ee=q=!0,pe.y=pe.x=0,Ze(me,he),Ze(lt,n[0]),Ze(st,n[1]),kt(lt,st,bt),xt.x=Math.abs(bt.x)-he.x,xt.y=Math.abs(bt.y)-he.y,te=ne=Et(lt,st))}}},Ut=function(e){if(e.preventDefault(),k){var t=r.arraySearch(ft,e.pointerId,"id");if(t>-1){var n=ft[t];n.x=e.pageX,n.y=e.pageY}}if(G){var o=Zt(e);if(ae||V||ee)Q=o;else if(yt.x!==ye.x*ge)ae="h";else{var i=Math.abs(o[0].x-ct.x)-Math.abs(o[0].y-ct.y);Math.abs(i)>=at&&(ae=i>0?"h":"v",Q=o)}}},jt=function(){if(Q){var e=Q.length;if(0!==e)if(Ze(lt,Q[0]),ut.x=lt.x-ct.x,ut.y=lt.y-ct.y,ee&&e>1){if(ct.x=lt.x,ct.y=lt.y,!ut.x&&!ut.y&&Ct(Q[1],st))return;Ze(st,Q[1]),X||(X=!0,De("zoomGestureStarted"));var t=Et(lt,st),n=Gt(t);n>a.currItem.initialZoomLevel+a.currItem.initialZoomLevel/15&&(ce=!0);var o=1,i=Ke(),r=Ye();if(n<i)if(u.pinchToClose&&!ce&&x<=a.currItem.initialZoomLevel){var l=i-n,s=1-l/(i/1.2);Se(s),De("onPinchClose",s),se=!0}else o=(i-n)/i,o>1&&(o=1),n=i-o*(i/3);else n>r&&(o=(n-r)/(6*i),o>1&&(o=1),n=r+o*i);o<0&&(o=0),te=t,kt(lt,st,gt),pe.x+=gt.x-bt.x,pe.y+=gt.y-bt.y,Ze(bt,gt),he.x=Pe("x",n),he.y=Pe("y",n),W=n>y,y=n,Le()}else{if(!ae)return;if(le&&(le=!1,Math.abs(ut.x)>=at&&(ut.x-=Q[0].x-dt.x),Math.abs(ut.y)>=at&&(ut.y-=Q[0].y-dt.y)),ct.x=lt.x,ct.y=lt.y,0===ut.x&&0===ut.y)return;if("v"===ae&&u.closeOnVerticalDrag&&!_t()){pe.y+=ut.y,he.y+=ut.y;var c=Ft();return K=!0,De("onVerticalDrag",c),Se(c),void Le()}Lt(Oe(),lt.x,lt.y),V=!0,oe=a.currItem.bounds;var d=zt("x",ut);d||(zt("y",ut),ze(he),Le())}}},Ht=function(e){if(B.isOldAndroid){if(Y&&"mouseup"===e.type)return;e.type.indexOf("touch")>-1&&(clearTimeout(Y),Y=setTimeout(function(){Y=0},600))}De("pointerUp"),Ot(e,!1)&&e.preventDefault();var t;if(k){var n=r.arraySearch(ft,e.pointerId,"id");if(n>-1)if(t=ft.splice(n,1)[0],navigator.pointerEnabled)t.type=e.pointerType||"mouse";else{var o={4:"mouse",2:"touch",3:"pen"};t.type=o[e.pointerType],t.type||(t.type=e.pointerType||"mouse")}}var i,l=Zt(e),s=l.length;if("mouseup"===e.type&&(s=0),2===s)return Q=null,!0;1===s&&Ze(dt,l[0]),0!==s||ae||re||(t||("mouseup"===e.type?t={x:e.pageX,y:e.pageY,type:"mouse"}:e.changedTouches&&e.changedTouches[0]&&(t={x:e.changedTouches[0].pageX,y:e.changedTouches[0].pageY,type:"touch"})),De("touchRelease",e,t));var c=-1;if(0===s&&(G=!1,r.unbind(window,v,a),Tt(),ee?c=0:wt!==-1&&(c=Oe()-wt)),wt=1===s?Oe():-1,i=c!==-1&&c<150?"zoom":"swipe",ee&&s<2&&(ee=!1,1===s&&(i="zoomPointerUp"),De("zoomGestureEnded")),Q=null,V||X||re||K)if(nt(),H||(H=Wt()),H.calculateSwipeSpeed("x"),K){var d=Ft();if(d<u.verticalDragRange)a.close();else{var f=he.y,p=ue;ot("verticalDrag",0,1,300,r.easing.cubic.out,function(e){he.y=(a.currItem.initialPosition.y-f)*e+f,Se((1-p)*e+p),Le()}),De("onVerticalDrag",1)}}else{if((J||re)&&0===s){var m=Yt(i,H);if(m)return;i="zoomPointerUp"}if(!re)return"swipe"!==i?void qt():void(!J&&y>a.currItem.fitRatio&&Kt(H))}},Wt=function(){var e,t,n={lastFlickOffset:{},lastFlickDist:{},lastFlickSpeed:{},slowDownRatio:{},slowDownRatioReverse:{},speedDecelerationRatio:{},speedDecelerationRatioAbs:{},distanceOffset:{},backAnimDestination:{},backAnimStarted:{},calculateSwipeSpeed:function(o){mt.length>1?(e=Oe()-j+50,t=mt[mt.length-2][o]):(e=Oe()-U,t=dt[o]),n.lastFlickOffset[o]=ct[o]-t,n.lastFlickDist[o]=Math.abs(n.lastFlickOffset[o]),n.lastFlickDist[o]>20?n.lastFlickSpeed[o]=n.lastFlickOffset[o]/e:n.lastFlickSpeed[o]=0,Math.abs(n.lastFlickSpeed[o])<.1&&(n.lastFlickSpeed[o]=0),n.slowDownRatio[o]=.95,n.slowDownRatioReverse[o]=1-n.slowDownRatio[o],n.speedDecelerationRatio[o]=1},calculateOverBoundsAnimOffset:function(e,t){n.backAnimStarted[e]||(he[e]>oe.min[e]?n.backAnimDestination[e]=oe.min[e]:he[e]<oe.max[e]&&(n.backAnimDestination[e]=oe.max[e]),void 0!==n.backAnimDestination[e]&&(n.slowDownRatio[e]=.7,n.slowDownRatioReverse[e]=1-n.slowDownRatio[e],n.speedDecelerationRatioAbs[e]<.05&&(n.lastFlickSpeed[e]=0,n.backAnimStarted[e]=!0,ot("bounceZoomPan"+e,he[e],n.backAnimDestination[e],t||300,r.easing.sine.out,function(t){he[e]=t,Le()}))))},calculateAnimOffset:function(e){n.backAnimStarted[e]||(n.speedDecelerationRatio[e]=n.speedDecelerationRatio[e]*(n.slowDownRatio[e]+n.slowDownRatioReverse[e]-n.slowDownRatioReverse[e]*n.timeDiff/10),n.speedDecelerationRatioAbs[e]=Math.abs(n.lastFlickSpeed[e]*n.speedDecelerationRatio[e]),n.distanceOffset[e]=n.lastFlickSpeed[e]*n.speedDecelerationRatio[e]*n.timeDiff,he[e]+=n.distanceOffset[e])},panAnimLoop:function(){if(Je.zoomPan&&(Je.zoomPan.raf=F(n.panAnimLoop),n.now=Oe(),n.timeDiff=n.now-n.lastNow,n.lastNow=n.now,n.calculateAnimOffset("x"),n.calculateAnimOffset("y"),Le(),n.calculateOverBoundsAnimOffset("x"),n.calculateOverBoundsAnimOffset("y"),n.speedDecelerationRatioAbs.x<.05&&n.speedDecelerationRatioAbs.y<.05))return he.x=Math.round(he.x),he.y=Math.round(he.y),Le(),void et("zoomPan")}};return n},Kt=function(e){return e.calculateSwipeSpeed("y"),oe=a.currItem.bounds,e.backAnimDestination={},e.backAnimStarted={},Math.abs(e.lastFlickSpeed.x)<=.05&&Math.abs(e.lastFlickSpeed.y)<=.05?(e.speedDecelerationRatioAbs.x=e.speedDecelerationRatioAbs.y=0,e.calculateOverBoundsAnimOffset("x"),e.calculateOverBoundsAnimOffset("y"),!0):(tt("zoomPan"),e.lastNow=Oe(),void e.panAnimLoop())},Yt=function(e,t){var n;re||(vt=p);var o;if("swipe"===e){var i=ct.x-dt.x,l=t.lastFlickDist.x<10;i>rt&&(l||t.lastFlickOffset.x>20)?o=-1:i<-rt&&(l||t.lastFlickOffset.x<-20)&&(o=1)}var s;o&&(p+=o,p<0?(p=u.loop?en()-1:0,s=!0):p>=en()&&(p=u.loop?0:en()-1,s=!0),s&&!u.loop||(xe+=o,ge-=o,n=!0));var c,d=ye.x*ge,f=Math.abs(d-yt.x);return n||d>yt.x==t.lastFlickSpeed.x>0?(c=Math.abs(t.lastFlickSpeed.x)>0?f/Math.abs(t.lastFlickSpeed.x):333,c=Math.min(c,400),c=Math.max(c,250)):c=333,vt===p&&(n=!1),re=!0,De("mainScrollAnimStart"),ot("mainScroll",yt.x,d,c,r.easing.cubic.out,Ne,function(){nt(),re=!1,vt=-1,(n||vt!==p)&&a.updateCurrItem(),De("mainScrollAnimComplete")}),n&&a.updateCurrItem(!0),n},Gt=function(e){return 1/ne*e*x},qt=function(){var e=y,t=Ke(),n=Ye();y<t?e=t:y>n&&(e=n);var o,i=1,l=ue;return se&&!W&&!ce&&y<t?(a.close(),!0):(se&&(o=function(e){Se((i-l)*e+l)}),a.zoomTo(e,0,200,r.easing.cubic.out,o),!0)};Te("Gestures",{publicMethods:{initGestures:function(){var e=function(e,t,n,o,i){_=e+t,M=e+n,D=e+o,O=i?e+i:""};k=B.pointerEvent,k&&B.touch&&(B.touch=!1),k?navigator.pointerEnabled?e("pointer","down","move","up","cancel"):e("MSPointer","Down","Move","Up","Cancel"):B.touch?(e("touch","start","move","end","cancel"),L=!0):e("mouse","down","move","up"),v=M+" "+D+" "+O,g=_,k&&!L&&(L=navigator.maxTouchPoints>1||navigator.msMaxTouchPoints>1),a.likelyTouchDevice=L,w[_]=Bt,w[M]=Ut,w[D]=Ht,O&&(w[O]=w[D]),B.touch&&(g+=" mousedown",v+=" mousemove mouseup",w.mousedown=w[_],w.mousemove=w[M],w.mouseup=w[D]),L||(u.allowPanToNext=!1)}}});var Xt,Vt,$t,Jt,Qt,en,tn,nn=function(e,n,o,i){Xt&&clearTimeout(Xt),Jt=!0,$t=!0;var l;e.initialLayout?(l=e.initialLayout,e.initialLayout=null):l=u.getThumbBoundsFn&&u.getThumbBoundsFn(p);var s=o?u.hideAnimationDuration:u.showAnimationDuration,c=function(){et("initialZoom"),o?(a.template.removeAttribute("style"),a.bg.removeAttribute("style")):(Se(1),n&&(n.style.display="block"),r.addClass(t,"pswp--animated-in"),De("initialZoom"+(o?"OutEnd":"InEnd"))),i&&i(),Jt=!1};if(!s||!l||void 0===l.x)return De("initialZoom"+(o?"Out":"In")),y=e.initialZoomLevel,Ze(he,e.initialPosition),Le(),t.style.opacity=o?0:1,Se(1),void(s?setTimeout(function(){c()},s):c());var d=function(){var n=f,i=!a.currItem.src||a.currItem.loadError||u.showHideOpacity;e.miniImg&&(e.miniImg.style.webkitBackfaceVisibility="hidden"),o||(y=l.w/e.w,he.x=l.x,he.y=l.y-P,a[i?"template":"bg"].style.opacity=.001,Le()),tt("initialZoom"),o&&!n&&r.removeClass(t,"pswp--animated-in"),i&&(o?r[(n?"remove":"add")+"Class"](t,"pswp--animate_opacity"):setTimeout(function(){r.addClass(t,"pswp--animate_opacity")},30)),Xt=setTimeout(function(){if(De("initialZoom"+(o?"Out":"In")),o){var a=l.w/e.w,u={x:he.x,y:he.y},d=y,f=ue,p=function(e){1===e?(y=a,he.x=l.x,he.y=l.y-z):(y=(a-d)*e+d,he.x=(l.x-u.x)*e+u.x,he.y=(l.y-z-u.y)*e+u.y),Le(),i?t.style.opacity=1-e:Se(f-e*f)};n?ot("initialZoom",0,1,s,r.easing.cubic.out,p,c):(p(1),Xt=setTimeout(c,s+20))}else y=e.initialZoomLevel,Ze(he,e.initialPosition),Le(),Se(1),i?t.style.opacity=1:Se(1),Xt=setTimeout(c,s+20)},o?25:90)};d()},on={},rn=[],an={index:0,errorMsg:'<div class="pswp__error-msg"><a href="%url%" target="_blank">The image</a> could not be loaded.</div>',forceProgressiveLoading:!1,preload:[1,1],getNumItemsFn:function(){return Vt.length}},ln=function(){return{center:{x:0,y:0},max:{x:0,y:0},min:{x:0,y:0}}},sn=function(e,t,n){var o=e.bounds;o.center.x=Math.round((on.x-t)/2),o.center.y=Math.round((on.y-n)/2)+e.vGap.top,o.max.x=t>on.x?Math.round(on.x-t):o.center.x,o.max.y=n>on.y?Math.round(on.y-n)+e.vGap.top:o.center.y,o.min.x=t>on.x?0:o.center.x,o.min.y=n>on.y?e.vGap.top:o.center.y},un=function(e,t,n){if(e.src&&!e.loadError){var o=!n;if(o&&(e.vGap||(e.vGap={top:0,bottom:0}),De("parseVerticalMargin",e)),on.x=t.x,on.y=t.y-e.vGap.top-e.vGap.bottom,o){var i=on.x/e.w,r=on.y/e.h;e.fitRatio=i<r?i:r;var a=u.scaleMode;"orig"===a?n=1:"fit"===a&&(n=e.fitRatio),n>1&&(n=1),e.initialZoomLevel=n,e.bounds||(e.bounds=ln())}if(!n)return;return sn(e,e.w*n,e.h*n),o&&n===e.initialZoomLevel&&(e.initialPosition=e.bounds.center),e.bounds}return e.w=e.h=0,e.initialZoomLevel=e.fitRatio=1,e.bounds=ln(),e.initialPosition=e.bounds.center,e.bounds},cn=function(e,t,n,o,i,r){t.loadError||o&&(t.imageAppended=!0,pn(t,o,t===a.currItem&&Ee),n.appendChild(o),r&&setTimeout(function(){t&&t.loaded&&t.placeholder&&(t.placeholder.style.display="none",t.placeholder=null)},500))},dn=function(e){e.loading=!0,e.loaded=!1;var t=e.img=r.createEl("pswp__img js-pswp__img","img"),n=function(){e.loading=!1,e.loaded=!0,e.loadComplete?e.loadComplete(e):e.img=null,t.onload=t.onerror=null,t=null};return t.onload=n,t.onerror=function(){e.loadError=!0,n()},t.src=e.src,t},fn=function(e,t){if(e.src&&e.loadError&&e.container)return t&&(e.container.innerHTML=""),e.container.innerHTML=u.errorMsg.replace("%url%",e.src),!0},pn=function(e,t,n){if(e.src){t||(t=e.container.lastChild);var o=n?e.w:Math.round(e.w*e.fitRatio),i=n?e.h:Math.round(e.h*e.fitRatio);e.placeholder&&!e.loaded&&(e.placeholder.style.width=o+"px",e.placeholder.style.height=i+"px"),t.style.width=o+"px",t.style.height=i+"px"}},mn=function(){if(rn.length){for(var e,t=0;t<rn.length;t++)e=rn[t],e.holder.index===e.index&&cn(e.index,e.item,e.baseDiv,e.img,!1,e.clearPlaceholder);rn=[]}};Te("Controller",{publicMethods:{lazyLoadItem:function(e){e=Ae(e);var t=Qt(e);t&&(!t.loaded&&!t.loading||E)&&(De("gettingData",e,t),t.src&&dn(t))},initController:function(){r.extend(u,an,!0),a.items=Vt=o,Qt=a.getItemAt,en=u.getNumItemsFn,tn=u.loop,en()<3&&(u.loop=!1),Me("beforeChange",function(e){var t,n=u.preload,o=null===e||e>=0,i=Math.min(n[0],en()),r=Math.min(n[1],en());for(t=1;t<=(o?r:i);t++)a.lazyLoadItem(p+t);for(t=1;t<=(o?i:r);t++)a.lazyLoadItem(p-t)}),Me("initialLayout",function(){a.currItem.initialLayout=u.getThumbBoundsFn&&u.getThumbBoundsFn(p)}),Me("mainScrollAnimComplete",mn),Me("initialZoomInEnd",mn),Me("destroy",function(){for(var e,t=0;t<Vt.length;t++)e=Vt[t],e.container&&(e.container=null),e.placeholder&&(e.placeholder=null),e.img&&(e.img=null),e.preloader&&(e.preloader=null),e.loadError&&(e.loaded=e.loadError=!1);rn=null})},getItemAt:function(e){return e>=0&&(void 0!==Vt[e]&&Vt[e])},allowProgressiveImg:function(){return u.forceProgressiveLoading||!L||u.mouseUsed||screen.width>1200},setContent:function(e,t){u.loop&&(t=Ae(t));var n=a.getItemAt(e.index);n&&(n.container=null);var o,i=a.getItemAt(t);if(!i)return void(e.el.innerHTML="");De("gettingData",t,i),e.index=t,e.item=i;var l=i.container=r.createEl("pswp__zoom-wrap");if(!i.src&&i.html&&(i.html.tagName?l.appendChild(i.html):l.innerHTML=i.html),fn(i),un(i,ve),!i.src||i.loadError||i.loaded)i.src&&!i.loadError&&(o=r.createEl("pswp__img js-pswp__img","img"),o.style.opacity=1,o.src=i.src,pn(i,o),cn(t,i,l,o,!0));else{if(i.loadComplete=function(n){if(c){if(e&&e.index===t){if(fn(n,!0))return n.loadComplete=n.img=null,un(n,ve),Fe(n),void(e.index===p&&a.updateCurrZoomItem());n.imageAppended?!Jt&&n.placeholder&&(n.placeholder.style.display="none",n.placeholder=null):B.transform&&(re||Jt)?rn.push({item:n,baseDiv:l,img:n.img,index:t,holder:e,clearPlaceholder:!0}):cn(t,n,l,n.img,re||Jt,!0)}n.loadComplete=null,n.img=null,De("imageLoadComplete",t,n)}},r.features.transform){var s="pswp__img pswp__img--placeholder";s+=i.msrc?"":" pswp__img--placeholder--blank";var d=r.createEl(s,i.msrc?"img":"");i.msrc&&(d.src=i.msrc),pn(i,d),l.appendChild(d),i.placeholder=d}i.loading||dn(i),a.allowProgressiveImg()&&(!$t&&B.transform?rn.push({item:i,baseDiv:l,img:i.img,index:t,holder:e}):cn(t,i,l,i.img,!0,!0))}$t||t!==p?Fe(i):(ie=l.style,nn(i,o||i.img)),e.el.innerHTML="",e.el.appendChild(l)},cleanSlide:function(e){e.img&&(e.img.onload=e.img.onerror=null),e.loaded=e.loading=e.img=e.imageAppended=!1}}});var hn,vn={},gn=function(e,t,n){var o=document.createEvent("CustomEvent"),i={origEvent:e,target:e.target,releasePoint:t,pointerType:n||"touch"};o.initCustomEvent("pswpTap",!0,!0,i),e.target.dispatchEvent(o)};Te("Tap",{publicMethods:{initTap:function(){Me("firstTouchStart",a.onTapStart),Me("touchRelease",a.onTapRelease),Me("destroy",function(){vn={},hn=null})},onTapStart:function(e){e.length>1&&(clearTimeout(hn),hn=null)},onTapRelease:function(e,t){if(t&&!V&&!q&&!Qe){var n=t;if(hn&&(clearTimeout(hn),hn=null,It(n,vn)))return void De("doubleTap",n);if("mouse"===t.type)return void gn(e,t,"mouse");var o=e.target.tagName.toUpperCase();if("BUTTON"===o||r.hasClass(e.target,"pswp__single-tap"))return void gn(e,t);Ze(vn,n),hn=setTimeout(function(){gn(e,t),hn=null},300)}}}});var wn;Te("DesktopZoom",{publicMethods:{initDesktopZoom:function(){Z||(L?Me("mouseUsed",function(){a.setupDesktopZoom()}):a.setupDesktopZoom(!0))},setupDesktopZoom:function(e){wn={};var n="wheel mousewheel DOMMouseScroll";Me("bindEvents",function(){r.bind(t,n,a.handleMouseWheel)}),Me("unbindEvents",function(){wn&&r.unbind(t,n,a.handleMouseWheel)}),a.mouseZoomedIn=!1;var o,i=function(){a.mouseZoomedIn&&(r.removeClass(t,"pswp--zoomed-in"),a.mouseZoomedIn=!1),y<1?r.addClass(t,"pswp--zoom-allowed"):r.removeClass(t,"pswp--zoom-allowed"),l()},l=function(){o&&(r.removeClass(t,"pswp--dragging"),o=!1)};Me("resize",i),Me("orientationchange",i),Me("afterChange",i),Me("pointerDown",function(){a.mouseZoomedIn&&(o=!0,r.addClass(t,"pswp--dragging"))}),Me("pointerUp",l),e||i()},handleMouseWheel:function(e){if(y<=a.currItem.fitRatio)return u.modal&&(!u.closeOnScroll||Qe||G?e.preventDefault():S&&Math.abs(e.deltaY)>2&&(f=!0,a.close())),!0;if(e.stopPropagation(),wn.x=0,"deltaX"in e)1===e.deltaMode?(wn.x=18*e.deltaX,wn.y=18*e.deltaY):(wn.x=e.deltaX,wn.y=e.deltaY);else if("wheelDelta"in e)e.wheelDeltaX&&(wn.x=-.16*e.wheelDeltaX),e.wheelDeltaY?wn.y=-.16*e.wheelDeltaY:wn.y=-.16*e.wheelDelta;else{if(!("detail"in e))return;wn.y=e.detail}We(y,!0);var t=he.x-wn.x,n=he.y-wn.y;(u.modal||t<=oe.min.x&&t>=oe.max.x&&n<=oe.min.y&&n>=oe.max.y)&&e.preventDefault(),a.panTo(t,n)},toggleDesktopZoom:function(e){e=e||{x:ve.x/2+we.x,y:ve.y/2+we.y};var n=u.getDoubleTapZoom(!0,a.currItem),o=y===n;a.mouseZoomedIn=!o,a.zoomTo(o?a.currItem.initialZoomLevel:n,e,333),r[(o?"remove":"add")+"Class"](t,"pswp--zoomed-in")}}});var yn,xn,bn,Cn,In,En,Tn,An,_n,Mn,Dn,On,Sn={history:!0,galleryUID:1},kn=function(){return Dn.hash.substring(1)},Ln=function(){yn&&clearTimeout(yn),bn&&clearTimeout(bn)},Fn=function(){var e=kn(),t={};if(e.length<5)return t;var n,o=e.split("&");for(n=0;n<o.length;n++)if(o[n]){var i=o[n].split("=");i.length<2||(t[i[0]]=i[1])}if(u.galleryPIDs){var r=t.pid;for(t.pid=0,n=0;n<Vt.length;n++)if(Vt[n].pid===r){t.pid=n;break}}else t.pid=parseInt(t.pid,10)-1;return t.pid<0&&(t.pid=0),t},Rn=function(){if(bn&&clearTimeout(bn),Qe||G)return void(bn=setTimeout(Rn,500));Cn?clearTimeout(xn):Cn=!0;var e=p+1,t=Qt(p);t.hasOwnProperty("pid")&&(e=t.pid);var n=Tn+"&gid="+u.galleryUID+"&pid="+e;An||Dn.hash.indexOf(n)===-1&&(Mn=!0);var o=Dn.href.split("#")[0]+"#"+n;On?"#"+n!==window.location.hash&&history[An?"replaceState":"pushState"]("",document.title,o):An?Dn.replace(o):Dn.hash=n,An=!0,xn=setTimeout(function(){Cn=!1},60)};Te("History",{publicMethods:{initHistory:function(){if(r.extend(u,Sn,!0),u.history){Dn=window.location,Mn=!1,_n=!1,An=!1,Tn=kn(),On="pushState"in history,Tn.indexOf("gid=")>-1&&(Tn=Tn.split("&gid=")[0],Tn=Tn.split("?gid=")[0]),Me("afterChange",a.updateURL),Me("unbindEvents",function(){r.unbind(window,"hashchange",a.onHashChange)});var e=function(){En=!0,_n||(Mn?history.back():Tn?Dn.hash=Tn:On?history.pushState("",document.title,Dn.pathname+Dn.search):Dn.hash=""),Ln()};Me("unbindEvents",function(){f&&e()}),Me("destroy",function(){En||e()}),Me("firstUpdate",function(){p=Fn().pid});var t=Tn.indexOf("pid=");t>-1&&(Tn=Tn.substring(0,t),"&"===Tn.slice(-1)&&(Tn=Tn.slice(0,-1))),setTimeout(function(){c&&r.bind(window,"hashchange",a.onHashChange)},40)}},onHashChange:function(){return kn()===Tn?(_n=!0,void a.close()):void(Cn||(In=!0,a.goTo(Fn().pid),In=!1))},updateURL:function(){Ln(),In||(An?yn=setTimeout(Rn,800):Rn());
-}}}),r.extend(a,it)};return t})},function(e,t,n){function o(){a(".photos"),document.getElementsByClassName("albums").length&&l("js-secret-album")}var i=n(4),r=n(3),a=function(e){for(var t=function(e){for(var t,n,o,i,r=e.getElementsByClassName("js-thumb"),a=r.length,l=[],s=0;s<a;s++)t=r[s],1===t.nodeType&&(n=t.children[0],o=n.getAttribute("data-size").split("x"),i={src:n.getAttribute("href"),w:parseInt(o[0],10),h:parseInt(o[1],10)},t.children.length>1&&(i.title=t.children[2].innerHTML),n.children.length>0&&(i.msrc=n.children[0].getAttribute("src")),i.el=t,l.push(i));return l},n=function f(e,t){return e&&(t(e)?e:f(e.parentNode,t))},o=function(e){e=e||window.event,e.preventDefault?e.preventDefault():e.returnValue=!1;var t=e.target||e.srcElement,o=n(t,function(e){return e.tagName&&"FIGURE"===e.tagName.toUpperCase()});if(o){for(var i,r=o.parentNode,a=o.parentNode.childNodes,s=a.length,u=0,c=0;c<s;c++)if(1===a[c].nodeType){if(a[c]===o){i=u;break}u++}return i>=0&&l(i,r),!1}},a=function(){var e=window.location.hash.substring(1),t={};if(e.length<5)return t;for(var n=e.split("&"),o=0;o<n.length;o++)if(n[o]){var i=n[o].split("=");i.length<2||(t[i[0]]=i[1])}return t.gid&&(t.gid=parseInt(t.gid,10)),t},l=function(e,n,o,a){var l,s,u,c=document.querySelectorAll(".pswp")[0];if(u=t(n),s={galleryUID:n.getAttribute("data-pswp-uid"),getThumbBoundsFn:function(e){var t=u[e].el.getElementsByTagName("img")[0],n=window.pageYOffset||document.documentElement.scrollTop,o=t.getBoundingClientRect();return{x:o.left,y:o.top+n,w:o.width}}},a)if(s.galleryPIDs){for(var d=0;d<u.length;d++)if(u[d].pid==e){s.index=d;break}}else s.index=parseInt(e,10)-1;else s.index=parseInt(e,10);isNaN(s.index)||(o&&(s.showAnimationDuration=0),l=new i(c,r,u,s),l.init())},s=document.querySelectorAll(e),u=0,c=s.length;u<c;u++)s[u].setAttribute("data-pswp-uid",u+1),s[u].onclick=o;var d=a();d.pid&&d.gid&&l(d.pid,s[d.gid-1],!0,!0)},l=function(e){for(var t=document.getElementsByClassName(e),n=document.getElementsByClassName("js-dialog")[0],o=document.getElementsByClassName("js-overlay")[0],i=document.getElementsByClassName("js-modal-yes")[0],r=document.getElementsByClassName("js-input-lock")[0],a=document.getElementsByClassName("js-form")[0],l="",s="",u=0,c=t.length;u<c;u++)!function(e){t[e].addEventListener("click",function(e){l=this.getAttribute("data-href"),s=this.getAttribute("data-tips"),n.style.display="flex",o.style.display="initial",a.setAttribute("action",l),r.setAttribute("placeholder",s),r.value="",r.focus()})}(u);o.addEventListener("click",function(e){n.style.display="none",o.style.display="none",r.value=""}),i.addEventListener("click",function(e){n.style.display="none",o.style.display="none"}),document.onkeydown=function(e){var t=e||window.event;t&&13===t.keyCode&&""!==r.value&&(window.location.href=l+"?password="+r.value)}};e.exports={init:o}},function(e,t){},function(e,t){},function(e,t){},function(e,t,n){/*!
-	 * in-view 0.6.1 - Get notified when a DOM element enters or exits the viewport.
-	 * Copyright (c) 2016 Cam Wiegert <cam@camwiegert.com> - https://camwiegert.github.io/in-view
-	 * License: MIT
-	 */
-!function(t,n){e.exports=n()}(this,function(){return function(e){function t(o){if(n[o])return n[o].exports;var i=n[o]={exports:{},id:o,loaded:!1};return e[o].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}var i=n(2),r=o(i);e.exports=r["default"]},function(e,t){function n(e){var t=typeof e;return null!=e&&("object"==t||"function"==t)}e.exports=n},function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var i=n(9),r=o(i),a=n(3),l=o(a),s=n(4),u=function(){if("undefined"!=typeof window){var e=100,t=["scroll","resize","load"],n={history:[]},o={offset:{},threshold:0,test:s.inViewport},i=(0,r["default"])(function(){n.history.forEach(function(e){n[e].check()})},e);t.forEach(function(e){return addEventListener(e,i)}),window.MutationObserver&&addEventListener("DOMContentLoaded",function(){new MutationObserver(i).observe(document.body,{attributes:!0,childList:!0,subtree:!0})});var a=function(e){if("string"==typeof e){var t=[].slice.call(document.querySelectorAll(e));return n.history.indexOf(e)>-1?n[e].elements=t:(n[e]=(0,l["default"])(t,o),n.history.push(e)),n[e]}};return a.offset=function(e){if(void 0===e)return o.offset;var t=function(e){return"number"==typeof e};return["top","right","bottom","left"].forEach(t(e)?function(t){return o.offset[t]=e}:function(n){return t(e[n])?o.offset[n]=e[n]:null}),o.offset},a.threshold=function(e){return"number"==typeof e&&e>=0&&e<=1?o.threshold=e:o.threshold},a.test=function(e){return"function"==typeof e?o.test=e:o.test},a.is=function(e){return o.test(e,o)},a.offset(0),a}};t["default"]=u()},function(e,t){"use strict";function n(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(t,"__esModule",{value:!0});var o=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),i=function(){function e(t,o){n(this,e),this.options=o,this.elements=t,this.current=[],this.handlers={enter:[],exit:[]},this.singles={enter:[],exit:[]}}return o(e,[{key:"check",value:function(){var e=this;return this.elements.forEach(function(t){var n=e.options.test(t,e.options),o=e.current.indexOf(t),i=o>-1,r=n&&!i,a=!n&&i;r&&(e.current.push(t),e.emit("enter",t)),a&&(e.current.splice(o,1),e.emit("exit",t))}),this}},{key:"on",value:function(e,t){return this.handlers[e].push(t),this}},{key:"once",value:function(e,t){return this.singles[e].unshift(t),this}},{key:"emit",value:function(e,t){for(;this.singles[e].length;)this.singles[e].pop()(t);for(var n=this.handlers[e].length;--n>-1;)this.handlers[e][n](t);return this}}]),e}();t["default"]=function(e,t){return new i(e,t)}},function(e,t){"use strict";function n(e,t){var n=e.getBoundingClientRect(),o=n.top,i=n.right,r=n.bottom,a=n.left,l=n.width,s=n.height,u={t:r,r:window.innerWidth-a,b:window.innerHeight-o,l:i},c={x:t.threshold*l,y:t.threshold*s};return u.t>t.offset.top+c.y&&u.r>t.offset.right+c.x&&u.b>t.offset.bottom+c.y&&u.l>t.offset.left+c.x}Object.defineProperty(t,"__esModule",{value:!0}),t.inViewport=n},function(e,t){(function(t){var n="object"==typeof t&&t&&t.Object===Object&&t;e.exports=n}).call(t,function(){return this}())},function(e,t,n){var o=n(5),i="object"==typeof self&&self&&self.Object===Object&&self,r=o||i||Function("return this")();e.exports=r},function(e,t,n){function o(e,t,n){function o(t){var n=w,o=y;return w=y=void 0,E=t,b=e.apply(o,n)}function c(e){return E=e,C=setTimeout(p,t),T?o(e):b}function d(e){var n=e-I,o=e-E,i=t-n;return A?u(i,x-o):i}function f(e){var n=e-I,o=e-E;return void 0===I||n>=t||n<0||A&&o>=x}function p(){var e=r();return f(e)?m(e):void(C=setTimeout(p,d(e)))}function m(e){return C=void 0,_&&w?o(e):(w=y=void 0,b)}function h(){void 0!==C&&clearTimeout(C),E=0,w=I=y=C=void 0}function v(){return void 0===C?b:m(r())}function g(){var e=r(),n=f(e);if(w=arguments,y=this,I=e,n){if(void 0===C)return c(I);if(A)return C=setTimeout(p,t),o(I)}return void 0===C&&(C=setTimeout(p,t)),b}var w,y,x,b,C,I,E=0,T=!1,A=!1,_=!0;if("function"!=typeof e)throw new TypeError(l);return t=a(t)||0,i(n)&&(T=!!n.leading,A="maxWait"in n,x=A?s(a(n.maxWait)||0,t):x,_="trailing"in n?!!n.trailing:_),g.cancel=h,g.flush=v,g}var i=n(1),r=n(8),a=n(10),l="Expected a function",s=Math.max,u=Math.min;e.exports=o},function(e,t,n){var o=n(6),i=function(){return o.Date.now()};e.exports=i},function(e,t,n){function o(e,t,n){var o=!0,l=!0;if("function"!=typeof e)throw new TypeError(a);return r(n)&&(o="leading"in n?!!n.leading:o,l="trailing"in n?!!n.trailing:l),i(e,t,{leading:o,maxWait:t,trailing:l})}var i=n(7),r=n(1),a="Expected a function";e.exports=o},function(e,t){function n(e){return e}e.exports=n}])})}]);
+	/**
+	*
+	* UI on top of main sliding area (caption, arrows, close button, etc.).
+	* Built just using public methods/properties of PhotoSwipe.
+	* 
+	*/
+	(function (root, factory) {
+		if (true) {
+			!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else if (typeof exports === 'object') {
+			module.exports = factory();
+		} else {
+			root.PhotoSwipeUI_Default = factory();
+		}
+	})(this, function () {
+
+		'use strict';
+
+		var PhotoSwipeUI_Default =
+			function (pswp, framework) {
+
+				var ui = this;
+				var _overlayUIUpdated = false,
+					_controlsVisible = true,
+					_fullscrenAPI,
+					_controls,
+					_captionContainer,
+					_fakeCaptionContainer,
+					_indexIndicator,
+					_shareButton,
+					_shareModal,
+					_shareModalHidden = true,
+					_initalCloseOnScrollValue,
+					_isIdle,
+					_listen,
+
+					_loadingIndicator,
+					_loadingIndicatorHidden,
+					_loadingIndicatorTimeout,
+
+					_galleryHasOneSlide,
+
+					_options,
+					_defaultUIOptions = {
+						barsSize: { top: 40, bottom: 'auto' },
+						closeElClasses: ['item', 'caption', 'zoom-wrap', 'ui', 'top-bar'],
+						timeToIdle: 4000,
+						timeToIdleOutside: 1000,
+						loadingIndicatorDelay: 1000, // 2s
+
+						addCaptionHTMLFn: function (item, captionEl /*, isFake */) {
+							if (!item.title) {
+								captionEl.children[0].innerHTML = '';
+								downLoad(captionEl);
+								return false;
+							}
+							captionEl.children[0].innerHTML = item.title;
+							downLoad(captionEl);
+							return true;
+						},
+						original: true,		// 下载原图
+						closeEl: true,
+						captionEl: true,
+						fullscreenEl: true,
+						zoomEl: true,
+						shareEl: true,
+						counterEl: true,
+						arrowEl: true,
+						preloaderEl: true,
+						tapToClose: false,
+						tapToToggleControls: true,
+
+						clickToCloseNonZoomable: true,
+						shareButtons: [
+							{ id: 'facebook', label: 'Share on Facebook', url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}' },
+							{ id: 'twitter', label: 'Tweet', url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}' },
+							{
+								id: 'pinterest', label: 'Pin it', url: 'http://www.pinterest.com/pin/create/button/' +
+									'?url={{url}}&media={{image_url}}&description={{text}}'
+							},
+							{ id: 'download', label: 'Download image', url: '{{raw_image_url}}', download: true }
+						],
+						getImageURLForShare: function ( /* shareButtonData */) {
+							return pswp.currItem.src || '';
+						},
+						getPageURLForShare: function ( /* shareButtonData */) {
+							return window.location.href;
+						},
+						getTextForShare: function ( /* shareButtonData */) {
+							return pswp.currItem.title || '';
+						},
+
+						indexIndicatorSep: ' / ',
+						fitControlsWidth: 1200
+
+					},
+					_blockControlsTap,
+					_blockControlsTapTimeout;
+				
+				function createXHR(url, $download, target) {
+					var $downloadBtn = $download.getElementsByClassName('js-download-btn')[0];
+					var total = parseInt(($downloadBtn.innerHTML.match(/\(([^)]*)\)/))[1]);
+					var xhr;
+					try {
+						// Firefox, Opera 8.0+, Safari，IE7+  
+						xhr = new XMLHttpRequest();
+					} catch (e) {
+						// Internet Explorer   
+						try {
+							xhr = new ActiveXObject("Msxml2.XMLHTTP");
+						} catch (e) {
+							try {
+								xhr = new ActiveXObject("Microsoft.XMLHTTP");
+							} catch (e) {
+								xhr = null;
+							}
+						}
+					}
+					xhr.onprogress = function (event) {
+						if (total === 0) {
+							return;
+						}
+						var progress = '';
+						progress = '' + Math.round(100 * event.loaded / total / 1024) + '%';
+						$downloadBtn.innerHTML = ('下载中 (' + progress + ')');
+					}
+					xhr.onload = function () {
+						if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+							$download.style.display = 'none';
+							target.src = url;
+							target.onload = function () {
+								pswp.currItem.src = url;
+								pswp.currItem.currLoaded = true;
+								var $imgWrap = document.getElementsByClassName('js-img-wrap');
+								var $img = document.getElementsByClassName('js-image');
+								for (var i = 0, len = $img.length; i < len; i++) {
+									if ($img[i].src.indexOf(url) >= 0) {
+										$imgWrap[i].setAttribute('href', url);
+										var curSize = $imgWrap[i].getAttribute('data-curr-size');
+										var curSizeArr = curSize.split('x');
+										pswp.currItem.currZoomLevel = pswp.currItem.w * pswp.currItem.initialZoomLevel / parseInt(curSizeArr[0]);
+										pswp.currItem.w = parseInt(curSizeArr[0]);
+										pswp.currItem.h = parseInt(curSizeArr[1]);
+										window.innerWidth;
+
+										$imgWrap[i].setAttribute('data-size', curSize);
+										$img[i].setAttribute('src', url);
+
+										var $parent = $img[i].parentNode;
+										while ($parent.className.indexOf('js-photos-thumb') < 0) {
+											$parent = $parent.parentNode;
+										}
+										var $parentDownload = $parent.getElementsByClassName('js-download');
+										if ($parentDownload.length > 0) {
+											$parentDownload[0].remove();
+										}
+									}
+								}
+							}
+							target.onerror = function () {
+
+							}
+						} else {
+						}
+					};
+					xhr.open('get', url, true);
+					xhr.send(null);
+					return xhr;
+				}
+				var downLoad = function (captionEl) {
+					// 隐藏下载按钮
+					var $download = captionEl.getElementsByClassName('js-download');
+					if ($download.length > 0) {
+						if (pswp.currItem.currLoaded) {
+							$download[0].style.display = 'none';
+							return;
+						}
+						framework.bind($download[0], 'pswpTap click', function (e) {
+							e.stopPropagation();
+							var zoomArr = document.getElementsByClassName('pswp__zoom-wrap');
+							for (var i = 0, len = zoomArr.length; i < len; i++) {
+								if (zoomArr[i].getAttribute('data-curr')) {
+									var target = zoomArr[i].getElementsByClassName('js-pswp__img')[0];
+									var newSrc = target.src.replace(/\?tn=\w/g, '');
+									createXHR(newSrc, $download[0], target);
+								}
+							}
+						});
+					}
+				}
+
+				var _onControlsTap = function (e) {
+					if (_blockControlsTap) {
+						return true;
+					}
+
+
+					e = e || window.event;
+
+					if (_options.timeToIdle && _options.mouseUsed && !_isIdle) {
+						// reset idle timer
+						_onIdleMouseMove();
+					}
+
+
+					var target = e.target || e.srcElement,
+						uiElement,
+						clickedClass = target.getAttribute('class') || '',
+						found;
+
+					for (var i = 0; i < _uiElements.length; i++) {
+						uiElement = _uiElements[i];
+						if (uiElement.onTap && clickedClass.indexOf('pswp__' + uiElement.name) > -1) {
+							uiElement.onTap();
+							found = true;
+
+						}
+					}
+
+					if (found) {
+						if (e.stopPropagation) {
+							e.stopPropagation();
+						}
+						_blockControlsTap = true;
+
+						// Some versions of Android don't prevent ghost click event 
+						// when preventDefault() was called on touchstart and/or touchend.
+						// 
+						// This happens on v4.3, 4.2, 4.1, 
+						// older versions strangely work correctly, 
+						// but just in case we add delay on all of them)	
+						var tapDelay = framework.features.isOldAndroid ? 600 : 30;
+						_blockControlsTapTimeout = setTimeout(function () {
+							_blockControlsTap = false;
+						}, tapDelay);
+					}
+
+				},
+					_fitControlsInViewport = function () {
+						return !pswp.likelyTouchDevice || _options.mouseUsed || screen.width > _options.fitControlsWidth;
+					},
+					_togglePswpClass = function (el, cName, add) {
+						framework[(add ? 'add' : 'remove') + 'Class'](el, 'pswp__' + cName);
+					},
+
+					// add class when there is just one item in the gallery
+					// (by default it hides left/right arrows and 1ofX counter)
+					_countNumItems = function () {
+						var hasOneSlide = (_options.getNumItemsFn() === 1);
+
+						if (hasOneSlide !== _galleryHasOneSlide) {
+							_togglePswpClass(_controls, 'ui--one-slide', hasOneSlide);
+							_galleryHasOneSlide = hasOneSlide;
+						}
+					},
+					_toggleShareModalClass = function () {
+						_togglePswpClass(_shareModal, 'share-modal--hidden', _shareModalHidden);
+					},
+					_toggleShareModal = function () {
+
+						_shareModalHidden = !_shareModalHidden;
+
+
+						if (!_shareModalHidden) {
+							_toggleShareModalClass();
+							setTimeout(function () {
+								if (!_shareModalHidden) {
+									framework.addClass(_shareModal, 'pswp__share-modal--fade-in');
+								}
+							}, 30);
+						} else {
+							framework.removeClass(_shareModal, 'pswp__share-modal--fade-in');
+							setTimeout(function () {
+								if (_shareModalHidden) {
+									_toggleShareModalClass();
+								}
+							}, 300);
+						}
+
+						if (!_shareModalHidden) {
+							_updateShareURLs();
+						}
+						return false;
+					},
+
+					_openWindowPopup = function (e) {
+						e = e || window.event;
+						var target = e.target || e.srcElement;
+
+						pswp.shout('shareLinkClick', e, target);
+
+						if (!target.href) {
+							return false;
+						}
+
+						if (target.hasAttribute('download')) {
+							return true;
+						}
+
+						window.open(target.href, 'pswp_share', 'scrollbars=yes,resizable=yes,toolbar=no,' +
+							'location=yes,width=550,height=420,top=100,left=' +
+							(window.screen ? Math.round(screen.width / 2 - 275) : 100));
+
+						if (!_shareModalHidden) {
+							_toggleShareModal();
+						}
+
+						return false;
+					},
+					_updateShareURLs = function () {
+						var shareButtonOut = '',
+							shareButtonData,
+							shareURL,
+							image_url,
+							page_url,
+							share_text;
+
+						for (var i = 0; i < _options.shareButtons.length; i++) {
+							shareButtonData = _options.shareButtons[i];
+
+							image_url = _options.getImageURLForShare(shareButtonData);
+							page_url = _options.getPageURLForShare(shareButtonData);
+							share_text = _options.getTextForShare(shareButtonData);
+
+							shareURL = shareButtonData.url.replace('{{url}}', encodeURIComponent(page_url))
+								.replace('{{image_url}}', encodeURIComponent(image_url))
+								.replace('{{raw_image_url}}', image_url)
+								.replace('{{text}}', encodeURIComponent(share_text));
+
+							shareButtonOut += '<a href="' + shareURL + '" target="_blank" ' +
+								'class="pswp__share--' + shareButtonData.id + '"' +
+								(shareButtonData.download ? 'download' : '') + '>' +
+								shareButtonData.label + '</a>';
+
+							if (_options.parseShareButtonOut) {
+								shareButtonOut = _options.parseShareButtonOut(shareButtonData, shareButtonOut);
+							}
+						}
+						_shareModal.children[0].innerHTML = shareButtonOut;
+						_shareModal.children[0].onclick = _openWindowPopup;
+
+					},
+					_hasCloseClass = function (target) {
+						for (var i = 0; i < _options.closeElClasses.length; i++) {
+							if (framework.hasClass(target, 'pswp__' + _options.closeElClasses[i])) {
+								return true;
+							}
+						}
+					},
+					_idleInterval,
+					_idleTimer,
+					_idleIncrement = 0,
+					_onIdleMouseMove = function () {
+						clearTimeout(_idleTimer);
+						_idleIncrement = 0;
+						if (_isIdle) {
+							ui.setIdle(false);
+						}
+					},
+					_onMouseLeaveWindow = function (e) {
+						e = e ? e : window.event;
+						var from = e.relatedTarget || e.toElement;
+						if (!from || from.nodeName === 'HTML') {
+							clearTimeout(_idleTimer);
+							_idleTimer = setTimeout(function () {
+								ui.setIdle(true);
+							}, _options.timeToIdleOutside);
+						}
+					},
+					_setupFullscreenAPI = function () {
+						if (_options.fullscreenEl && !framework.features.isOldAndroid) {
+							if (!_fullscrenAPI) {
+								_fullscrenAPI = ui.getFullscreenAPI();
+							}
+							if (_fullscrenAPI) {
+								framework.bind(document, _fullscrenAPI.eventK, ui.updateFullscreen);
+								ui.updateFullscreen();
+								framework.addClass(pswp.template, 'pswp--supports-fs');
+							} else {
+								framework.removeClass(pswp.template, 'pswp--supports-fs');
+							}
+						}
+					},
+					_setupLoadingIndicator = function () {
+						// Setup loading indicator
+						if (_options.preloaderEl) {
+
+							_toggleLoadingIndicator(true);
+
+							_listen('beforeChange', function () {
+
+								clearTimeout(_loadingIndicatorTimeout);
+
+								// display loading indicator with delay
+								_loadingIndicatorTimeout = setTimeout(function () {
+
+									if (pswp.currItem && pswp.currItem.loading) {
+
+										if (!pswp.allowProgressiveImg() || (pswp.currItem.img && !pswp.currItem.img.naturalWidth)) {
+											// show preloader if progressive loading is not enabled, 
+											// or image width is not defined yet (because of slow connection)
+											_toggleLoadingIndicator(false);
+											// items-controller.js function allowProgressiveImg
+										}
+
+									} else {
+										_toggleLoadingIndicator(true); // hide preloader
+									}
+
+								}, _options.loadingIndicatorDelay);
+
+							});
+							_listen('imageLoadComplete', function (index, item) {
+								if (pswp.currItem === item) {
+									_toggleLoadingIndicator(true);
+								}
+							});
+
+						}
+					},
+					_toggleLoadingIndicator = function (hide) {
+						if (_loadingIndicatorHidden !== hide) {
+							_togglePswpClass(_loadingIndicator, 'preloader--active', !hide);
+							_loadingIndicatorHidden = hide;
+						}
+					},
+					_applyNavBarGaps = function (item) {
+						var gap = item.vGap;
+
+						if (_fitControlsInViewport()) {
+
+							var bars = _options.barsSize;
+							if (_options.captionEl && bars.bottom === 'auto') {
+								if (!_fakeCaptionContainer) {
+									_fakeCaptionContainer = framework.createEl('pswp__caption pswp__caption--fake');
+									_fakeCaptionContainer.appendChild(framework.createEl('pswp__caption__center'));
+									_controls.insertBefore(_fakeCaptionContainer, _captionContainer);
+									framework.addClass(_controls, 'pswp__ui--fit');
+								}
+								if (_options.addCaptionHTMLFn(item, _fakeCaptionContainer, true)) {
+
+									var captionSize = _fakeCaptionContainer.clientHeight;
+									gap.bottom = parseInt(captionSize, 10) || 44;
+								} else {
+									gap.bottom = bars.top; // if no caption, set size of bottom gap to size of top
+								}
+							} else {
+								gap.bottom = bars.bottom === 'auto' ? 0 : bars.bottom;
+							}
+
+							// height of top bar is static, no need to calculate it
+							gap.top = bars.top;
+						} else {
+							gap.top = gap.bottom = 0;
+						}
+					},
+					_setupIdle = function () {
+						// Hide controls when mouse is used
+						if (_options.timeToIdle) {
+							_listen('mouseUsed', function () {
+
+								framework.bind(document, 'mousemove', _onIdleMouseMove);
+								framework.bind(document, 'mouseout', _onMouseLeaveWindow);
+
+								_idleInterval = setInterval(function () {
+									_idleIncrement++;
+									if (_idleIncrement === 2) {
+										ui.setIdle(true);
+									}
+								}, _options.timeToIdle / 2);
+							});
+						}
+					},
+					_setupHidingControlsDuringGestures = function () {
+
+						// Hide controls on vertical drag
+						_listen('onVerticalDrag', function (now) {
+							if (_controlsVisible && now < 0.95) {
+								ui.hideControls();
+							} else if (!_controlsVisible && now >= 0.95) {
+								ui.showControls();
+							}
+						});
+
+						// Hide controls when pinching to close
+						var pinchControlsHidden;
+						_listen('onPinchClose', function (now) {
+							if (_controlsVisible && now < 0.9) {
+								ui.hideControls();
+								pinchControlsHidden = true;
+							} else if (pinchControlsHidden && !_controlsVisible && now > 0.9) {
+								ui.showControls();
+							}
+						});
+
+						_listen('zoomGestureEnded', function () {
+							pinchControlsHidden = false;
+							if (pinchControlsHidden && !_controlsVisible) {
+								ui.showControls();
+							}
+						});
+
+					};
+
+
+
+				var _uiElements = [
+					{
+						name: 'caption',
+						option: 'captionEl',
+						onInit: function (el) {
+							_captionContainer = el;
+						}
+					},
+					{
+						name: 'share-modal',
+						option: 'shareEl',
+						onInit: function (el) {
+							_shareModal = el;
+						},
+						onTap: function () {
+							_toggleShareModal();
+						}
+					},
+					{
+						name: 'button--share',
+						option: 'shareEl',
+						onInit: function (el) {
+							_shareButton = el;
+						},
+						onTap: function () {
+							_toggleShareModal();
+						}
+					},
+					{
+						name: 'button--zoom',
+						option: 'zoomEl',
+						onTap: pswp.toggleDesktopZoom
+					},
+					{
+						name: 'counter',
+						option: 'counterEl',
+						onInit: function (el) {
+							_indexIndicator = el;
+						}
+					},
+					{
+						name: 'button--close',
+						option: 'closeEl',
+						onTap: pswp.close
+					},
+					{
+						name: 'button--arrow--left',
+						option: 'arrowEl',
+						onTap: pswp.prev
+					},
+					{
+						name: 'button--arrow--right',
+						option: 'arrowEl',
+						onTap: pswp.next
+					},
+					{
+						name: 'button--close2',
+						option: 'original',
+						onTap: pswp.close
+					},
+					{
+						name: 'button--fs',
+						option: 'fullscreenEl',
+						onTap: function () {
+							if (_fullscrenAPI.isFullscreen()) {
+								_fullscrenAPI.exit();
+							} else {
+								_fullscrenAPI.enter();
+							}
+						}
+					},
+					{
+						name: 'preloader',
+						option: 'preloaderEl',
+						onInit: function (el) {
+							_loadingIndicator = el;
+						}
+					}
+
+				];
+
+				var _setupUIElements = function () {
+					var item,
+						classAttr,
+						uiElement;
+
+					var loopThroughChildElements = function (sChildren) {
+						if (!sChildren) {
+							return;
+						}
+
+						var l = sChildren.length;
+						for (var i = 0; i < l; i++) {
+							item = sChildren[i];
+							classAttr = item.className;
+
+							for (var a = 0; a < _uiElements.length; a++) {
+								uiElement = _uiElements[a];
+
+								if (classAttr.indexOf('pswp__' + uiElement.name) > -1) {
+
+									if (_options[uiElement.option]) { // if element is not disabled from options
+
+										framework.removeClass(item, 'pswp__element--disabled');
+										if (uiElement.onInit) {
+											uiElement.onInit(item);
+										}
+
+										//item.style.display = 'block';
+									} else {
+										framework.addClass(item, 'pswp__element--disabled');
+										//item.style.display = 'none';
+									}
+								}
+							}
+						}
+					};
+					loopThroughChildElements(_controls.children);
+
+					var topBar = framework.getChildByClass(_controls, 'pswp__top-bar');
+					if (topBar) {
+						loopThroughChildElements(topBar.children);
+					}
+				};
+
+
+
+
+				ui.init = function () {
+
+					// extend options
+					framework.extend(pswp.options, _defaultUIOptions, true);
+
+					// create local link for fast access
+					_options = pswp.options;
+
+					// find pswp__ui element
+					_controls = framework.getChildByClass(pswp.scrollWrap, 'pswp__ui');
+
+					// create local link
+					_listen = pswp.listen;
+
+
+					_setupHidingControlsDuringGestures();
+
+					// update controls when slides change
+					_listen('beforeChange', ui.update);
+
+					// toggle zoom on double-tap
+					_listen('doubleTap', function (point) {
+						var initialZoomLevel = pswp.currItem.initialZoomLevel;
+						var currZoomLevel = pswp.currItem.currZoomLevel;
+						if (pswp.getZoomLevel() !== initialZoomLevel) {
+							if (currZoomLevel) {
+								pswp.setZoom(currZoomLevel);
+								pswp.currItem.initialZoomLevel = currZoomLevel;
+								pswp.currItem.currZoomLevel = null;
+							}
+							pswp.zoomTo(initialZoomLevel, point, 333);
+						} else {
+							if (currZoomLevel) {
+								pswp.setZoom(currZoomLevel);
+								pswp.currItem.initialPosition.x = pswp.currItem.initialPosition.x * pswp.currItem.initialZoomLevel / currZoomLevel;
+								pswp.currItem.initialPosition.y = pswp.currItem.initialPosition.y * pswp.currItem.initialZoomLevel / currZoomLevel;
+								pswp.currItem.fitRatio = currZoomLevel;
+								pswp.currItem.initialZoomLevel = currZoomLevel;
+								pswp.currItem.currZoomLevel = null;
+							}
+							
+							pswp.zoomTo(_options.getDoubleTapZoom(false, pswp.currItem), point, 333);
+						}
+					});
+
+					// Allow text selection in caption
+					_listen('preventDragEvent', function (e, isDown, preventObj) {
+						var t = e.target || e.srcElement;
+						if (
+							t &&
+							t.getAttribute('class') && e.type.indexOf('mouse') > -1 &&
+							(t.getAttribute('class').indexOf('__caption') > 0 || (/(SMALL|STRONG|EM)/i).test(t.tagName))
+						) {
+							preventObj.prevent = false;
+						}
+					});
+
+					// bind events for UI
+					_listen('bindEvents', function () {
+						framework.bind(_controls, 'pswpTap click', _onControlsTap);
+						framework.bind(pswp.scrollWrap, 'pswpTap', ui.onGlobalTap);
+
+						if (!pswp.likelyTouchDevice) {
+							framework.bind(pswp.scrollWrap, 'mouseover', ui.onMouseOver);
+						}
+					});
+
+					// unbind events for UI
+					_listen('unbindEvents', function () {
+						if (!_shareModalHidden) {
+							_toggleShareModal();
+						}
+
+						if (_idleInterval) {
+							clearInterval(_idleInterval);
+						}
+						framework.unbind(document, 'mouseout', _onMouseLeaveWindow);
+						framework.unbind(document, 'mousemove', _onIdleMouseMove);
+						framework.unbind(_controls, 'pswpTap click', _onControlsTap);
+						framework.unbind(pswp.scrollWrap, 'pswpTap', ui.onGlobalTap);
+						framework.unbind(pswp.scrollWrap, 'mouseover', ui.onMouseOver);
+
+						if (_fullscrenAPI) {
+							framework.unbind(document, _fullscrenAPI.eventK, ui.updateFullscreen);
+							if (_fullscrenAPI.isFullscreen()) {
+								_options.hideAnimationDuration = 0;
+								_fullscrenAPI.exit();
+							}
+							_fullscrenAPI = null;
+						}
+					});
+
+
+					// clean up things when gallery is destroyed
+					_listen('destroy', function () {
+						if (_options.captionEl) {
+							if (_fakeCaptionContainer) {
+								_controls.removeChild(_fakeCaptionContainer);
+							}
+							framework.removeClass(_captionContainer, 'pswp__caption--empty');
+						}
+
+						if (_shareModal) {
+							_shareModal.children[0].onclick = null;
+						}
+						framework.removeClass(_controls, 'pswp__ui--over-close');
+						framework.addClass(_controls, 'pswp__ui--hidden');
+						ui.setIdle(false);
+					});
+
+
+					if (!_options.showAnimationDuration) {
+						framework.removeClass(_controls, 'pswp__ui--hidden');
+					}
+					_listen('initialZoomIn', function () {
+						if (_options.showAnimationDuration) {
+							if (window.innerWidth < 750 && window.innerWidth > window.innerHeight) {
+								_controlsVisible = false;
+							} else {
+								framework.removeClass(_controls, 'pswp__ui--hidden');
+							}
+						}
+					});
+					_listen('initialZoomOut', function () {
+						framework.addClass(_controls, 'pswp__ui--hidden');
+					});
+
+					_listen('parseVerticalMargin', _applyNavBarGaps);
+
+					_setupUIElements();
+
+					if (_options.shareEl && _shareButton && _shareModal) {
+						_shareModalHidden = true;
+					}
+
+					_countNumItems();
+
+					_setupIdle();
+
+					_setupFullscreenAPI();
+
+					_setupLoadingIndicator();
+				};
+
+				ui.setIdle = function (isIdle) {
+					_isIdle = isIdle;
+					_togglePswpClass(_controls, 'ui--idle', isIdle);
+				};
+
+				ui.update = function () {
+					// Don't update UI if it's hidden
+					if (_controlsVisible && pswp.currItem) {
+
+						ui.updateIndexIndicator();
+
+						if (_options.captionEl) {
+							_options.addCaptionHTMLFn(pswp.currItem, _captionContainer);
+							_togglePswpClass(_captionContainer, 'caption--empty', !pswp.currItem.title);
+						}
+
+						_overlayUIUpdated = true;
+
+					} else {
+						_overlayUIUpdated = false;
+					}
+
+					if (!_shareModalHidden) {
+						_toggleShareModal();
+					}
+
+					_countNumItems();
+				};
+
+				ui.updateFullscreen = function (e) {
+
+					if (e) {
+						// some browsers change window scroll position during the fullscreen
+						// so PhotoSwipe updates it just in case
+						setTimeout(function () {
+							pswp.setScrollOffset(0, framework.getScrollY());
+						}, 50);
+					}
+
+					// toogle pswp--fs class on root element
+					framework[(_fullscrenAPI.isFullscreen() ? 'add' : 'remove') + 'Class'](pswp.template, 'pswp--fs');
+				};
+
+				ui.updateIndexIndicator = function () {
+					if (_options.counterEl) {
+						_indexIndicator.innerHTML = (pswp.getCurrentIndex() + 1) +
+							_options.indexIndicatorSep +
+							_options.getNumItemsFn();
+					}
+				};
+
+				ui.onGlobalTap = function (e) {
+					e = e || window.event;
+					var target = e.target || e.srcElement;
+
+					if (_blockControlsTap) {
+						return;
+					}
+
+					if (e.detail && e.detail.pointerType === 'mouse') {
+
+						// close gallery if clicked outside of the image
+						if (_hasCloseClass(target)) {
+							pswp.close();
+							return;
+						}
+
+						if (framework.hasClass(target, 'pswp__img')) {
+							if (pswp.getZoomLevel() === 1 && pswp.getZoomLevel() <= pswp.currItem.fitRatio) {
+								if (_options.clickToCloseNonZoomable) {
+									pswp.close();
+								}
+							} else {
+								pswp.toggleDesktopZoom(e.detail.releasePoint);
+							}
+						}
+
+					} else {
+
+						// tap anywhere (except buttons) to toggle visibility of controls
+						if (_options.tapToToggleControls) {
+							if (_controlsVisible) {
+								ui.hideControls();
+							} else {
+								ui.showControls();
+							}
+						}
+
+						// tap to close gallery
+						if (_options.tapToClose && (framework.hasClass(target, 'pswp__img') || _hasCloseClass(target))) {
+							pswp.close();
+							return;
+						}
+
+					}
+				};
+				ui.onMouseOver = function (e) {
+					e = e || window.event;
+					var target = e.target || e.srcElement;
+
+					// add class when mouse is over an element that should close the gallery
+					_togglePswpClass(_controls, 'ui--over-close', _hasCloseClass(target));
+				};
+
+				ui.hideControls = function () {
+					framework.addClass(_controls, 'pswp__ui--hidden');
+					_controlsVisible = false;
+				};
+
+				ui.showControls = function () {
+					_controlsVisible = true;
+					if (!_overlayUIUpdated) {
+						ui.update();
+					}
+					framework.removeClass(_controls, 'pswp__ui--hidden');
+				};
+
+				ui.supportsFullscreen = function () {
+					var d = document;
+					return !!(d.exitFullscreen || d.mozCancelFullScreen || d.webkitExitFullscreen || d.msExitFullscreen);
+				};
+
+				ui.getFullscreenAPI = function () {
+					var dE = document.documentElement,
+						api,
+						tF = 'fullscreenchange';
+
+					if (dE.requestFullscreen) {
+						api = {
+							enterK: 'requestFullscreen',
+							exitK: 'exitFullscreen',
+							elementK: 'fullscreenElement',
+							eventK: tF
+						};
+
+					} else if (dE.mozRequestFullScreen) {
+						api = {
+							enterK: 'mozRequestFullScreen',
+							exitK: 'mozCancelFullScreen',
+							elementK: 'mozFullScreenElement',
+							eventK: 'moz' + tF
+						};
+
+
+
+					} else if (dE.webkitRequestFullscreen) {
+						api = {
+							enterK: 'webkitRequestFullscreen',
+							exitK: 'webkitExitFullscreen',
+							elementK: 'webkitFullscreenElement',
+							eventK: 'webkit' + tF
+						};
+
+					} else if (dE.msRequestFullscreen) {
+						api = {
+							enterK: 'msRequestFullscreen',
+							exitK: 'msExitFullscreen',
+							elementK: 'msFullscreenElement',
+							eventK: 'MSFullscreenChange'
+						};
+					}
+
+					if (api) {
+						api.enter = function () {
+							// disable close-on-scroll in fullscreen
+							_initalCloseOnScrollValue = _options.closeOnScroll;
+							_options.closeOnScroll = false;
+
+							if (this.enterK === 'webkitRequestFullscreen') {
+								pswp.template[this.enterK](Element.ALLOW_KEYBOARD_INPUT);
+							} else {
+								return pswp.template[this.enterK]();
+							}
+						};
+						api.exit = function () {
+							_options.closeOnScroll = _initalCloseOnScrollValue;
+
+							return document[this.exitK]();
+
+						};
+						api.isFullscreen = function () { return document[this.elementK]; };
+					}
+
+					return api;
+				};
+
+
+
+			};
+		return PhotoSwipeUI_Default;
+
+
+	});
+
+
+/***/ }),
+
+/***/ "./assets/src/lazyload.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = lazyload;
+	 
+	var inView = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"in-view\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var lazyAttrs = ['data-src'];
+
+	var isInit = false;
+
+	// Provide libs using getAttribute early to get the good src
+	// and not the fake data-src
+	// replaceGetAttribute('Image');
+	// replaceGetAttribute('IFrame');
+	 
+	function registerLazyAttr(attr) {
+	  if (indexOf.call(lazyAttrs, attr) === -1) {
+	    lazyAttrs.push(attr);
+	  }
+	}
+	 
+	function lazyload(opts) {
+	  opts = merge({
+	    src: 'data-src',
+	    container: false,
+	  }, opts || {});
+	  
+	  var elt = opts.$target;
+
+	  if (typeof opts.src === 'string') {
+	    registerLazyAttr(opts.src);
+	  }
+	 
+	  var elts = [];
+
+	  function setSize(elt, preW, preH) {
+	    var $wrapArr = document.getElementsByClassName('img-wrap');
+	    var wrap = {
+	      width: 300,
+	      height: 200
+	    }
+	    if ($wrapArr && $wrapArr[0]) {
+	      var rectObj = $wrapArr[0].getBoundingClientRect();
+	      wrap.width = rectObj.width;
+	      wrap.height = rectObj.height;
+	    }
+	    var wrapW = wrap.width;
+	    var wrapH = wrap.height;
+	    if (wrapW / wrapH < preW / preH) {
+	      elt.style.height = wrapH;
+	      var result = (wrapW - wrapH * preW / preH) / 2;
+	      if (result < 0) {
+	        elt.style.marginLeft = result + 'px';
+	      }
+	    } else {
+	      elt.style.width = wrapW;
+	      var result = (wrapH - wrapW * preH / preW) / 2;
+	      if (result < 0) {
+	        elt.style.marginTop = result + 'px';
+	      }
+	    }
+	  }
+
+	  function show(elt) {
+	    if (elt.getAttribute('data-lzled')) {
+	      setSize(elt, elt.naturalWidth, elt.naturalHeight);
+	    } else {
+	      var src = findRealSrc(elt);
+	      if (src) {
+	        var $preloadImg = new Image();
+	        $preloadImg.src = src;
+	        $preloadImg.onload = function () {
+	          elt.src = '';
+	          var preW = $preloadImg.width;
+	          var preH = $preloadImg.height;
+	          setSize(elt, preW, preH);
+	          elt.src = src;
+	          elt.removeAttribute('data-not-lz');
+	          elt.setAttribute('data-lzled', true);
+	        }
+	      }
+	      elts[indexOf.call(elts, elt)] = null;
+	    }
+	  }
+	 
+	  function findRealSrc(elt) {
+	    if (typeof opts.src === 'function') {
+	      return opts.src(elt);
+	    }
+	 
+	    return elt.getAttribute(opts.src);
+	  }
+	  
+	  function resizeHandle() {
+	    if (inView.is(elt)) {
+	      show(elt);
+	    }
+	  }
+
+	  function register(elt) {
+	    // unsubscribe onload
+	    // needed by IE < 9, otherwise we get another onload when changing the src
+	    elt.onload = null;
+	    elt.removeAttribute('onload');
+	 
+	    // https://github.com/vvo/lazyload/issues/62
+	    elt.onerror = null;
+	    elt.removeAttribute('onerror');
+	 
+	    if (indexOf.call(elts, elt) === -1 && !isInit) {
+	      inView(opts.selector).on('enter', show);
+	      isInit = true;
+	    }
+
+	    resizeHandle();
+	    window.addEventListener('resize', resizeHandle);
+	  }
+	  register(elt);
+	}
+	 
+	function replaceGetAttribute(elementName) {
+	  var fullname = 'HTML' + elementName + 'Element';
+	  if (fullname in global === false) {
+	    return;
+	  }
+	 
+	  var original = global[fullname].prototype.getAttribute;
+	  global[fullname].prototype.getAttribute = function(name) {
+	    if (name === 'src') {
+	      var realSrc;
+	      for (var i = 0, max = lazyAttrs.length; i < max; i++) {
+	        realSrc = original.call(this, lazyAttrs[i]);
+	        if (realSrc) {
+	          break;
+	        }
+	      }
+	 
+	      return realSrc || original.call(this, name);
+	    }
+	 
+	    // our own lazyloader will go through theses lines
+	    // because we use getAttribute(opts.src)
+	    return original.call(this, name);
+	  };
+	}
+	 
+	function merge(defaults, opts) {
+	  for (var name in defaults) {
+	    if (opts[name] === undefined) {
+	      opts[name] = defaults[name];
+	    }
+	  }
+	 
+	  return opts;
+	}
+	 
+	// http://webreflection.blogspot.fr/2011/06/partial-polyfills.html
+	function indexOf(value) {
+	  for (var i = this.length; i-- && this[i] !== value;) {}
+	  return i;
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ })
+
+/******/ });

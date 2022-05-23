@@ -32,7 +32,7 @@ Web albums powered by node.js, more simple to show photography photos.
 
 ### 3、使用
 
-1. 将照片放入 `resources/photos` 文件夹
+1. 将照片放入 `photos` 文件夹
 2. 执行命令 `yarn` 安装依赖
 3. 执行命令 `yarn start` 启动相册
 
@@ -44,29 +44,29 @@ Web albums powered by node.js, more simple to show photography photos.
 
 ```js
 module.exports = {
-  title: "Zing Gallery", // 相册名
+  title: 'Zing Gallery', // 相册名
   wording: {
-    noAccess: "抱歉，你没有权限访问", // 无权限访问的提示
+    noAccess: '抱歉，你没有权限访问', // 无权限访问的提示
   },
   albums: {
     // 相册信息，在文档4.2中详解
     贵阳: {
-      thumbnail: "IMG_0331.JPG",
+      thumbnail: 'IMG_0331.JPG',
       sort: 1,
     },
     千户苗寨: {
-      description: "没有什么能够阻挡",
-      thumbnail: "IMG_0424.jpg",
-      name: "千户苗寨",
+      description: '没有什么能够阻挡',
+      thumbnail: 'IMG_0424.jpg',
+      name: '千户苗寨',
     },
     私密: {
-      description: "私密",
-      name: "私密 | 密码是233",
-      password: "233",
-      passwordTips: "密码是233",
+      description: '私密',
+      name: '私密 | 密码是233',
+      password: '233',
+      passwordTips: '密码是233',
     },
   },
-};
+}
 ```
 
 #### 4.2 设置相册信息

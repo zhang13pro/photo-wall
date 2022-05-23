@@ -5,7 +5,7 @@ const resize = require('./lib/resize'),
   port = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000
 let host = process.env.OPENSHIFT_NODEJS_IP
 
-const photosPath = './resources/photos'
+const photosPath = './photos'
 resize.init(photosPath)
 
 var app = express()
@@ -17,7 +17,7 @@ app.use(
   require('./lib/gallery.js')(
     Object.assign(
       {
-        staticFiles: 'resources/photos',
+        staticFiles: 'photos',
         urlRoot: '/',
         title: 'Zing Gallery',
         render: false,
